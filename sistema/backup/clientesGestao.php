@@ -1,5 +1,5 @@
 <?php
-include "../resources/security.php"; 
+//include "../resources/security.php";
 ?>
 <html>
 <head>
@@ -9,9 +9,9 @@ include "../resources/security.php";
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/AdminLTE.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/skins/skin-blue.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/skins/skin-blue.min.css">
 	<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -36,9 +36,9 @@ include "../resources/security.php";
 			<!-- nav -->
 		</header>
 		<!-- /#menu -->
-		<?php include("menu.htm"); ?>
+		<?php include "menu.htm";?>
 		<!-- /#menu -->
-		
+
 		<div class="content-wrapper">
 			<section class="content">
 				<!-- Your Page Content Here -->
@@ -133,7 +133,7 @@ include "../resources/security.php";
     </tr>
   </tbody>
 </table>
-  
+
 </div>
 
 
@@ -146,7 +146,7 @@ include "../resources/security.php";
 	<div class="pull-right hidden-xs">
 		<i class="fab fa-optin-monster"></i>
 	</div>
-	Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php mostraIP(); ?>
+	Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php // mostraIP(); ?>
 </footer>
 <div class="control-sidebar-bg"></div>
 </div>
@@ -161,7 +161,6 @@ crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.js" integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4="
 crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<script src="../bootstrap/js/app.min.js"></script>
-
+<script src="../../bootstrap/js/app.min.js"></script>
 </body>
 </html>

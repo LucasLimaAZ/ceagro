@@ -2,8 +2,6 @@
     include "../resources/security.php"; 
     include "../resources/dadosClientes.php"; 
     safeWeb();
-
-     
 ?>
 <html lang="pt-br">
 <head>

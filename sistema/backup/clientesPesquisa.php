@@ -1,8 +1,7 @@
 <?php
-include "../resources/security.php"; 
-include "../resources/dadosClientes.php"; 
-safeWeb();
-
+// include "../resources/security.php";
+// include "../resources/dadosClientes.php";
+// safeWeb();
 
 ?>
 <html>
@@ -13,9 +12,9 @@ safeWeb();
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/AdminLTE.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/skins/skin-blue.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="../../bootstrap/css/skins/skin-blue.min.css">
 	<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -40,9 +39,9 @@ safeWeb();
 			<!-- nav -->
 		</header>
 		<!-- /#menu -->
-		<?php include("menu.htm"); ?>
+		<?php include "menu.htm";?>
 		<!-- /#menu -->
-		
+
 		<div class="content-wrapper">
 			<section class="content">
 				<!-- Your Page Content Here -->
@@ -76,8 +75,8 @@ safeWeb();
 				<table class="table">
 					<thead>
 						<td colspan="2">
-							<!-- Content -->	
-							<form method="post">                      
+							<!-- Content -->
+							<form method="post">
 								<div class="row">
 									<div class="col-md-12">
 										<div class="box">
@@ -100,12 +99,12 @@ safeWeb();
 														<th>Cnpj</th>
 														<th style="width: 150px">Insc Estadual</th>
 													</tr>
-													<?php 
-													# Pegou as informações do Post
-													if(isset($_POST["criterio"]) && isset($_POST["operacao"]) ){
-														loadClientes($_POST["criterio"]);
-													} 
-													?>
+													<?php
+# Pegou as informações do Post
+if (isset($_POST["criterio"]) && isset($_POST["operacao"])) {
+    loadClientes($_POST["criterio"]);
+}
+?>
 												</table>
 											</div><!-- /.box-body -->
 											<div class="box-footer clearfix">
@@ -132,7 +131,7 @@ safeWeb();
 				<div class="pull-right hidden-xs">
 					<i class="fab fa-optin-monster"></i>
 				</div>
-				Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php mostraIP(); ?>
+				Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php mostraIP();?>
 			</footer>
 			<div class="control-sidebar-bg"></div>
 		</div>

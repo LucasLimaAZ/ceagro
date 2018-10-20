@@ -1,6 +1,4 @@
-<?php
-include "../resources/security.php"; 
-?>
+<?php include "../resources/security.php";?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -12,10 +10,6 @@ include "../resources/security.php";
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/skins/skin-blue.min.css">
-	<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -36,9 +30,9 @@ include "../resources/security.php";
 			<!-- nav -->
 		</header>
 		<!-- /#menu -->
-		<?php include("menu.htm"); ?>
+		<?php include "menu.htm";?>
 		<!-- /#menu -->
-		
+
 		<div class="content-wrapper">
 			<section class="content">
 				<!-- Your Page Content Here -->
@@ -133,7 +127,7 @@ include "../resources/security.php";
     </tr>
   </tbody>
 </table>
-  
+
 </div>
 
 
@@ -146,7 +140,7 @@ include "../resources/security.php";
 	<div class="pull-right hidden-xs">
 		<i class="fab fa-optin-monster"></i>
 	</div>
-	Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php mostraIP(); ?>
+	Copyright &copy; 2018 - 2019 - ektech.com.br - Todos Direitos Reservados. | Endereço Ip: <?php mostraIP();?>
 </footer>
 <div class="control-sidebar-bg"></div>
 </div>
