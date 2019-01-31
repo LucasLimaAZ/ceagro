@@ -1,0 +1,7 @@
+* tr{
+    font-size: 10pt;
+}
+
+* tbody tr:hover{
+    cursor:pointer;
+}
