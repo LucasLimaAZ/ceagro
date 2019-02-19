@@ -12,7 +12,7 @@
 							<div class="box-header">
 								<h3 class="box-title">Contratos</h3>
 							</div>
-							<div class="box-body">
+							<div class="box-body tabelaListaContratos">
 								<table class="table table-bordered table-striped" id="contratos">
 									<thead>
 										<tr>

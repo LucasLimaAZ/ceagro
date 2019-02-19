@@ -5,3 +5,16 @@
 * tbody tr:hover{
     cursor:pointer;
 }
+
+
+@media only screen and (min-width:601px){
+    .tabelaListaContratos{
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .tabelaListaContratos{
+        overflow-x: auto;
+    }
+}

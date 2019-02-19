@@ -6,7 +6,7 @@
     <div class="wrapper">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <section class="invoice">
                         <div class="row">
                             <div class="col-xs-12">
@@ -43,7 +43,7 @@
                     </section>
                 </div>
 
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <section class="invoice">
                         <div class="row">
                             <div class="col-xs-12">
