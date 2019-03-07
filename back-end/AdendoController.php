@@ -30,9 +30,8 @@ class AdendosController extends Controller
     }
     public function store($adendo)
     {
-        var_dump($adendo);
         $adendo['data_cadastro'] = date("Y-m-d");
-        Adendo::create($adendo);
+        $adendoId = Adendo::create($adendo);
         $adendos = Adendo::get(['contrato_id', '=', $adendo['contrato_id']]);
         return $this->responderJson($adendos);
 

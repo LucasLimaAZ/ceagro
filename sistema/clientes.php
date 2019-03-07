@@ -6,10 +6,10 @@
     <div class="wrapper">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <section class="invoice">
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-md-12">
                                 <h2 class="page-header">
                                 <i class="fa fa-address-card"></i> Dados Base
                                 </h2>
@@ -43,10 +43,10 @@
                     </section>
                 </div>
 
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <section class="invoice">
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-md-12">
                                 <h2 class="page-header">
                                 <i class="fa fa-address-card"></i> Unidade
                                 </h2>
@@ -282,11 +282,9 @@
                                 </table>
                             </div>
                         </div>
-
                     </section>
                 </div>
             </div>
-
             <div class="clearfix"></div>
             </div>
         </div>
@@ -312,7 +310,6 @@
             </div>
 		</div>
 	</div>
-
     <div class="modal fade" id="modal-conta">
 		<div class="modal-dialog">
             <div class="modal-content">

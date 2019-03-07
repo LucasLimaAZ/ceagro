@@ -10,7 +10,7 @@ class FixacoesController
 
     public function index($contratoId)
     {
-        $fixacoes = Fixacao::get(['contrato_id', '=',$contratoId]);
+        $fixacao = Fixacao::find(['id',$contratoId]);
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
         $data = strftime('%A, %d de %B de %Y', strtotime('today'));

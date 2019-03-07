@@ -43,8 +43,8 @@ function popularPorUnidade(cliente) {
                 <td class="item" id="${cliente.id}">${unidade.inscricao_estadual || 'Não há Registros'}</td>
                 <td class="item" id="${cliente.id}">${(unidade.endereco) ? unidade.endereco.cidade : 'Não há Registros'}</td>
                 <td class="delete" style="text-align:center" id="${cliente.id}">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-aviso">
-                        <i class="fa fa-trash-o" style="color: red"></i>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-aviso">
+                        <i class="fa fa-trash-o"></i>
                     </button>
                 </td>
             </tr>`;
