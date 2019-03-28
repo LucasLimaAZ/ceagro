@@ -62,5 +62,5 @@ $router->delete("{$urlBase}fixacoes/{fixacao}", "FixacoesController@destroy");
 $router->get("{$urlBase}unidades-medidas", "UnidadesMedidasController@index");
 
 $router->get("{$urlBase}pdfs/contratos/{contrato}", "PDF\ContratosController@index");
-$router->get("{$urlBase}pdfs/contratos/{contrato}/adendos", "PDF\AdendosController@index");
-$router->get("{$urlBase}pdfs/contratos/{contrato}/fixacoes", "PDF\FixacoesController@index");
+$router->get("{$urlBase}pdfs/contratos/adendos/{adendo}", "PDF\AdendosController@index");
+$router->get("{$urlBase}pdfs/contratos/fixacoes/{contrato}", "PDF\FixacoesController@index");

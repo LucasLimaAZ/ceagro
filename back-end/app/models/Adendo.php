@@ -10,6 +10,7 @@ class Adendo extends Model
     public $id;
     public $contrato_id;
     public $descricao;
+    public $data_cadastro;
 
     public static $table = "adendos";
 

@@ -22,6 +22,7 @@ class FixacoesController extends Controller
 
     public function store($fixacao)
     {
+        $fixacao['data_cadastro'] = date("Y-m-d");
         $a = Fixacao::create($fixacao);
         $fixacoes = Fixacao::get(['contrato_id', '=', $fixacao['contrato_id']]);
 

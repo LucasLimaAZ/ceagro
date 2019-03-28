@@ -97,41 +97,6 @@
         </div>
       </div>
     </div>
-
-    <div class="wrapper">
-      <div class="content-wrapper">
-        <div class="row">
-          <div class="col-xs-12">
-            <section class="invoice">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h2 class="page-header">
-                        <i class="fa fa-address-card"></i> Cadastrar CFOP
-                        </h2>
-                    </div>
-                </div>
-                <div class="row invoice-info">
-                    <form role="form" id="cfop">
-                        <div class="box-body">
-                            <div class="form-row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label for="descricao">CFOP</label>
-                                        <input type="text" class="form-control" name="descricao" placeholder="Digite o código  do CFOP" autocomplete="off" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
 		<div class="control-sidebar-bg"></div>
 	</div>
 	<footer class="main-footer">

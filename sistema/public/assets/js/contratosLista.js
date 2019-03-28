@@ -11,7 +11,7 @@ function buscarContratos() {
         contratos = JSON.parse(response);
         popularPesquisa(contratos, () => {
             $(".overlay").remove();
-            table = $('#contratos').DataTable({ "order": [1, "asc"] });
+            table = $('#contratos').DataTable({ "order": [0, "desc"] });
         });
     });
 }
@@ -25,13 +25,13 @@ function popularPesquisa(contratos, callback = null) {
             <td class="item" id="${contrato.id}">${contrato.unidadeVendedor.razao_social}</td>
             <td class="item" id="${contrato.id}">${contrato.produto.nome}</td>
             <td class="download" style="text-align:center" id="${contrato.id}">
-                <button type="button" class="btn btn-default" id="${contrato.id}">
-                    <i class="fa fa-print" style="color: blue"  id="${contrato.id}"></i>
+                <button type="button" class="btn btn-primary" id="${contrato.id}">
+                    <i class="fa fa-print" id="${contrato.id}"></i>
                 </button>
             </td>
             <td class="delete" style="text-align:center" id="${contrato.id}">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-aviso">
-                    <i class="fa fa-trash-o" style="color: red" ></i>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-aviso">
+                    <i class="fa fa-trash-o" ></i>
                 </button>
             </td>
         </tr>`;

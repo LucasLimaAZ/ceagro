@@ -12,6 +12,7 @@ class Fixacao extends Model
     public $preco;
     public $local_embarque;
     public $data_pagamento;
+    public $data_cadastro;
     public $contrato_id;
     public $conta_bancaria_vendedor_id;
     public $contaBancaria;

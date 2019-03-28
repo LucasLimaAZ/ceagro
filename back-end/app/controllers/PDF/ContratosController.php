@@ -15,8 +15,6 @@ class ContratosController
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
 
-        $data = strftime('%A, %d de %B de %Y', strtotime('today'));
-
         header('Content-type: text/html; charset=UTF-8');
         ob_start();
 

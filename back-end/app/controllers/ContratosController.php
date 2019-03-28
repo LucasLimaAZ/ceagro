@@ -26,6 +26,8 @@ class ContratosController extends Controller
 
     public function store($contrato)
     {
+        $contrato['data_cadastro'] = date("Y-m-d");
+
         try {
             $contratoId = Contrato::create($contrato);
 

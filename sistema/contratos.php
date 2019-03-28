@@ -51,7 +51,7 @@
 							</div>
 							<div class="row">
 								<!-- Dados do Vendedor -->
-								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<div class="col-xs-12 col-lg-6">
 									<section class="invoice box cliente" id="vendedor" style="width: auto">
 										<div class="row">
 											<div class="col-xs-12">
@@ -94,7 +94,7 @@
 									</section>
 								</div>
 								<!-- Dados do Comprador -->
-								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<div class="col-xs-12 col-lg-6">
 									<section class="invoice box cliente" id="comprador" style="width: auto">
 										<div class="row">
 											<div class="col-xs-12">
@@ -155,7 +155,7 @@
 														<div class="col-xs-12 col-lg-4">
 															<div class="form-group">
 																<label for="unidade_medida_id">Unidades</label>
-																<select class="form-control select2" name="unidade_medida_id" style="width: 100%;" id="unidades" required></select>
+																<select class="form-control" name="unidade_medida_id" style="width: 100%;" id="unidades" required></select>
 															</div>
 														</div>
 														<div class="col-xs-12 col-lg-4">
@@ -237,8 +237,8 @@
 																<div class="form-group">
 																	<label for="peso_qualidade">Peso & Qualidade</label>
 																	<select name="peso_qualidade" class="form-control">
-																		<option value="Na Origem">Na Origem</option>
-																		<option value="No Destino">No Destino</option>
+																		<option value="Na origem">Na origem</option>
+																		<option value="No destino">No destino</option>
 																	</select>
 																</div>
 															</div>
@@ -266,7 +266,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+								<div class="col-xs-12">
 								<section class="invoice" id="button">
 									<div class="box-footer">
 										<?php require('partials/components/erro.html') ?>
@@ -281,7 +281,7 @@
 				</div>
 				  
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+					<div class="col-xs-12">
 						<section class="invoice">
 							<div class="row">
 								<div class="col-xs-12">
@@ -294,7 +294,7 @@
 										<div class="tab-content">
 											<div class="tab-pane active" id="ade">
 												<div class="row">
-													<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+													<div class="col-xs-12 col-lg-12">
 														<div class="row invoice-info">
 															<form role="form" id="adendo">
 																<div class="box-body">
@@ -327,8 +327,8 @@
 															<thead>
 																<tr>
 																	<th>Descrição</th>
-																	<th width="10%">Deletar</th>
 																	<th width="10%">Imprimir</th>
+																	<th width="10%">Deletar</th>
 																</tr>
 															</thead>
 															<tbody id="adendos">
@@ -340,7 +340,7 @@
 
 											<div class="tab-pane" id="fix">
 												<div class="row">
-													<div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+													<div class="col-xs-12 col-lg-12">
 														<div class="row invoice-info">
 															<form role="form" id="fixacao">
 																<div class="box-body">
@@ -370,7 +370,7 @@
 																					<div class="input-group-addon">
 																						<i class="fa fa-calendar"></i>
 																					</div>
-																					<input type="text" class="form-control pull-right" name="data_pagamento" id="reservation2">
+																					<input type="text" class="form-control pull-right" name="data_pagamento" id="reservation2" autocomplete="off">
 																				</div>
 																			</div>
 																		</div>
@@ -406,8 +406,8 @@
 																	<th>Local do Embarque</th>
 																	<th>Data de Pagamento</th>
 																	<th>Conta Bancária</th>
-																	<th width="10%">Deletar</th>
 																	<th width="10%">Imprimir</th>
+																	<th width="10%">Deletar</th>
 																</tr>
 															</thead>
 															<tbody id="fixacoes">
@@ -491,16 +491,34 @@
 		</script>
 	<script src="adminlte/bower_components/moment/min/moment.min.js"></script>
 	<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
 		<script>
 		$('#reservation').daterangepicker({
 				locale: {
 				format: 'DD/MM/YYYY'
 			}
 		});
-		$('#reservation2').daterangepicker({
-				locale: {
-				format: 'DD/MM/YYYY'
-			}
-		});
+		// $('#reservation2').datepicker({
+		// 		locale: {
+		// 		format: 'DD/MM/Y	YYY'
+		// 	}
+		// });
+		$.fn.datepicker.dates['pt'] = {
+			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+			daysMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+			months: ["Janeirp", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julio", "Agosto", "Setmebro", "Outubro", "Novembro", "Dezembro"],
+			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+			today: "Hoje",
+			clear: "Limpar",
+			format: "dd/mm/yyyy",
+			titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+			weekStart: 0
+		};
+		$('#reservation2').datepicker({
+			autoclose: true,
+			language:'pt'
+		})
 		</script>
 		<?php include 'partials/rodape.html' ?>

@@ -6,8 +6,13 @@ if (!$producao) {
             'connection' => "mysql:host=127.0.0.1",
             'dbname' => "ceagro",
             'charset' => "utf8",
+<<<<<<< HEAD
             'username' => "root",
             'password' => "",
+=======
+            'username' => "artur",
+            'password' => "artur123",
+>>>>>>> b4a489464353eb97cb7508d9fdaca04c7bf83412
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ],

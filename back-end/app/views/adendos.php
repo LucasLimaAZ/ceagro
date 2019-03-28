@@ -50,7 +50,7 @@
         padding-top: 10px;
     }
     .linha {
-        padding-top: 50px;
+        margin-top: 300px;
     }
     .center{
         padding-left:33.33%;
@@ -58,51 +58,72 @@
     .cnpjCeagro{
         padding-left:60%;
     }
+    .ac{
+	   width: 30%;
+	   overflow: auto;
+	   text-align:left;
+    }
+    .halfSize{
+        width:400px;
+        text-align:left;
+		overflow: auto;
+    }
+
+    .table {
+        position:fixed;
+        top:870px;
+        left:115px;
+    }
 </style>
 
+
 <body>
-<header>
+    <header>
         <div class="log">
             <img src="public/img/logo.png" alt="">
         </div>
-        <div class="data"> Porto Alegre
-            <?= $data ?>
+        <div class="data">Adendo feito na data:<strong> 
+        <?= strftime('%d/%m/%Y', strtotime($adendo->data_cadastro)) ?></strong>
         </div>
     </header>
     <section>
-        <div class="confirmacao">
-            <span>Confirmação número: <strong><?= $adendos[0]->contrato()->numero_confirmacao ?></strong></span>
+        <div class="confirmacao" >
+            <span>Confirmação número: <strong><?=$adendo->contrato()->numero_confirmacao ?></strong></span>
+        </div>
+        <div >
+            <span>Contrato feito na data: <?= strftime('%d/%m/%Y', strtotime($adendo->contrato()->data_cadastro)) ?></span>
         </div>
     </section>
     <section>
         <div class="vendedor">
             <table>
                 <tr>
-                    <td colspan="2">Vendedor:
-                        <?= $adendos[0]->contrato()->unidadeVendedor->razao_social ?></td>
-                    <td>A/C:
-                        <?= $adendos[0]->contrato()->assinatura_vendedor ?></td>
+                    <td class="halfSize">Vendedor:
+                        <?= $adendo->contrato()->unidadeVendedor()->razao_social ?></td>
+                        <td class="ac" > A/C:
+                    <?= $adendo->contrato()->assinatura_vendedor ?></td>
                 </tr>
                 <tr>
                     <td>
-                        Rua <?= ($adendos[0]->contrato()->unidadeVendedor->endereco->rua && strlen($adendos[0]->contrato()->unidadeVendedor->endereco->rua) > 0) ? "{$adendos[0]->contrato()->unidadeVendedor->endereco->rua}, " : 'não cadastrada, ' ?>
-                        <?= ($adendos[0]->contrato()->unidadeVendedor->endereco->numero && strlen($adendos[0]->contrato()->unidadeVendedor->endereco->numero) > 0) ? "{$adendos[0]->contrato()->unidadeVendedor->endereco->numero}, " : ' -,  ' ?>
+                        <?= ($adendo->contrato()->unidadeVendedor->endereco->rua && strlen($adendo->contrato()->unidadeVendedor->endereco->rua) > 0) ? "{$adendo->contrato()->unidadeVendedor->endereco->rua}, " : 'Não cadastrada, ' ?>
+                        <?= ($adendo->contrato()->unidadeVendedor->endereco->numero && strlen($adendo->contrato()->unidadeVendedor->endereco->numero) > 0) ? "{$adendo->contrato()->unidadeVendedor->endereco->numero}, " : ' -,  ' ?>
                     
-                        <?= ($adendos[0]->contrato()->unidadeVendedor->endereco->cidade && strlen($adendos[0]->contrato()->unidadeVendedor->endereco->cidade)) ? "{$adendos[0]->contrato()->unidadeVendedor->endereco->cidade} - " : "" ?>
-                            <?= ($adendos[0]->contrato()->unidadeVendedor->endereco->estado) ? $adendos[0]->contrato()->unidadeVendedor->endereco->estado : " - " . $adendos[0]->contrato()->unidadeVendedor->endereco->estado ?>
+                        <?= ($adendo->contrato()->unidadeVendedor->endereco->cidade && strlen($adendo->contrato()->unidadeVendedor->endereco->cidade)) ? "{$adendo->contrato()->unidadeVendedor->endereco->cidade} - " : "" ?>
+                            <?= ($adendo->contrato()->unidadeVendedor->endereco->estado) ? $adendo->contrato()->unidadeVendedor->endereco->estado : " - " . $adendo->contrato()->unidadeVendedor->endereco->estado ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        CNPJ:
-                        <?= $adendos[0]->contrato()->unidadeVendedor->cnpj ?>
+                        CNPJ/CPF:
+                        <?= $adendo->contrato()->unidadeVendedor->cnpj ?>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td >
                     Inscrição Estadual:
-                        <?= ($adendos[0]->contrato()->unidadeVendedor->inscricao_estadual && strlen($adendos[0]->contrato()->unidadeVendedor->inscricao_estadual) > 0) ? $adendos[0]->contrato()->unidadeVendedor->inscricao_estadual : "-" ?>
+                        <?= ($adendo->contrato()->unidadeVendedor->inscricao_estadual && strlen($adendo->contrato()->unidadeVendedor->inscricao_estadual) > 0) ? $adendo->contrato()->unidadeVendedor->inscricao_estadual : "-" ?>
                     </td>
+                    
                 </tr>
             </table>
         </div>
@@ -111,43 +132,85 @@
         <div class="comprador">
             <table>
                 <tr>
-                    <td colspan="2">Comprador:
-                        <?= $adendos[0]->contrato()->unidadeComprador()->razao_social ?></td>
-                    <td>A/C:
-                        <?= $adendos[0]->contrato()->assinatura_comprador ?></td>
+                    <td class="halfSize">Comprador:
+                        <?= $adendo->contrato()->unidadeComprador()->razao_social ?></td>
+                        <td class="ac">A/C:
+                        <?= $adendo->contrato()->assinatura_comprador ?></td>
                 </tr>
                 <tr>
                     <td>
-                        Rua <?= ($adendos[0]->contrato()->unidadeComprador->endereco->rua && strlen($adendos[0]->contrato()->unidadeComprador->endereco->rua) > 0) ? "{$adendos[0]->contrato()->unidadeComprador->endereco->rua}, " : 'não cadastrada, ' ?>
-                        <?= ($adendos[0]->contrato()->unidadeComprador->endereco->numero && strlen($adendos[0]->contrato()->unidadeComprador->endereco->numero) > 0) ? "{$adendos[0]->contrato()->unidadeComprador->endereco->numero}, " : ' -,  ' ?>
+                        <?= ($adendo->contrato()->unidadeComprador->endereco->rua && strlen($adendo->contrato()->unidadeComprador->endereco->rua) > 0) ? "{$adendo->contrato()->unidadeComprador->endereco->rua}, " : 'Não cadastrada, ' ?>
+                        <?= ($adendo->contrato()->unidadeComprador->endereco->numero && strlen($adendo->contrato()->unidadeComprador->endereco->numero) > 0) ? "{$adendo->contrato()->unidadeComprador->endereco->numero}, " : ' -,  ' ?>
                     
-                        <?= ($adendos[0]->contrato()->unidadeComprador->endereco->cidade && strlen($adendos[0]->contrato()->unidadeComprador->endereco->cidade)) ? "{$adendos[0]->contrato()->unidadeComprador->endereco->cidade} - " : "" ?>
-                            <?= ($adendos[0]->contrato()->unidadeComprador->endereco->estado) ? $adendos[0]->contrato()->unidadeComprador->endereco->estado : " - " . $adendos[0]->contrato()->unidadeComprador->endereco->estado ?>
+                        <?= ($adendo->contrato()->unidadeComprador->endereco->cidade && strlen($adendo->contrato()->unidadeComprador->endereco->cidade)) ? "{$adendo->contrato()->unidadeComprador->endereco->cidade} - " : "" ?>
+                            <?= ($adendo->contrato()->unidadeComprador->endereco->estado) ? $adendo->contrato()->unidadeComprador->endereco->estado : " - " . $adendo->contrato()->unidadeComprador->endereco->estado ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        CNPJ:
-                        <?= $adendos[0]->contrato()->unidadeComprador->cnpj ?>
+                        CNPJ/CPF:
+                        <?= $adendo->contrato()->unidadeComprador->cnpj ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
                     Inscrição Estadual:
-                        <?= ($adendos[0]->contrato()->unidadeComprador->inscricao_estadual && strlen($adendos[0]->contrato()->unidadeComprador->inscricao_estadual) > 0) ? $adendos[0]->contrato()->unidadeComprador->inscricao_estadual : "-" ?>
+                        <?= ($adendo->contrato()->unidadeComprador->inscricao_estadual && strlen($adendo->contrato()->unidadeComprador->inscricao_estadual) > 0) ? $adendo->contrato()->unidadeComprador->inscricao_estadual : "-" ?>
                     </td>
-                </tr>
+                
+                        </tr>
             </table>
         </div>
     </section>
     <section>
-        <?php foreach ($adendos as $adendo):?>
-        <table style="border: 1px black solid; width: 100%; margin-top: 3px;">
+        <div class="produto">
+            <table>
+                <tr>
+                    <td  style="width: 333px">Produto:
+                        <?= $adendo->contrato()->produto->nome ?></td>
+                    <td  >Safra:
+                        <?= $adendo->contrato()->safra ?? "Nenhum" ?></td>
+                </tr>
+                <tr>
+                    <td class="paddingTop20">Quantidade:
+                        <?= $adendo->contrato()->quantidade ?>
+                    </td>
+                    <td class="paddingTop20">Unidade: <?= $adendo->contrato()->unidade()->titulo ?>
+                    </td>
+                </tr>
+                
+            </table>
+    </section>
+    <section>
+        <table style="margin-top:10px">
             <tr>
-                <td class="paddingTop20" ><strong>Descrição</strong>: <?=$adendo->descricao; ?></td>
+                <td class="" ><strong>Descrição</strong>: <?=$adendo->descricao; ?></td>
             </tr>
         </table>
-        <?php endforeach?>
+    </section>
+    <section class="table">
+        <table>
+            <tr>
+                <td>_________________________
+                    <br>Assinatura do Comprador
+                    <br>
+                    <?= $adendo->contrato()->unidadeComprador->cnpj ?></td>
+                <td>_________________________
+                    <br>Assinatura do Vendedor
+                    <br>
+                    <?= $adendo->contrato()->unidadeVendedor->cnpj ?></td>
+                </td>
+            </tr>
+            <tr>
+                <td class="linha center"><pre>____________________________________________</pre></td>
+            </tr>
+            <tr>
+                <td class="center"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></td>
+            </tr>
+            <tr>
+                <td class="cnpjCeagro"><pre>90.880.204/0001-57</pre></td>
+            </tr>
+        </table>
     </section>
 </body>
 

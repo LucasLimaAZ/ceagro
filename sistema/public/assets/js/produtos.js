@@ -96,7 +96,9 @@ function popular(produtos) {
         cols += `<td class='item' id=${produto.id}>${produto.codigo}</td>`;
         cols += `<td class='item' id=${produto.id}>${produto.nome}</td>`;
         cols += `<td class='item' id=${produto.id}>${produto.descricao}</td>`;
-        cols += `<td class='delete' id=${produto.id}><i class="fa fa-trash-o" style="color: red"></i></td>`
+        cols += `<td class='delete' id=${produto.id}>
+            <i class="fa fa-trash-o" style="color: red"></i>
+        </td>`
         newRow.append(cols);
         $("#produtos_lista").append(newRow)
     }
