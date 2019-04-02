@@ -16,6 +16,6 @@ class ContratoFuturo extends Model
 
     public function contrato()
     {
-        return Contrato::find(['id', $this->contrato_id]);
+        return Contrato::find(['futuro', 1]);
     }
 }

@@ -30,6 +30,13 @@
     .paddingTop20 {
         padding-top: 10px;
     }
+    .tabela{
+        margin-top:5%;
+    }
+    td{
+        border:1px solid;
+        padding:5px;
+    }
     
 </style>
 
@@ -38,12 +45,37 @@
         <div class="log">
             <img src="public/img/logo.png" alt="">
         </div>
-        <div class="data">Adendo feito na data:<strong> 
-        <?= strftime('%d/%m/%Y', strtotime($adendo->data_cadastro)) ?></strong>
+        <div class="data"><strong> Porto Alegre, 
+        <?php
+            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+            date_default_timezone_set('America/Sao_Paulo');
+            $data = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+            echo date("d-m-Y", $data);
+            //echo strftime('%d de %B de %Y', strtotime());
+        ?></strong>
         </div>
     </header>
     <section>
         <div class="tabela">
+        <table>
+            <thead>
+                <tr>
+                    <td>CONTRATOS FUTUROS</td>
+                </tr>
+                <tr>
+                    <td>Comprador</td>
+                    <td>Vendedor</td>
+                    <td>Produto</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?=$contrato->assinatura_comprador;?></td>
+                    <td><?=$contrato->assinatura_vendedor;?></td>
+                    <td><?=$contrato->assinatura_vendedor;?></td>
+                </tr>
+            </tbody>
+        </table>
         </div>
     </section>
 </body>
