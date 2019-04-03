@@ -61,7 +61,7 @@
         </div>
     </header>
     <section>
-        <div class="title">CONTRATOS FUTUROS</div>
+        <div class="title">CONTRATOS ATUAIS</div>
         <div class="tabela">
         <table>
             <thead>
@@ -89,7 +89,7 @@
                     <td><?=$campo->preco;?></td>
 
                 </tr>
-
+                
                 <?php
 
                 }

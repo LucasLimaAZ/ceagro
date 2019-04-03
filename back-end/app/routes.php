@@ -70,3 +70,4 @@ $router->get("{$urlBase}pdfs/contratos/{contrato}", "PDF\ContratosController@ind
 $router->get("{$urlBase}pdfs/contratos/adendos/{adendo}", "PDF\AdendosController@index");
 $router->get("{$urlBase}pdfs/contratos/fixacoes/{contrato}", "PDF\FixacoesController@index");
 $router->get("{$urlBase}pdfs/contratos/futuros", "PDF\ContratosFuturosController@index");
+$router->get("{$urlBase}pdfs/contratos/atuais", "PDF\ContratosAtuaisController@index");

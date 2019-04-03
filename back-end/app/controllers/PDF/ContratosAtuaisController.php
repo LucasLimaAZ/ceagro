@@ -5,12 +5,12 @@ namespace App\Controllers\PDF;
 use App\Models\Contrato;
 use Dompdf\Dompdf;
 
-class ContratosFuturosController
+class ContratosAtuaisController
 {
 
     public function index()
     {
-        $contrato = Contrato::get(["futuro", 1]);
+        $contrato = Contrato::get(["futuro", 0]);
 
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
@@ -18,7 +18,7 @@ class ContratosFuturosController
         header('Content-type: text/html; charset=UTF-8');
         ob_start();
 
-        include_once "app/views/contratosFuturos.php";
+        include_once "app/views/contratosAtuais.php";
 
         $html = ob_get_contents();
 
