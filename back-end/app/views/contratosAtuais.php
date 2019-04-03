@@ -33,14 +33,38 @@
     .tabela{
         margin-top:5%;
     }
-    td{
-        border:1px solid;
-        padding:5px;
+    
+    tr:nth-child(even) {
+        background-color: #d1d1d1;
+    }
+
+    tr{
+        border: 1px solid grey;
     }
 
     .title{
         margin-top:7%;
         text-align:center;
+    }
+
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid grey;
+    }
+
+    td {
+        text-align: left;
+        padding: 5px;
+        font-size: 10px !important;
+        border-bottom: 1px solid grey;
+    }
+
+    th{
+        text-align:center;
+        border-bottom: 1px solid grey;
+        padding:5px;
     }
     
 </style>
@@ -66,11 +90,11 @@
         <table>
             <thead>
                 <tr>
-                    <td>Nº Confimação</td>
-                    <td>Vendedor</td>
-                    <td>Comprador</td>
-                    <td>Produto</td>
-                    <td>Valor</td>
+                    <th>Nº Confimação</th>
+                    <th>Vendedor</th>
+                    <th>Comprador</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
                 </tr>
             </thead>
             <tbody>
