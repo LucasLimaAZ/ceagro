@@ -6,13 +6,13 @@ if (!$producao) {
             'connection' => "mysql:host=127.0.0.1",
             'dbname' => "ceagro",
             'charset' => "utf8",
-            'username' => "artur",
-            'password' => "artur123",
+            'username' => "root",
+            'password' => "",
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ],
         ],
-        'rotas' => 'ceagro/back-end/'
+        'rotas' => 'ceagro2/ceagro/back-end/'
     ];
 }
 
