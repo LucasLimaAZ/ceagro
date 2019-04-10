@@ -32,6 +32,16 @@ class QueryBuilder
         }
     }
 
+    public function selectCliente($tabela, $classe, $cliente){
+
+        $query = "select * from {$tabela} where `vendedor_id` = $cliente or `comprador_id` = $cliente";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS, $classe);
+
+    }
+
     public function select($query)
     {
         try {

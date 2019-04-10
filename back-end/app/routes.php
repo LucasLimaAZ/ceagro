@@ -59,10 +59,10 @@ $router->get("{$urlBase}contratos/{contrato}/fixacoes", "FixacoesController@inde
 $router->put("{$urlBase}fixacoes/{fixacao}", "FixacoesController@update");
 $router->delete("{$urlBase}fixacoes/{fixacao}", "FixacoesController@destroy");
 
-$router->post("{$urlBase}contratos/futuros", "ContratosFuturosController@store");
-$router->get("{$urlBase}contratos/futuros", "ContratosFuturosController@index");
-$router->put("{$urlBase}futuros", "ContratosFuturosController@update");
-$router->delete("{$urlBase}futuros", "ContratosFuturosController@destroy");
+$router->post("{$urlBase}contratos/cliente", "ContratosClienteController@store");
+$router->get("{$urlBase}contratos/cliente", "ContratosClienteController@index");
+$router->put("{$urlBase}cliente", "ContratosClienteController@update");
+$router->delete("{$urlBase}cliente", "ContratosClienteController@destroy");
 
 $router->get("{$urlBase}unidades-medidas", "UnidadesMedidasController@index");
 
@@ -71,3 +71,4 @@ $router->get("{$urlBase}pdfs/contratos/adendos/{adendo}", "PDF\AdendosController
 $router->get("{$urlBase}pdfs/contratos/fixacoes/{contrato}", "PDF\FixacoesController@index");
 $router->get("{$urlBase}pdfs/contratos/futuros", "PDF\ContratosFuturosController@index");
 $router->get("{$urlBase}pdfs/contratos/atuais", "PDF\ContratosAtuaisController@index");
+$router->get("{$urlBase}pdfs/contratos/cliente", "PDF\ContratosClienteController@index");
