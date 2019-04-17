@@ -8,9 +8,9 @@ use Dompdf\Dompdf;
 class ContratosClienteController
 {
 
-    public function index()
+    public function index($clienteId)
     {
-        $contrato = Contrato::getCliente(92);
+        $contrato = Contrato::getCliente($clienteId);
 
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');

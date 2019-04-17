@@ -31,4 +31,9 @@ class ContratosFuturosController
         $dompdf->render();
         $dompdf->stream("codexworld", array("Attachment" => 0));
     }
+
+    public function cliente()
+    {
+        echo 'hello world';
+
 }
