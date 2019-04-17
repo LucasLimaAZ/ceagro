@@ -23,15 +23,18 @@
         margin-right: 3cm;
     }
 
-    .data, .assinatura {
-        float: right;
+    table {
+        width: 567px !important;
     }
-    .assinatura {
-        margin-right: 10%;
-    }
+
+    .data,
+    .assinatura {float: right;}
+
+    .assinatura {margin-right: 10%;}
     .confirmacao,
     .vendedor {
         margin-top: 3%;
+        word-break: break-all;
     }
     .nome {
         float: left;
@@ -59,14 +62,14 @@
         padding-left:60%;
     }
     .ac{
-	   width: 30%;
-	   overflow: auto;
-	   text-align:left;
+        text-align:left;
+        vertical-align: top;
+
     }
     .halfSize{
-        width:400px;
         text-align:left;
-		overflow: auto;
+        width: 30rem;
+        word-wrap: break-word !important;
     }
 </style>
 
@@ -79,7 +82,7 @@
         <?php
             setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
             date_default_timezone_set('America/Sao_Paulo');
-            echo strftime('%d de %B de %Y', strtotime($contrato->data_cadastro));
+            echo utf8_encode(strftime('%d de %B de %Y', strtotime($contrato->data_cadastro)));
         ?></strong>
         </div>
     </header>
@@ -94,7 +97,7 @@
                 <tr>
                     <td class="halfSize">Vendedor:
                         <?= $contrato->unidadeVendedor()->razao_social ?></td>
-                        <td class="ac" > A/C:
+                        <td class="ac"> A/C:
                     <?= $contrato->assinatura_vendedor ?></td>
                 </tr>
                
@@ -124,14 +127,15 @@
         </div>
     </section>
     <section>
-        <div class="comprador">
+        <div class="vendedor">
             <table>
                 <tr>
                     <td class="halfSize">Comprador:
-                        <?= $contrato->unidadeComprador()->razao_social ?></td>
-                        <td class="ac">A/C:
-                        <?= $contrato->assinatura_comprador ?></td>
+                        <?= $contrato->unidadeComprador->razao_social?></td>
+                        <td class="ac"> A/C:
+                    <?= $contrato->assinatura_comprador ?></td>
                 </tr>
+               
                 <tr>
                     <td>
                         <?= ($contrato->unidadeComprador->endereco->rua && strlen($contrato->unidadeComprador->endereco->rua) > 0) ? "{$contrato->unidadeComprador->endereco->rua}, " : 'Não cadastrada, ' ?>
@@ -148,12 +152,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td >
                     Inscrição Estadual:
                         <?= ($contrato->unidadeComprador->inscricao_estadual && strlen($contrato->unidadeComprador->inscricao_estadual) > 0) ? $contrato->unidadeComprador->inscricao_estadual : "-" ?>
                     </td>
-                
-                        </tr>
+                    
+                </tr>
             </table>
         </div>
     </section>
