@@ -12,6 +12,11 @@ class Model
         return App::get("db")->selectAll(static::$table, static::class, $where);
     }
 
+    public static function getCliente($cliente)
+    {
+        return App::get("db")->selectCliente(static::$table, static::class, $cliente);
+    }
+
     public static function find($campos = ["id", 0])
     {
         $response = App::get('db')->find(

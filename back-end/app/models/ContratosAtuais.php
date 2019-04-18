@@ -5,12 +5,12 @@ namespace App\Models;
 use App\Models\Model;
 
 
-class ContratoFuturo extends Model
+class ContratoAtual extends Model
 {
     public static $table = "contratos";
 
     public function contrato()
     {
-        return Contrato::get(['futuro', 1]);
+        return Contrato::get(['futuro', 0]);
     }
 }
