@@ -7,12 +7,12 @@ if (!$producao) {
             'dbname' => "ceagro",
             'charset' => "utf8",
             'username' => "root",
-            'password' => "",
+            'password' => "root",
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ],
         ],
-        'rotas' => 'workspace/ceagro/back-end/'
+        'rotas' => 'ceagro/back-end/'
     ];
 }
 
