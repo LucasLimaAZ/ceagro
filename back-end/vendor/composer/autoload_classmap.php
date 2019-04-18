@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Controllers\\AdaptacaoController' => $baseDir . '/app/controllers/AdaptacaoController.php',
-    'App\\Controllers\\AdendosController' => $baseDir . '/app/controllers/AdendosController.php',
+    'App\\Controllers\\AdendosController' => $baseDir . '/AdendoController.php',
     'App\\Controllers\\CfopsController' => $baseDir . '/app/controllers/CfopsControllers.php',
     'App\\Controllers\\ClientesController' => $baseDir . '/app/controllers/ClientesController.php',
     'App\\Controllers\\ContasBancariasController' => $baseDir . '/app/controllers/ContasBancariasController.php',
@@ -18,6 +18,7 @@ return array(
     'App\\Controllers\\FixacoesController' => $baseDir . '/app/controllers/FixacoesController.php',
     'App\\Controllers\\PDF\\AdendosController' => $baseDir . '/app/controllers/PDF/AdendosController.php',
     'App\\Controllers\\PDF\\ContratosController' => $baseDir . '/app/controllers/PDF/ContratosController.php',
+    'App\\Controllers\\PDF\\ContratosFuturosController' => $baseDir . '/app/controllers/PDF/ContratosFuturosController.php',
     'App\\Controllers\\PDF\\FixacoesController' => $baseDir . '/app/controllers/PDF/FixacoesController.php',
     'App\\Controllers\\ProdutosController' => $baseDir . '/app/controllers/ProdutosController.php',
     'App\\Controllers\\Teste' => $baseDir . '/app/controllers/teste.php',
@@ -35,6 +36,7 @@ return array(
     'App\\Models\\ContaBancaria' => $baseDir . '/app/models/ContaBancaria.php',
     'App\\Models\\Contato' => $baseDir . '/app/models/Contato.php',
     'App\\Models\\Contrato' => $baseDir . '/app/models/Contrato.php',
+    'App\\Models\\ContratoFuturo' => $baseDir . '/app/models/ContratosFuturos.php',
     'App\\Models\\Endereco' => $baseDir . '/app/models/Endereco.php',
     'App\\Models\\Fixacao' => $baseDir . '/app/models/Fixacao.php',
     'App\\Models\\Model' => $baseDir . '/app/models/Model.php',
