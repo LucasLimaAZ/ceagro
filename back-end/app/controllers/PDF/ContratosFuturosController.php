@@ -35,5 +35,5 @@ class ContratosFuturosController
     public function cliente()
     {
         echo 'hello world';
-
+    }
 }

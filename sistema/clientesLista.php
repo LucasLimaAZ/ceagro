@@ -21,6 +21,7 @@
 											<th>CNPJ</th>
 											<th>Inscrição Estadual</th>
 											<th>Cidade</th>
+											<th>Download</th>
 											<th>Excluir</th>
 										</tr>
 									</thead>
