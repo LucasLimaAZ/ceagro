@@ -74,53 +74,73 @@
         <div class="log">
             <img src="public/img/logo.png" alt="">
         </div>
-        <div class="data"><strong> Porto Alegre, 
-        <?php
-            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-            date_default_timezone_set('America/Sao_Paulo');
-            $data = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
-            echo date("d-m-Y", $data);
-            //echo strftime('%d de %B de %Y', strtotime());
-        ?></strong>
+        <div class="data">
+        <strong> Porto Alegre, 
+            <?php
+                setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                date_default_timezone_set('America/Sao_Paulo');
+                $data = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+                echo date("d-m-Y", $data);
+            ?>
+            </strong>
         </div>
     </header>
     <section>
-        <div class="title">CONTRATOS ATUAIS</div>
+        <div class="title">VENDEDOR | CONTRATOS ATUAIS</div>
         <div class="tabela">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nº Confimação</th>
-                    <th>Vendedor</th>
-                    <th>Comprador</th>
-                    <th>Produto</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-
-                foreach($contrato as $campo){
-
-                ?>
-
-                <tr>
-
-                    <td><?=$campo->numero_confirmacao;?></td>
-                    <td><?=$campo->unidadeVendedor()->razao_social;?></td>
-                    <td><?=$campo->unidadeComprador()->razao_social;?></td>
-                    <td><?=$campo->produto->nome;?></td>
-                    <td><?=$campo->preco;?></td>
-
-                </tr>
-                
-                <?php
-
-                }
-
-                ?>
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº Confimação</th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($contratosVendedor as $contrato): ?>
+                        <?php if(!$contrato->futuro): ?>
+                        <tr>
+                            <td><?=$contrato->numero_confirmacao;?></td>
+                            <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
+                            <td><?=$contrato->unidadeComprador()->razao_social;?></td>
+                            <td><?=$contrato->produto->nome;?></td>
+                            <td><?=$contrato->preco;?></td>
+                        </tr>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <div class="title">VENDEDOR | CONTRATOS FUTUROS</div>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº Confimação</th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($contratosVendedor as $contratov): ?>
+                        <?php if($contrato->futuro): ?>
+                        <tr>
+                            <td><?=$contratov->futuro;?></td>
+                            <td><?=$contratov->unidadeVendedor()->razao_social;?></td>
+                            <td><?=$contratov->unidadeComprador()->razao_social;?></td>
+                            <td><?=$contratov->produto->nome;?></td>
+                            <td><?=$contratov->preco;?></td>
+                        </tr>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
     </section>
 </body>

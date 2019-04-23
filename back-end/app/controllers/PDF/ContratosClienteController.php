@@ -10,8 +10,8 @@ class ContratosClienteController
 
     public function index($clienteId)
     {
-        $contrato = Contrato::getCliente($clienteId);
-
+        $contratosVendedor = Contrato::where(["vendedor_id",$clienteId]);
+        $contratosComprador = Contrato::where(["comprador_id",$clienteId]);
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
 

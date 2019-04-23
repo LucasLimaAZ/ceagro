@@ -27,6 +27,14 @@ class Model
         return $a = array_shift($response);
     }
 
+    public static function where($campos = ["id", 0]) {
+        return App::get('db')->find(
+            static::$table,
+            $campos,
+            static::class
+        );
+    }
+
     public static function contratosFuturos()
     {
         return $response = App::get('db')->contratosFuturos();
