@@ -3,6 +3,7 @@
 namespace App\Controllers\PDF;
 
 use App\Models\Contrato;
+use App\Models\Cliente;
 use Dompdf\Dompdf;
 
 class ContratosClienteController
@@ -12,6 +13,7 @@ class ContratosClienteController
     {
         $contratosVendedor = Contrato::where(["vendedor_id",$clienteId]);
         $contratosComprador = Contrato::where(["comprador_id",$clienteId]);
+        $produtosVendidos = Cliente::produtosVendidos($clienteId);
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
 

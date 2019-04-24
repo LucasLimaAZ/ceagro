@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use \PDO;
+use App\Models\Produto;
 
 class QueryBuilder
 {
@@ -182,5 +183,21 @@ class QueryBuilder
             echo 'Error: ' . $e->getMessage();
 
         }
+    }
+
+    public function produtosVendidos($clienteId) {
+        $sql = "select count(produtos.id) as incidencia, produtos.nome, contratos.preco from produtos join contratos on contratos.produto_id = produtos.id where contratos.vendedor_id = {$clienteId} group by produtos.id limit 5;";
+        try {
+           $statement= $this->pdo->prepare($sql);
+           $statement->execute();
+           return $statement->fetchAll(PDO::FETCH_CLASS, Produto::class);
+        } catch (PDOExcxeption $e) {
+            echo 'Error: ' . $e->getMessage();
+
+        }
+    }
+
+    public function produtosComprados($clienteId) {
+
     }
 }

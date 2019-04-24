@@ -13,14 +13,13 @@
         margin: 0;
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 12px !important;
-        text-align: justify;
+        font-size: 10px !important;
     }
     body {
-        margin-top: 2.5cm;
-        margin-bottom: 2.5cm;
-        margin-left: 3cm;
-        margin-right: 3cm;
+        margin-top: 2.5cm !important;
+        margin-bottom: 2.5cm !important;
+        margin-left: 3cm !important;
+        margin-right: 3cm !important;
     }
 
     .data, .assinatura {
@@ -34,12 +33,8 @@
         margin-top:5%;
     }
     
-    tr:nth-child(even) {
+    .tabela tr:nth-child(even) {
         background-color: #d1d1d1;
-    }
-
-    tr{
-        border: 1px solid grey;
     }
 
     .title{
@@ -48,24 +43,47 @@
     }
 
     table{
+        width: 15cm;
         border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
         border: 1px solid grey;
+        text-align: center !important;
     }
 
-    td {
-        text-align: left;
-        padding: 5px;
-        font-size: 10px !important;
-        border-bottom: 1px solid grey;
+    td, th {
+        border: 1px solid grey;
+        padding:3px;
     }
 
-    th{
-        text-align:center;
-        border-bottom: 1px solid grey;
-        padding:5px;
+    .vendedor {
+        margin-top: 3%;
+        word-break: break-all;
     }
+
+    .valor {
+        width:2cm;
+    }
+    .futuro {
+        width:1cm;
+    }
+    .nmro {
+        width:2cm;
+    }
+
+    .all {
+        width:2cm;
+    }
+
+    .produtos th {
+        width:2cm;
+    }
+    .produtos th+th {
+        width:1cm;
+    }
+    .produtos th+th+th {
+        width:3cm !important;
+    }
+
+    
     
 </style>
 
@@ -85,59 +103,81 @@
             </strong>
         </div>
     </header>
+    
     <section>
-        <div class="title">VENDEDOR | CONTRATOS ATUAIS</div>
-        <div class="tabela">
-            <table>
+        <div class="title">PRODUTOS MAIS VENDIDO</div>
+            <table class="tabela produtos">
                 <thead>
                     <tr>
-                        <th>Nº Confimação</th>
-                        <th>Vendedor</th>
-                        <th>Comprador</th>
-                        <th>Produto</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
                         <th>Valor</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($produtosVendidos as $key => $contrato): ?>
+                        <tr>
+                            <td ><?=$contrato->nome;?></td>
+                            <td><?=$contrato->incidencia;?></td>
+                            <td><?=$contrato->preco;?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+    </section>
+    <section>
+        <div class="title">VENDEDOR</div>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="nmro">Nº</th>
+                        <th class="futuro">Futuro</th>
+                        <th class="all">Vendedor</th>
+                        <th class="all">Comprador</th>
+                        <th class="all">Produto</th>
+                        <th class="valor">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php foreach($contratosVendedor as $contrato): ?>
-                        <?php if(!$contrato->futuro): ?>
                         <tr>
                             <td><?=$contrato->numero_confirmacao;?></td>
+                            <td><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                             <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                             <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                             <td><?=$contrato->produto->nome;?></td>
                             <td><?=$contrato->preco;?></td>
                         </tr>
-                        <?php endif ?>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </section>
     <section>
-        <div class="title">VENDEDOR | CONTRATOS FUTUROS</div>
+        <div class="title">COMPRADOR</div>
         <div class="tabela">
             <table>
                 <thead>
                     <tr>
-                        <th>Nº Confimação</th>
-                        <th>Vendedor</th>
-                        <th>Comprador</th>
-                        <th>Produto</th>
-                        <th>Valor</th>
+                        <th class="nmro">Nº </th>
+                        <th class="futuro">Futuro</th>
+                        <th class="all">Vendedor</th>
+                        <th class="all">Comprador</th>
+                        <th class="all">Produto</th>
+                        <th class="valor" >Valor</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($contratosVendedor as $contratov): ?>
-                        <?php if($contrato->futuro): ?>
+                    <?php foreach($contratosComprador as $contrato): ?>
                         <tr>
-                            <td><?=$contratov->futuro;?></td>
-                            <td><?=$contratov->unidadeVendedor()->razao_social;?></td>
-                            <td><?=$contratov->unidadeComprador()->razao_social;?></td>
-                            <td><?=$contratov->produto->nome;?></td>
-                            <td><?=$contratov->preco;?></td>
+                            <td><?=$contrato->numero_confirmacao;?></td>
+                            <td ><?=($contrato->futuro)?"SIM":"NÃO";?></td>
+                            <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
+                            <td><?=$contrato->unidadeComprador()->razao_social;?></td>
+                            <td><?=$contrato->produto->nome;?></td>
+                            <td><?=$contrato->preco;?></td>
                         </tr>
-                        <?php endif ?>
                     <?php endforeach ?>
                 </tbody>
             </table>

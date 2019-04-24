@@ -10,7 +10,8 @@ class Produto extends Model
     public $nome;
     public $codigo;
     public $descricao = null;
-
+    
+    public $preco;
     public static $table = "produtos";
 
 }

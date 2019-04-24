@@ -77,4 +77,10 @@ class Model
         $data = self::verifyFields($dados);
         return App::get('db')->update(static::$table, $data, $campos);
     }
+
+    public static function produtosVendidos($vendedorId) {
+        return App::get('db')->produtosVendidos($vendedorId);
+    }
+
+
 }
