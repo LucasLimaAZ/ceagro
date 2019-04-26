@@ -66,6 +66,21 @@
         border-bottom: 1px solid grey;
         padding:5px;
     }
+
+    .center{
+        padding-left:25%;
+    }
+    .cnpjCeagro{
+        margin-top:5%;
+        font-weight: bold;
+        padding-left:40%;
+    }
+
+    .contador{
+        float:left;
+        font-weight: bold;
+        margin-top:5%;
+    }
     
 </style>
 
@@ -74,7 +89,15 @@
         <div class="log">
             <img src="public/img/logo.png" alt="">
         </div>
-        <div class="data"><strong> Porto Alegre, 
+        <div class="data">
+        <div class="contador">
+            <?php
+            $nContratos = 0;
+            foreach($contrato as $campo){$nContratos++;}
+            echo "Você tem <u>$nContratos</u> contratos atuais.";
+            ?>
+        </div>
+        <strong> Porto Alegre, 
         <?php
             setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
             date_default_timezone_set('America/Sao_Paulo');
@@ -120,6 +143,12 @@
 
                 ?>
             </tbody>
+            <div>
+                <div class="center"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></div>
+            </div>
+            <div>
+                <div class="cnpjCeagro"><pre>90.880.204/0001-57</pre></div>
+            </div>
         </table>
         </div>
     </section>
