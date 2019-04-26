@@ -168,7 +168,7 @@
                     <td>Produto:
                         <?= $contrato->produto->nome ?></td>
                     <td>Safra:
-                        <?= $contrato->safra ?? "Nenhum" ?></td>
+                        <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?></td>
                 </tr>
                 <tr>
                     <td class="paddingTop20">Quantidade:
