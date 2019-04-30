@@ -83,6 +83,18 @@
         width:3cm !important;
     }
 
+    .cnpjCeagro{
+        padding-left:63%;
+    }
+    .footerCeagro{
+        padding-left:48%;
+    }
+
+    .footer{
+        position:fixed;
+        bottom:75px !important;
+    }
+
     
     
 </style>
@@ -180,6 +192,14 @@
                         </tr>
                     <?php endforeach ?>
                 </tbody>
+                <div class="footer">
+                <div>
+                    <div class="footerCeagro"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></div>
+                </div> 
+                <div>
+                    <div class="cnpjCeagro"><pre>90.880.204/0001-57</pre></div>
+                </div>
+            </div>
             </table>
         </div>
     </section>

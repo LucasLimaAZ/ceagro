@@ -67,10 +67,32 @@
         padding:5px;
     }
     
+    .nContratos{
+        float:left;
+        margin-top:2%;
+    }
+    .cnpjCeagro{
+        padding-left:63%;
+    }
+    .footerCeagro{
+        padding-left:48%;
+    }
+
+    .footer{
+        position:fixed;
+        bottom:75px !important;
+    }
+
 </style>
 
 <body>
     <header>
+    <?php
+    $nContratos = 0;
+    foreach ($contrato as $campo){
+        $nContratos++;
+    }
+    ?>
         <div class="log">
             <img src="public/img/logo.png" alt="">
         </div>
@@ -82,6 +104,9 @@
             echo date("d-m-Y", $data);
             //echo strftime('%d de %B de %Y', strtotime());
         ?></strong>
+        </div>
+        <div class="nContratos">
+        Você tem <b><?=$nContratos;?></b> contratos atuais.
         </div>
     </header>
     <section>
@@ -120,6 +145,14 @@
 
                 ?>
             </tbody>
+            <div class="footer">
+                <div>
+                    <div class="footerCeagro"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></div>
+                </div> 
+                <div>
+                    <div class="cnpjCeagro"><pre>90.880.204/0001-57</pre></div>
+                </div>
+            </div>
         </table>
         </div>
     </section>
