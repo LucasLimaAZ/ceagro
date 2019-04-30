@@ -1,4 +1,6 @@
 var contratoId = null;
+var table = null;
+var contratos = [];
 $(document).ready(() => {
   buscarContratos();
 });
@@ -11,7 +13,7 @@ $("#deletarContrato").on("click", () => {
 $;
 
 function buscarContratos() {
-  $.get(``).done(response => {
+  $.get(`../back-end/contratos`).done(response => {
     contratos = JSON.parse(response);
     popularPesquisa(contratos, () => {
       $(".overlay").remove();
@@ -53,7 +55,6 @@ function popularPesquisa(contratos, callback = null) {
     irParaContratos(this.id);
   });
   $(`#contratos .download`).on("click", function(event) {
-    console.log(event);
     abrirContrato(event.target.id);
   });
   $(`#contratos .delete`).on("click", function() {

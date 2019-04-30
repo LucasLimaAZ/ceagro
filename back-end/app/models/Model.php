@@ -12,6 +12,11 @@ class Model
         return App::get("db")->selectAll(static::$table, static::class, $where);
     }
 
+    public static function getCliente($cliente)
+    {
+        return App::get("db")->selectCliente(static::$table, static::class, $cliente);
+    }
+
     public static function find($campos = ["id", 0])
     {
         $response = App::get('db')->find(
@@ -20,6 +25,14 @@ class Model
             static::class
         );
         return $a = array_shift($response);
+    }
+
+    public static function where($campos = ["id", 0]) {
+        return App::get('db')->find(
+            static::$table,
+            $campos,
+            static::class
+        );
     }
 
     public static function contratosFuturos()
@@ -64,4 +77,10 @@ class Model
         $data = self::verifyFields($dados);
         return App::get('db')->update(static::$table, $data, $campos);
     }
+
+    public static function produtosVendidos($vendedorId) {
+        return App::get('db')->produtosVendidos($vendedorId);
+    }
+
+
 }
