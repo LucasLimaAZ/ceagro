@@ -492,8 +492,7 @@
 	<script src="adminlte/bower_components/moment/min/moment.min.js"></script>
 	<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-
-		<script>
+	<script>
 		$('#reservation').daterangepicker({
 				locale: {
 				format: 'DD/MM/YYYY'
@@ -520,5 +519,5 @@
 			autoclose: true,
 			language:'pt'
 		})
-		</script>
-		<?php include 'partials/rodape.html' ?>
+	</script>
+	<?php include 'partials/rodape.html' ?>
