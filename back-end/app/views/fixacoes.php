@@ -59,14 +59,18 @@
         padding-left:60%;
     }
     .ac{
-	   width: 30%;
-	   overflow: auto;
-	   text-align:left;
+        text-align:left;
+        vertical-align: top;
+
     }
     .halfSize{
-        width:400px;
         text-align:left;
-		overflow: auto;
+        width: 30rem;
+        word-wrap: break-word !important;
+    } word-wrap: break-word !important; 
+    }
+    table {
+        width: 567px !important;
     }
 
     .table {
