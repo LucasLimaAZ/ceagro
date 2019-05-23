@@ -1,4 +1,4 @@
-<?php include 'partials/cabecalho.html' ?>
+<?php include 'partials/cabecalho.html'; ?>
 <body class="hold-transition skin-blue sidebar-mini">
 <style>
 	#clientes {
@@ -53,11 +53,12 @@
                     <div class="row">
                         <div class="col-md-10">
                             <label for="data-inicial">Cliente:</label>
-                            <select name="cliente" class="form-control">
+                            <input list="clientes" class="form-control">
+                            <datalist id="clientes" name="cliente">
                                 <?php foreach($clientes as $cliente): ?>
-                                    <option value="<?=$cliente;?>"><?=$cliente;?></option>
+                                    <option value="<?=$cliente->razao_social;?>"><?=$cliente->razao_social;?></option>
                                 <?php endforeach; ?>
-                            </select>
+                            </datalist>
                         </div>
                         <div class="col-md-2">
                             <button type="submit" style="margin-top:24px" class="btn btn-primary">Filtrar</button>
@@ -71,13 +72,13 @@
                         <div class="col-md-12">
                         <h2 class="page-header"><i class="fa fa-copy"></i> Filtrar por safra</h2>
                         </div>
-                    </div>
+                    </div> 
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="#"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
+                            <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button>
+                            <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button></a>
                         </div>
                     </div>
                 </form>
@@ -95,6 +96,6 @@
 		<div class="control-sidebar-bg"></div>
 	</div>
 <?php include 'partials/imports.html' ?>
-<script src="public/assets/js/index.js"></script>
-<script src="adminlte/bower_components/chart.js/Chart.js"></script>
+<script src="../sistema/public/assets/js/index.js"></script>
+<script src="../sistema/adminlte/bower_components/chart.js/Chart.js"></script>
 <?php include 'partials/rodape.html' ?>

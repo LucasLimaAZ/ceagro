@@ -33,12 +33,7 @@
     .tabela{
         margin-top:5%;
     }
-
-    .title{
-        margin-top:7%;
-        text-align:center;
-    }
-
+    
     tr:nth-child(even) {
         background-color: #d1d1d1;
     }
@@ -72,7 +67,6 @@
         padding:5px;
     }
     
-    
 </style>
 
 <body>
@@ -91,7 +85,7 @@
         </div>
     </header>
     <section>
-        <div class="title">CONTRATOS FUTUROS</div>
+        <div class="title">CONTRATOS ATUAIS</div>
         <div class="tabela">
         <table>
             <thead>
@@ -119,7 +113,7 @@
                     <td><?=$campo->preco;?></td>
 
                 </tr>
-
+                
                 <?php
 
                 }

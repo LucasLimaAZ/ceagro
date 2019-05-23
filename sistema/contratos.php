@@ -1,6 +1,12 @@
 <?php include 'partials/cabecalho.html' ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
+	<style>
+		.checkExportacao{
+			width:32px;
+			height:32px;
+		}
+	</style>
 	<div class="wrapper">
 		<?php include "partials/header.html"; ?>
 		<?php include "partials/menu.html"; ?>
@@ -255,6 +261,12 @@
 																<div class="form-group">
 																	<label for="comissao">Comissão</label>
 																	<input type="text" class="form-control" name="comissao" placeholder="Informe sobre a comissao do contrato" autocomplete="off" required>
+																</div>
+															</div>
+															<div class="col-xs-12 col-lg-4">
+																<div class="form-group">
+																	<label for="exportacao">Exportação</label><br>
+																	<input type="checkbox" name="exportacao" class="checkExportacao" value="true">
 																</div>
 															</div>
 														</div>

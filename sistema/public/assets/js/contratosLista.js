@@ -11,7 +11,7 @@ $("#deletarContrato").on("click", () => {
 $;
 
 function buscarContratos() {
-  $.get(``).done(response => {
+  $.get(`../`).done(response => {
     contratos = JSON.parse(response);
     popularPesquisa(contratos, () => {
       $(".overlay").remove();
