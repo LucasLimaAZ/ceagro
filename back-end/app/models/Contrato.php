@@ -48,8 +48,8 @@ class Contrato extends Model
     public $produto;
     public $unidadeMedida;
 
-    public $futuro = 160;
-    public $atual = 1460;
+    public $futuro = 1;
+    public $atual = 450;
 
     protected static $table = "contratos";
 

@@ -52,6 +52,7 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
         'App\\Controllers\\ContratosController' => __DIR__ . '/../..' . '/app/controllers/ContratosController.php',
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/controllers/Controller.php',
         'App\\Controllers\\EnderecosController' => __DIR__ . '/../..' . '/app/controllers/EnderecosController.php',
+        'App\\Controllers\\FiltrosController' => __DIR__ . '/../..' . '/app/controllers/FiltrosController.php',
         'App\\Controllers\\FixacoesController' => __DIR__ . '/../..' . '/app/controllers/FixacoesController.php',
         'App\\Controllers\\PDF\\AdendosController' => __DIR__ . '/../..' . '/app/controllers/PDF/AdendosController.php',
         'App\\Controllers\\PDF\\ContratosAtuaisController' => __DIR__ . '/../..' . '/app/controllers/PDF/ContratosAtuaisController.php',

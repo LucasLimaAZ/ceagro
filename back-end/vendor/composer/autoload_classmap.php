@@ -15,6 +15,7 @@ return array(
     'App\\Controllers\\ContratosController' => $baseDir . '/app/controllers/ContratosController.php',
     'App\\Controllers\\Controller' => $baseDir . '/app/controllers/Controller.php',
     'App\\Controllers\\EnderecosController' => $baseDir . '/app/controllers/EnderecosController.php',
+    'App\\Controllers\\FiltrosController' => $baseDir . '/app/controllers/FiltrosController.php',
     'App\\Controllers\\FixacoesController' => $baseDir . '/app/controllers/FixacoesController.php',
     'App\\Controllers\\PDF\\AdendosController' => $baseDir . '/app/controllers/PDF/AdendosController.php',
     'App\\Controllers\\PDF\\ContratosAtuaisController' => $baseDir . '/app/controllers/PDF/ContratosAtuaisController.php',
