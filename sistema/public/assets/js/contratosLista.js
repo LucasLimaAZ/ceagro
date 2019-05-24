@@ -15,9 +15,11 @@ $;
 function buscarContratos() {
   $.get(`../back-end/contratos`).done(response => {
     contratos = JSON.parse(response);
+    popularPesquisa(contratos, () => {
       $(".overlay").remove();
       table = $("#contratos").DataTable({ order: [0, "desc"] });
     });
+  });
 }
 
 function popularPesquisa(contratos, callback = null) {
