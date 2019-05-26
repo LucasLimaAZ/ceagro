@@ -24,6 +24,8 @@ class Contrato extends Model
     public $tipo_embarque;
     public $local;
     public $data_embarque;
+    public $data_embarque_inicial;
+    public $data_embarque_final;
     public $peso_qualidade;
     public $cfop;
     public $solicitacao_cotas;

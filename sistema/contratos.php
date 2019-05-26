@@ -515,7 +515,7 @@
 			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
 			today: "Hoje",
 			clear: "Limpar",
-			format: "dd/mm/yyyy",
+			// format: "dd/mm/yyyy",
 			titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
 			weekStart: 0
 		};
@@ -527,7 +527,8 @@
 
 		$("#reservation2, #data_embarque_inicial, #data_embarque_final").datepicker({
 			autoclose: true,
-			language:'pt'
-		})
+			language:'pt',
+			format    : 'yyyy-mm-dd'
+		});
 	</script>
 	<?php include 'partials/rodape.html' ?>

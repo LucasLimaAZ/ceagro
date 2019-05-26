@@ -9,7 +9,7 @@ class FiltrosController
 
     public function index()
     {
-        $contrato = Contrato::get(["data_cadastro" , ">= CAST('".$_GET['data-inicial']."' AS DATE)", "AND data_cadastro <= CAST('".$_GET['data-final']."' AS DATE)"]);
+        $contrato = Contrato::get(["data_embarque_inicial" , ">= CAST('".$_GET['data-inicial']."' AS DATE)", "AND data_embarque_final <= CAST('".$_GET['data-final']."' AS DATE)"]);
         
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
