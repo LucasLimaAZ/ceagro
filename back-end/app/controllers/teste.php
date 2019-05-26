@@ -10,7 +10,6 @@ class Teste
     public function index()
     {
         $html = file_get_contents("app/views/index.php");
-        // dd($html);
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);

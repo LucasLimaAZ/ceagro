@@ -209,7 +209,8 @@
 																	<div class="input-group-addon">
 																		<i class="fa fa-calendar"></i>
 																	</div>
-																	<input type="text" name="data_embarque" class="form-control pull-right" id="reservation">
+																	<input type="text" name="data_embarque_inicial" class="form-control pull-right" id="data_embarque_inicial">
+																	<input type="text" name="data_embarque_final" class="form-control pull-right" id="data_embarque_final">
 																</div>
 															</div>
 														</div>
@@ -505,16 +506,7 @@
 	<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 	<script>
-		$('#reservation').daterangepicker({
-				locale: {
-				format: 'DD/MM/YYYY'
-			}
-		});
-		// $('#reservation2').datepicker({
-		// 		locale: {
-		// 		format: 'DD/MM/Y	YYY'
-		// 	}
-		// });
+
 		$.fn.datepicker.dates['pt'] = {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
 			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
@@ -527,7 +519,13 @@
 			titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
 			weekStart: 0
 		};
-		$('#reservation2').datepicker({
+		
+		// $('#reservation').datepicker({
+		// 	autoclose: true,
+		// 	language:'pt'
+		// });
+
+		$("#reservation2, #data_embarque_inicial, #data_embarque_final").datepicker({
 			autoclose: true,
 			language:'pt'
 		})

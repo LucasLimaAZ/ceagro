@@ -21,7 +21,7 @@
         </section>
         <section>
             <div class="row" style="margin:1%;">
-                <div class="col-md-6" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
+                <div class="col-xs-12" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
                     <form role="form" id="datas">
                         <div class="row">
                             <div class="col-md-12">
@@ -43,7 +43,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
+                <div class="col-xs-12" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
                     <form role="form" id="contrato">
                         <div class="row">
                             <div class="col-md-12">
@@ -66,7 +66,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
+                <div class="col-xs-12" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
                     <form role="form" id="contrato">
                         <div class="row">
                             <div class="col-md-12">
@@ -74,10 +74,10 @@
                             </div>
                         </div> 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-xs-12">
                                 <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xs-12">
                                 <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button></a>
                             </div>
                         </div>
