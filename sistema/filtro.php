@@ -75,10 +75,10 @@
                         </div> 
                         <div class="row">
                             <div class="col-xs-12">
-                                <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
+                                <a href="../back-end/pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
                             </div>
                             <div class="col-xs-12">
-                                <a href="pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button></a>
+                                <a href="../back-end/pdfs/contratos/futuros"><button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button></a>
                             </div>
                         </div>
                     </form>
