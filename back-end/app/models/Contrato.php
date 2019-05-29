@@ -41,6 +41,7 @@ class Contrato extends Model
     public $unidade_vendedor_id;
     public $unidade_comprador_id;
     public $retirada_entrega;
+    public $exportacao;
 
     public $unidadeComprador;
     public $unidadeVendedor;

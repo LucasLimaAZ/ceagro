@@ -267,7 +267,7 @@
 															<div class="col-xs-12 col-lg-4">
 																<div class="form-group">
 																	<label for="exportacao">Exportação</label><br>
-																	<input type="checkbox" name="exportacao" class="checkExportacao" value="true">
+																	<input type="checkbox" id="exportacao" name="exportacao" class="checkExportacao" value="1">
 																</div>
 															</div>
 														</div>
