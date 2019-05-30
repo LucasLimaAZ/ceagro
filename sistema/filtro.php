@@ -10,14 +10,14 @@
 	<?php include "partials/menu.html"; ?>
     <div class="content-wrapper">
 		<section class="content-header">
-            <h1>
-                Painel de Controle
-                <small>Filtro de Contratos</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Filtro</li>
-            </ol>
+        <h1>
+            Painel de Controle
+            <small>Filtro de Contratos</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Filtro</li>
+        </ol>
         </section>
         <section>
             <div class="row" style="margin:1%;">
@@ -51,17 +51,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-10">
-                                <label for="data-inicial">Cliente:</label>
-                                <input list="clientes" class="form-control">
-                                <datalist id="clientes" name="cliente">
-                                    <?php foreach($clientes as $cliente): ?>
-                                        <option value="<?=$cliente->razao_social;?>"><?=$cliente->razao_social;?></option>
-                                    <?php endforeach; ?>
-                                </datalist>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" style="margin-top:24px" class="btn btn-primary">Filtrar</button>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="vendedor_id">Nome Fantasia</label>
+                                    <select class="form-control select2" name="clientes" style="width: 100%;" id="clientes" required></select>
+                                </div>
                             </div>
                         </div>
                     </form>

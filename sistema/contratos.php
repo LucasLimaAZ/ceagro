@@ -1,5 +1,4 @@
 <?php include 'partials/cabecalho.html' ?>
-
 <body class="hold-transition skin-blue sidebar-mini">
 	<style>
 		.checkExportacao{
