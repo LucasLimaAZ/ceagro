@@ -198,8 +198,11 @@
                         <?= $contrato->cfop()->descricao ?? "Nenhum" ?></td>
                 </tr>
                 <tr>
-                <td class="paddingTop20">Logística/Cotas Vendedor:
-                       <?= ($contrato->vendedor->logistica_cotas && strlen($contrato->vendedor->logistica_cotas) > 0) ? $contrato->vendedor->logistica_cotas : "-" ?></td>
+                    <td class="paddingTop20">Logística/Cotas Vendedor:
+                        <?= ($contrato->vendedor->logistica_cotas 
+                            && strlen($contrato->vendedor->logistica_cotas) > 0) 
+                        ? $contrato->vendedor->logistica_cotas : "-" ?>
+                    </td>
                 </tr>
                 <tr>
                 <td class="paddingTop10">Logística/Cotas Comprador:

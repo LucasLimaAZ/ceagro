@@ -95,7 +95,7 @@ class Contrato extends Model
     {
         $reflection = new \ReflectionClass("App\Models\Cliente");
         $instance = $reflection->newInstanceWithoutConstructor();
-        return $this->vendedor = $instance::find(["id", $this->comprador_id]);
+        return $this->vendedor = $instance::find(["id", $this->vendedor_id]);
     }
 
     public function produto()
