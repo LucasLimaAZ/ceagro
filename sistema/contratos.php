@@ -2,8 +2,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<style>
 		.checkExportacao{
-			width:32px;
-			height:32px;
+			/* width:32px;
+			height:32px; */
+			
 		}
 	</style>
 	<div class="wrapper">
@@ -251,11 +252,11 @@
 														</div>
 														<div class="form-row">
 															<div class="col-xs-12 col-lg-4">
-															<div class="form-group">
-																<label for="cfop">CFOP</label>
-																<select name="cfop" class="form-control" id="cfops">
-																</select>
-															</div>
+																<div class="form-group">
+																	<label for="cfop">CFOP</label>
+																	<select name="cfop" class="form-control" id="cfops">
+																	</select>
+																</div>
 															</div>
 															<div class="col-xs-12 col-lg-4">
 																<div class="form-group">
@@ -263,10 +264,10 @@
 																	<input type="text" class="form-control" name="comissao" placeholder="Informe sobre a comissao do contrato" autocomplete="off" required>
 																</div>
 															</div>
-															<div class="col-xs-12 col-lg-4">
+															<div class="col-xs-12 col-lg-4" style="margin-top: 3rem !important;">
 																<div class="form-group">
-																	<label for="exportacao">Exportação</label><br>
-																	<input type="checkbox" id="exportacao" name="exportacao" class="checkExportacao" value="1">
+																	<input type="checkbox" id="exportacao" name="exportacao" class="checkExportacao flat-red">
+																	<label for="exportacao">Exportação</label>
 																</div>
 															</div>
 														</div>
