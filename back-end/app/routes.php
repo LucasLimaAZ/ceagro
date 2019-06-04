@@ -76,4 +76,6 @@ $router->get("{$urlBase}pdfs/contratos/fixacoes/{contrato}", "PDF\FixacoesContro
 $router->get("{$urlBase}pdfs/contratos/futuros", "PDF\ContratosFuturosController@index");
 $router->get("{$urlBase}pdfs/contratos/atuais", "PDF\ContratosAtuaisController@index");
 $router->get("{$urlBase}pdfs/contratos/clientes/{cliente}", "PDF\FiltrosController@porCliente");
+$router->get("{$urlBase}pdfs/contratos/clientes/futuros/{cliente}", "PDF\FiltrosController@porClienteFuturo");
+$router->get("{$urlBase}pdfs/contratos/clientes/atuais/{cliente}", "PDF\FiltrosController@porClienteAtual");
 $router->get("{$urlBase}pdfs/datas", "PDF\FiltrosController@index");
