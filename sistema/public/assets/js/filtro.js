@@ -15,5 +15,6 @@ $("document").ready(() => {
     });
   }
 
-  $('.select2').on('change', ({target}) => window.open(`../back-end/pdfs/contratos/clientes/${target.value}`, "_blank"));
+  //$('.select2').on('change', ({target}) => window.open(`../back-end/pdfs/contratos/clientes/${target.value}`, "_blank"));
+  $('#porClienteTodos').submit(({target}) => window.open(`../back-end/pdfs/contratos/clientes/${target.value}`, "_blank"));
 });

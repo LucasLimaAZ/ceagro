@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <label for="data-inicial">Data inicial:</label>
-                                <input type="date" class="form-control" name="data-inicial">
+                                <input type="date" class="form-control" name="data-inicial" required>
                             </div>
                             <div class="col-md-5">
                                 <label for="data-final">Data final:</label>
-                                <input type="date" class="form-control" name="data-final">
+                                <input type="date" class="form-control" name="data-final" required>
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" style="margin-top:24px" class="btn btn-primary">Filtrar</button>
@@ -44,18 +44,21 @@
                     </form>
                 </div>
                 <div class="col-xs-12" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
-                    <form role="form" id="contrato">
+                    <form role="form" id="porClienteTodos">
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="page-header"><i class="fa fa-user"></i> Filtrar por cliente</h2>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-xs-10">
                                 <div class="form-group">
                                     <label for="vendedor_id">Nome Fantasia</label>
                                     <select class="form-control select2" name="clientes" style="width: 100%;" id="clientes" required></select>
                                 </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="submit" class="btn btn-primary">Filtrar</button>
                             </div>
                         </div>
                     </form>

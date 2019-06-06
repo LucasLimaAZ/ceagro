@@ -2,7 +2,8 @@
 
 namespace App\Controllers\PDF;
 
-use App\Models\{Cliente, Contrato};
+use App\Models\Contrato;
+use App\Models\Cliente;
 use Dompdf\Dompdf;
 class FiltrosController
 {
