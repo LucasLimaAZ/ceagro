@@ -198,19 +198,35 @@
                         <?= $contrato->cfop()->descricao ?? "Nenhum" ?></td>
                 </tr>
                 <tr>
-                <td class="paddingTop20">Logística/Cotas Vendedor:
-                       <?= ($contrato->vendedor->logistica_cotas && strlen($contrato->vendedor->logistica_cotas) > 0) ? $contrato->vendedor->logistica_cotas : "-" ?></td>
+                    <td class="paddingTop20">Logística/Cotas Vendedor:
+                        <?= ($contrato->vendedor->logistica_cotas 
+                            && strlen($contrato->vendedor->logistica_cotas) > 0) 
+                        ? $contrato->vendedor->logistica_cotas : "-" ?>
+                    </td>
                 </tr>
                 <tr>
                 <td class="paddingTop10">Logística/Cotas Comprador:
                        <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?></td>
                 </tr>
-                <?php if ($contrato->observacao) {
+                <?php if ($contrato->observacao || $contrato->exportacao) {
+                    if($contrato->exportacao){
+                        echo "<tr> <td class='paddingTop20' colspan='3'>Observações: A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
+                            <br>a) REGISTRO DE EXPORTAÇÃO emitido nos termos da legislação em vigor à época da entrega das mercadorias. Em anexo ao R.E deverá encaminhar memorando de exportação acompanhado dos documentos abaixo:
+                            <br>b) Cópia Registro de Exportação (R.E), que deve indicar no Campo do Fabricante o CNPJ do vendedor.
+                            <br>c) Cópia do Comprovante de Exportação (C.E)
+                            <br>d) Cópia da Bill of loading (B.L)
+                            <br>e) Cópia da Declaração de Despacho de Exportação (D.D.E.); </td></tr><tr>
+                            <td class='paddingTop20' colspan='3'>
+                                $contrato->observacao 
+                            </td>
+                            </tr>";
+                    }else{
                     echo "<tr>
                         <td class='paddingTop20' colspan='3'>Observações:
                             $contrato->observacao 
                         </td>
-                    </tr>";
+                        </tr>";
+                    }
                 }
                 ?>
                 <tr>

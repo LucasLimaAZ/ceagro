@@ -209,7 +209,7 @@ function atualizar() {
 
 /** ADENDOS */
 function buscarAdendos() {
-  $.get(`../back-end/contratos/${contrato.id}/adendos/`).done(adendos => {
+  $.get(`../back-end/contratos/${contrato.id}/adendos`).done(adendos => {
     _adendos = JSON.parse(adendos);
     listarAdendos(JSON.parse(adendos));
   });

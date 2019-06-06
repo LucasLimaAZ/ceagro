@@ -24,6 +24,8 @@ class Contrato extends Model
     public $tipo_embarque;
     public $local;
     public $data_embarque;
+    public $data_embarque_inicial;
+    public $data_embarque_final;
     public $peso_qualidade;
     public $cfop;
     public $solicitacao_cotas;
@@ -39,6 +41,7 @@ class Contrato extends Model
     public $unidade_vendedor_id;
     public $unidade_comprador_id;
     public $retirada_entrega;
+    public $exportacao;
 
     public $unidadeComprador;
     public $unidadeVendedor;
@@ -92,7 +95,7 @@ class Contrato extends Model
     {
         $reflection = new \ReflectionClass("App\Models\Cliente");
         $instance = $reflection->newInstanceWithoutConstructor();
-        return $this->vendedor = $instance::find(["id", $this->comprador_id]);
+        return $this->vendedor = $instance::find(["id", $this->vendedor_id]);
     }
 
     public function produto()

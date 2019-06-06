@@ -1,6 +1,12 @@
 <?php include 'partials/cabecalho.html' ?>
-
 <body class="hold-transition skin-blue sidebar-mini">
+	<style>
+		.checkExportacao{
+			/* width:32px;
+			height:32px; */
+			
+		}
+	</style>
 	<div class="wrapper">
 		<?php include "partials/header.html"; ?>
 		<?php include "partials/menu.html"; ?>
@@ -203,7 +209,8 @@
 																	<div class="input-group-addon">
 																		<i class="fa fa-calendar"></i>
 																	</div>
-																	<input type="text" name="data_embarque" class="form-control pull-right" id="reservation">
+																	<input type="text" name="data_embarque_inicial" class="form-control pull-right" id="data_embarque_inicial">
+																	<input type="text" name="data_embarque_final" class="form-control pull-right" id="data_embarque_final">
 																</div>
 															</div>
 														</div>
@@ -245,16 +252,22 @@
 														</div>
 														<div class="form-row">
 															<div class="col-xs-12 col-lg-4">
-															<div class="form-group">
-																<label for="cfop">CFOP</label>
-																<select name="cfop" class="form-control" id="cfops">
-																</select>
-															</div>
+																<div class="form-group">
+																	<label for="cfop">CFOP</label>
+																	<select name="cfop" class="form-control" id="cfops">
+																	</select>
+																</div>
 															</div>
 															<div class="col-xs-12 col-lg-4">
 																<div class="form-group">
 																	<label for="comissao">Comissão</label>
 																	<input type="text" class="form-control" name="comissao" placeholder="Informe sobre a comissao do contrato" autocomplete="off" required>
+																</div>
+															</div>
+															<div class="col-xs-12 col-lg-4" style="margin-top: 3rem !important;">
+																<div class="form-group">
+																	<input type="checkbox" id="exportacao" name="exportacao" class="checkExportacao flat-red">
+																	<label for="exportacao">Exportação</label>
 																</div>
 															</div>
 														</div>
@@ -492,18 +505,8 @@
 	<script src="adminlte/bower_components/moment/min/moment.min.js"></script>
 	<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<script>
 
-		<script>
-		$('#reservation').daterangepicker({
-				locale: {
-				format: 'DD/MM/YYYY'
-			}
-		});
-		// $('#reservation2').datepicker({
-		// 		locale: {
-		// 		format: 'DD/MM/Y	YYY'
-		// 	}
-		// });
 		$.fn.datepicker.dates['pt'] = {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
 			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
@@ -512,13 +515,20 @@
 			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
 			today: "Hoje",
 			clear: "Limpar",
-			format: "dd/mm/yyyy",
+			// format: "dd/mm/yyyy",
 			titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
 			weekStart: 0
 		};
-		$('#reservation2').datepicker({
+		
+		// $('#reservation').datepicker({
+		// 	autoclose: true,
+		// 	language:'pt'
+		// });
+
+		$("#reservation2, #data_embarque_inicial, #data_embarque_final").datepicker({
 			autoclose: true,
-			language:'pt'
-		})
-		</script>
-		<?php include 'partials/rodape.html' ?>
+			language:'pt',
+			format    : 'yyyy-mm-dd'
+		});
+	</script>
+	<?php include 'partials/rodape.html' ?>

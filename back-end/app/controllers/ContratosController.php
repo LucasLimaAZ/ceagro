@@ -117,7 +117,7 @@ class ContratosController extends Controller
 
         foreach ($compradores as $k => &$item) {
             $comprador = Cliente::find(['id', $k]);
-            $item['cliente'] = ($comprador->razao_social) ? $comprador->razao_social : $comprador->cnpj;
+            $item['cliente'] = ($comprador->nome_fantasia) ? $comprador->nome_fantasia : $comprador->cnpj;
         }
 
         return $this->responderJSON($compradores);
@@ -142,7 +142,7 @@ class ContratosController extends Controller
 
         foreach ($vendedores as $k => &$item) {
             $vendedor = Cliente::find(['id', $k]);
-            $item['cliente'] = ($vendedor->razao_social) ? $vendedor->razao_social : $vendedor->cnpj;
+            $item['cliente'] = ($vendedor->nome_fantasia) ? $vendedor->nome_fantasia : $vendedor->cnpj;
         }
 
         return $this->responderJSON($vendedores);

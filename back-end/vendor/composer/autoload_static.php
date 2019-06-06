@@ -44,7 +44,7 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
 
     public static $classMap = array (
         'App\\Controllers\\AdaptacaoController' => __DIR__ . '/../..' . '/app/controllers/AdaptacaoController.php',
-        'App\\Controllers\\AdendosController' => __DIR__ . '/../..' . '/AdendoController.php',
+        'App\\Controllers\\AdendosController' => __DIR__ . '/../..' . '/app/controllers/AdendosController.php',
         'App\\Controllers\\CfopsController' => __DIR__ . '/../..' . '/app/controllers/CfopsControllers.php',
         'App\\Controllers\\ClientesController' => __DIR__ . '/../..' . '/app/controllers/ClientesController.php',
         'App\\Controllers\\ContasBancariasController' => __DIR__ . '/../..' . '/app/controllers/ContasBancariasController.php',
@@ -58,6 +58,7 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
         'App\\Controllers\\PDF\\ContratosClienteController' => __DIR__ . '/../..' . '/app/controllers/PDF/ContratosClienteController.php',
         'App\\Controllers\\PDF\\ContratosController' => __DIR__ . '/../..' . '/app/controllers/PDF/ContratosController.php',
         'App\\Controllers\\PDF\\ContratosFuturosController' => __DIR__ . '/../..' . '/app/controllers/PDF/ContratosFuturosController.php',
+        'App\\Controllers\\PDF\\FiltrosController' => __DIR__ . '/../..' . '/app/controllers/PDF/FiltrosController.php',
         'App\\Controllers\\PDF\\FixacoesController' => __DIR__ . '/../..' . '/app/controllers/PDF/FixacoesController.php',
         'App\\Controllers\\ProdutosController' => __DIR__ . '/../..' . '/app/controllers/ProdutosController.php',
         'App\\Controllers\\Teste' => __DIR__ . '/../..' . '/app/controllers/teste.php',
