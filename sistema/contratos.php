@@ -209,8 +209,8 @@
 																	<div class="input-group-addon">
 																		<i class="fa fa-calendar"></i>
 																	</div>
-																	<input type="text" name="data_embarque_inicial" class="form-control pull-right" id="data_embarque_inicial">
-																	<input type="text" name="data_embarque_final" class="form-control pull-right" id="data_embarque_final">
+																	<input type="text" name="data_embarque_inicial" class="form-control pull-right" id="data_embarque_inicial" required>
+																	<input type="text" name="data_embarque_final" class="form-control pull-right" id="data_embarque_final" required>
 																</div>
 																<div class="form-group">
 																	<input type="checkbox" id="imediato" name="imediato" class="checkImediato flat-red">
