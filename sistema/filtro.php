@@ -51,14 +51,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-10">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="vendedor_id">Nome Fantasia</label>
-                                    <select class="form-control select2" name="clientes" style="width: 100%;" id="clientes" required></select>
+                                    <select class="form-control select2 todos" name="clientes" style="width: 100%;" id="clientes" required></select>
                                 </div>
                             </div>
-                            <div class="col-xs-2">
-                                <button type="submit" class="btn btn-primary">Filtrar</button>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label for="vendedor_id">Nome Fantasia (Futuros)</label>
+                                    <select class="form-control select2 futuros" name="clientes" style="width: 100%;" id="clientes2" required></select>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label for="vendedor_id">Nome Fantasia (Atuais)</label>
+                                    <select class="form-control select2 atuais" name="clientes" style="width: 100%;" id="clientes3" required></select>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -72,10 +81,10 @@
                         </div> 
                         <div class="row">
                             <div class="col-xs-12">
-                                <a href="../back-end/pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="btn btn-primary">Atual</button></a>
+                                <a href="../back-end/pdfs/contratos/atuais"><button type="button" style="margin-top:24px" class="col-xs-3 btn btn-primary">Atual</button></a>
                             </div>
                             <div class="col-xs-12">
-                                <a href="../back-end/pdfs/contratos/futuros"><button type="button" style="margin-top:24px" class="btn btn-primary">Futura</button></a>
+                                <a href="../back-end/pdfs/contratos/futuros"><button type="button" style="margin-top:24px" class="col-xs-3 btn btn-primary">Futura</button></a>
                             </div>
                         </div>
                     </form>
