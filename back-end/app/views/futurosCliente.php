@@ -131,12 +131,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="nmro">Nº</th>
-                        <th class="futuro">Futuro</th>
-                        <th class="all">Vendedor</th>
-                        <th class="all">Comprador</th>
-                        <th class="all">Produto</th>
-                        <th class="valor">Valor</th>
+                        <th>Nº</th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
+                        <th>Valor</th>
+                        <th>Pagamento</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -144,11 +146,13 @@
                         <?php if($contrato->futuro): ?>
                             <tr>
                                 <td><?=$contrato->numero_confirmacao;?></td>
-                                <td><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                                 <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                                 <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                                 <td><?=$contrato->produto->nome;?></td>
+                                <td><?=$contrato->data_embarque_inicial;?></td>
+                                <td><?=$contrato->data_embarque_final;?></td>
                                 <td><?=$contrato->preco;?></td>
+                                <td><?=$contrato->pagamento;?></td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach ?>
@@ -162,12 +166,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="nmro">Nº </th>
-                        <th class="futuro">Futuro</th>
-                        <th class="all">Vendedor</th>
-                        <th class="all">Comprador</th>
-                        <th class="all">Produto</th>
-                        <th class="valor" >Valor</th>
+                        <th>Nº </th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
+                        <th >Valor</th>
+                        <th >Pagamento</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -175,11 +181,13 @@
                         <?php if($contrato->futuro): ?>
                         <tr>
                             <td><?=$contrato->numero_confirmacao;?></td>
-                            <td ><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                             <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                             <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                             <td><?=$contrato->produto->nome;?></td>
+                            <td><?=$contrato->data_embarque_inicial;?></td>
+                            <td><?=$contrato->data_embarque_final;?></td>
                             <td><?=$contrato->preco;?></td>
+                            <td><?=$contrato->pagamento;?></td>
                         </tr>
                         <?php endif; ?>
                     <?php endforeach ?>

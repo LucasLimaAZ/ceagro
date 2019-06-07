@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contratos Futuros</title>
+    <title>Contratos Atuais</title>
 </head>
 <style>
     * {
@@ -131,24 +131,28 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="nmro">Nº</th>
-                        <th class="futuro">Futuro</th>
-                        <th class="all">Vendedor</th>
-                        <th class="all">Comprador</th>
-                        <th class="all">Produto</th>
-                        <th class="valor">Valor</th>
+                        <th>Nº</th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
+                        <th>Valor</th>
+                        <th>Pagamento</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($contratosVendedor as $contrato): ?>
-                        <?php if(!$contrato->futuro): ?>
+                        <?php if(!$contrato->futuro && !$contrato->imediato): ?>
                             <tr>
                                 <td><?=$contrato->numero_confirmacao;?></td>
-                                <td><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                                 <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                                 <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                                 <td><?=$contrato->produto->nome;?></td>
+                                <td><?=$contrato->data_embarque_inicial;?></td>
+                                <td><?=$contrato->data_embarque_final;?></td>
                                 <td><?=$contrato->preco;?></td>
+                                <td><?=$contrato->pagamento;?></td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach ?>
@@ -162,24 +166,28 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="nmro">Nº </th>
-                        <th class="futuro">Futuro</th>
-                        <th class="all">Vendedor</th>
-                        <th class="all">Comprador</th>
-                        <th class="all">Produto</th>
-                        <th class="valor" >Valor</th>
+                        <th>Nº </th>
+                        <th>Vendedor</th>
+                        <th>Comprador</th>
+                        <th>Produto</th>
+                        <th>Data Inicial</th>
+                        <th>Data Final</th>
+                        <th >Valor</th>
+                        <th >Pagamento</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($contratosComprador as $contrato): ?>
-                        <?php if(!$contrato->futuro): ?>
+                        <?php if(!$contrato->futuro && !$contrato->imediato): ?>
                         <tr>
                             <td><?=$contrato->numero_confirmacao;?></td>
-                            <td ><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                             <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                             <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                             <td><?=$contrato->produto->nome;?></td>
+                            <td><?=$contrato->data_embarque_inicial;?></td>
+                            <td><?=$contrato->data_embarque_final;?></td>
                             <td><?=$contrato->preco;?></td>
+                            <td><?=$contrato->pagamento;?></td>
                         </tr>
                         <?php endif; ?>
                     <?php endforeach ?>

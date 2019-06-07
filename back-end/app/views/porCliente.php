@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contratos Futuros</title>
+    <title>Contratos</title>
 </head>
 <style>
     * {
@@ -100,7 +100,10 @@
                     <th>Vendedor</th>
                     <th>Comprador</th>
                     <th>Produto</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
                     <th>Valor</th>
+                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,7 +119,10 @@
                     <td><?=$contrato_vendedor->unidadeVendedor()->razao_social;?></td>
                     <td><?=$contrato_vendedor->unidadeComprador()->razao_social;?></td>
                     <td><?=$contrato_vendedor->produto->nome;?></td>
+                    <td><?=$contrato_vendedor->data_embarque_inicial;?></td>
+                    <td><?=$contrato_vendedor->data_embarque_final;?></td>
                     <td><?=$contrato_vendedor->preco;?></td>
+                    <td><?=$contrato_vendedor->pagamento;?></td>
 
                 </tr>
                 
@@ -145,7 +151,10 @@
                     <th>Vendedor</th>
                     <th>Comprador</th>
                     <th>Produto</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
                     <th>Valor</th>
+                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -161,7 +170,10 @@
                     <td><?=$contrato_comprador->unidadeVendedor()->razao_social;?></td>
                     <td><?=$contrato_comprador->unidadeComprador()->razao_social;?></td>
                     <td><?=$contrato_comprador->produto->nome;?></td>
+                    <td><?=$contrato_comprador->data_embarque_inicial;?></td>
+                    <td><?=$contrato_comprador->data_embarque_final;?></td>
                     <td><?=$contrato_comprador->preco;?></td>
+                    <td><?=$contrato_comprador->pagamento;?></td>
 
                 </tr>
                 

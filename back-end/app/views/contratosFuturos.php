@@ -125,7 +125,10 @@
                     <th>Vendedor</th>
                     <th>Comprador</th>
                     <th>Produto</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
                     <th>Valor</th>
+                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -141,7 +144,10 @@
                     <td><?=$campo->unidadeVendedor()->razao_social;?></td>
                     <td><?=$campo->unidadeComprador()->razao_social;?></td>
                     <td><?=$campo->produto->nome;?></td>
+                    <td><?=$campo->data_embarque_inicial;?></td>
+                    <td><?=$campo->data_embarque_inicial;?></td>
                     <td><?=$campo->preco;?></td>
+                    <td><?=$campo->pagamento;?></td>
 
                 </tr>
 
