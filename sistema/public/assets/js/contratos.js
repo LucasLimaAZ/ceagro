@@ -192,7 +192,10 @@ function cadastrar() {
 
 function atualizar() {
   mostrarModal();
-  const dados = $("#contrato").serialize();
+  let dados = $("#contrato").serialize();
+  $('#contrato input[type=checkbox]').map((a, b) => {
+    dados+=`&${b.name}=`+((b.checked)? 1: 0);
+  });
   $.ajax({
     type: "PUT",
     url: `../back-end/contratos/${contrato.id}`,
@@ -243,6 +246,7 @@ function cadastrarAdendo() {
   mostrarModal();
   $(`#adendo`).append(`<input hidden name='contrato_id' value=${contrato.id}>`);
   const dados = $("#adendo").serialize();
+   
   $.post(`../back-end/contratos/adendos`, dados)
     .done(adendos => {
       _adendos = JSON.parse(adendos);
@@ -369,6 +373,7 @@ function atualizarFixacao() {
   );
   $(`#fixacao`).append(`<input hidden name='id' value=${fixacao.id}>`);
   const dados = $("#fixacao").serialize();
+
   $.ajax({
     type: "PUT",
     url: `../back-end/fixacoes/${fixacao.id}`,

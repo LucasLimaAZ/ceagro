@@ -213,7 +213,7 @@
 																	<input type="text" name="data_embarque_final" class="form-control pull-right" id="data_embarque_final">
 																</div>
 																<div class="form-group">
-																	<input type="checkbox" id="imediato" name="imediato" value="1" class="checkImediato flat-red">
+																	<input type="checkbox" id="imediato" name="imediato" class="checkImediato flat-red">
 																	<label for="imediato">Imediato</label>
 																</div>
 															</div>
@@ -270,7 +270,7 @@
 															</div>
 															<div class="col-xs-12 col-lg-4" style="margin-top: 3rem !important;">
 																<div class="form-group">
-																	<input type="checkbox" id="exportacao" name="exportacao" value="1" class="checkExportacao flat-red">
+																	<input type="checkbox" id="exportacao" name="exportacao" class="checkExportacao flat-red">
 																	<label for="exportacao">Exportação</label>
 																</div>
 															</div>
