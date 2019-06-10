@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contratos Futuros</title>
+    <title>Contratos por Data</title>
 </head>
 <style>
     * {
@@ -94,7 +94,10 @@
                     <th>Vendedor</th>
                     <th>Comprador</th>
                     <th>Produto</th>
+                    <th>Data Inicial</th>
+                    <th>Data Final</th>
                     <th>Valor</th>
+                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -104,7 +107,10 @@
                     <td><?=$campo->unidadeVendedor()->razao_social;?></td>
                     <td><?=$campo->unidadeComprador()->razao_social;?></td>
                     <td><?=$campo->produto->nome;?></td>
+                    <td><?=$campo->data_embarque_inicial;?></td>
+                    <td><?=$campo->data_embarque_final;?></td>
                     <td><?=$campo->preco;?></td>
+                    <td><?=$campo->pagamento;?></td>
                 </tr>
                 <?php endforeach ?>
             </tbody>

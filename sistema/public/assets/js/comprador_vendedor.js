@@ -19,7 +19,7 @@ let vendedor = null;
  * Verifica se há um contrato no localstorage.
  */
 function temContrato() {
-    // localStorage.removeItem('contrato');
+    localStorage.removeItem('contrato');
     return (contrato != null) ? true : false;
 }
 
