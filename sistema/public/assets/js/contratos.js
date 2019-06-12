@@ -180,6 +180,9 @@ function setNumeroConfirmacao() {
 function cadastrar() {
   mostrarModal();
   const dados = $("#contrato").serialize();
+  $('#contrato input[type=checkbox]').map((a, b) => {
+    dados+=`&${b.name}=`+((b.checked)? 1: 0);
+  });
   $.post("../back-end/contratos", dados)
     .done(ct => {
       contrato = JSON.parse(ct);
