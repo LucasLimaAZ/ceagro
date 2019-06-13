@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contratos Atuais</title>
+    <title>Contratos Futuros</title>
 </head>
 <style>
     * {
@@ -90,9 +90,7 @@
     <?php
     $nContratos = 0;
     foreach ($contrato as $campo){
-        if(!$campo->imediato){
-            $nContratos++;
-        }
+        $nContratos++;
     }
     ?>
         <div class="log">
@@ -108,11 +106,11 @@
         ?></strong>
         </div>
         <div class="nContratos">
-        Você tem <b><?=$nContratos;?></b> contratos atuais.
+        Você tem <b><?=$nContratos;?></b> contratos imediatos.
         </div>
     </header>
     <section>
-        <div class="title">CONTRATOS ATUAIS</div>
+        <div class="title">CONTRATOS IMEDIATOS</div>
         <div class="tabela">
         <table>
             <thead>
@@ -121,19 +119,14 @@
                     <th>Vendedor</th>
                     <th>Comprador</th>
                     <th>Produto</th>
-                    <th>Data Inicial</th>
-                    <th>Data Final</th>
                     <th>Valor</th>
-                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
 
                 foreach($contrato as $campo){
-                if(!$campo->imediato):
-                    $data_inicial = $campo->data_embarque_inicial;
-                    $data_final = $campo->data_embarque_final;
+
                 ?>
 
                 <tr>
@@ -142,15 +135,12 @@
                     <td><?=$campo->unidadeVendedor()->razao_social;?></td>
                     <td><?=$campo->unidadeComprador()->razao_social;?></td>
                     <td><?=$campo->produto->nome;?></td>
-                    <td><?=date("d/m/Y", strtotime($data_inicial));?></td>
-                    <td><?=date("d/m/Y", strtotime($data_final));?></td>
                     <td><?=$campo->preco;?></td>
-                    <td><?=$campo->pagamento;?></td>
 
                 </tr>
                 
                 <?php
-                endif;
+
                 }
 
                 ?>

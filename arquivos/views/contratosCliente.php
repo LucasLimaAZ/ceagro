@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contratos Atuais</title>
+    <title>Contratos Futuros</title>
 </head>
 <style>
     * {
@@ -83,6 +83,18 @@
         width:3cm !important;
     }
 
+    .cnpjCeagro{
+        padding-left:63%;
+    }
+    .footerCeagro{
+        padding-left:48%;
+    }
+
+    .footer{
+        position:fixed;
+        bottom:75px !important;
+    }
+
     
     
 </style>
@@ -126,72 +138,68 @@
             </table>
     </section>
     <section>
-        <div class="title">VENDEDOR (Atual)</div>
+        <div class="title">VENDEDOR</div>
         <div class="tabela">
             <table>
                 <thead>
                     <tr>
-                        <th>Nº</th>
-                        <th>Vendedor</th>
-                        <th>Comprador</th>
-                        <th>Produto</th>
-                        <th>Data Inicial</th>
-                        <th>Data Final</th>
-                        <th>Valor</th>
-                        <th>Pagamento</th>
+                        <th class="nmro">Nº</th>
+                        <th class="futuro">Futuro</th>
+                        <th class="all">Vendedor</th>
+                        <th class="all">Comprador</th>
+                        <th class="all">Produto</th>
+                        <th class="valor">Valor</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($contratosVendedor as $contrato): ?>
-                        <?php if(!$contrato->futuro && !$contrato->imediato): ?>
-                            <tr>
-                                <td><?=$contrato->numero_confirmacao;?></td>
-                                <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
-                                <td><?=$contrato->unidadeComprador()->razao_social;?></td>
-                                <td><?=$contrato->produto->nome;?></td>
-                                <td><?=date("d/m/Y", strtotime($contrato->data_embarque_inicial));?></td>
-                                <td><?=date("d/m/Y", strtotime($contrato->data_embarque_final));?></td>
-                                <td><?=$contrato->preco;?></td>
-                                <td><?=$contrato->pagamento;?></td>
-                            </tr>
-                        <?php endif; ?>
+                        <tr>
+                            <td><?=$contrato->numero_confirmacao;?></td>
+                            <td><?=($contrato->futuro)?"SIM":"NÃO";?></td>
+                            <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
+                            <td><?=$contrato->unidadeComprador()->razao_social;?></td>
+                            <td><?=$contrato->produto->nome;?></td>
+                            <td><?=$contrato->preco;?></td>
+                        </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </section>
     <section>
-        <div class="title">COMPRADOR (Atual)</div>
+        <div class="title">COMPRADOR</div>
         <div class="tabela">
             <table>
                 <thead>
                     <tr>
-                        <th>Nº </th>
-                        <th>Vendedor</th>
-                        <th>Comprador</th>
-                        <th>Produto</th>
-                        <th>Data Inicial</th>
-                        <th>Data Final</th>
-                        <th >Valor</th>
-                        <th >Pagamento</th>
+                        <th class="nmro">Nº </th>
+                        <th class="futuro">Futuro</th>
+                        <th class="all">Vendedor</th>
+                        <th class="all">Comprador</th>
+                        <th class="all">Produto</th>
+                        <th class="valor" >Valor</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($contratosComprador as $contrato): ?>
-                        <?php if(!$contrato->futuro && !$contrato->imediato): ?>
                         <tr>
                             <td><?=$contrato->numero_confirmacao;?></td>
+                            <td ><?=($contrato->futuro)?"SIM":"NÃO";?></td>
                             <td><?=$contrato->unidadeVendedor()->razao_social;?></td>
                             <td><?=$contrato->unidadeComprador()->razao_social;?></td>
                             <td><?=$contrato->produto->nome;?></td>
-                            <td><?=date("d/m/Y", strtotime($contrato->data_embarque_inicial));?></td>
-                            <td><?=date("d/m/Y", strtotime($contrato->data_embarque_final));?></td>
                             <td><?=$contrato->preco;?></td>
-                            <td><?=$contrato->pagamento;?></td>
                         </tr>
-                        <?php endif; ?>
                     <?php endforeach ?>
                 </tbody>
+                <div class="footer">
+                <div>
+                    <div class="footerCeagro"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></div>
+                </div> 
+                <div>
+                    <div class="cnpjCeagro"><pre>90.880.204/0001-57</pre></div>
+                </div>
+            </div>
             </table>
         </div>
     </section>
