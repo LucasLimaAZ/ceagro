@@ -181,12 +181,20 @@
                 <tr>
                     <td class="paddingTop20" colspan="3">
                         Preço: <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
+
+                    <?php if($contrato->imediato): ?>
+                        <div class="paddingTop20">Embarque: imediato</div>
+                    <?php endif; ?>
+
+                    <?php if(!$contrato->imediato): ?>
                         <?php if($contrato->data_embarque_inicial != $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?= "Retirada: de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
+                            <div class="paddingTop20"><?=ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
                         <?php endif; ?>
                         <?php if($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?= "Retirada: ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
+                            <div class="paddingTop20"><?=ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
                         <?php endif; ?>
+                    <?php endif; ?>
+
                         <div class=""><br>Pagamento: <?= $contrato->pagamento ?></div>
                     </td>
                     <tr>
