@@ -180,6 +180,7 @@ function compararContrato(contrato, formulario) {
             if (typeof valor === "object" && valor) {
                 compararContrato(valor, campo);
             }
+
             if (formObj.name === campo && formObj.name === 'exportacao' && valor === "1"){
                 $(formObj).attr('checked', 'checked');
             }
