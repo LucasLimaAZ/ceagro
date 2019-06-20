@@ -63,6 +63,10 @@ $("#deletarAdendo").on("click", () => {
   excluirAdendo();
 });
 
+$("#imediato").on("click", () => {
+  console.log("teste");
+});
+
 /**
  * Exclui uma fixacao
  */
@@ -180,8 +184,8 @@ function setNumeroConfirmacao() {
 function cadastrar() {
   mostrarModal();
   let dados = $("#contrato").serialize();
-  $('#contrato input[type=checkbox]').map((a, b) => {
-    dados+=`&${b.name}=`+((b.checked)? 1: 0);
+  $("#contrato input[type=checkbox]").map((a, b) => {
+    dados += `&${b.name}=` + (b.checked ? 1 : 0);
   });
   $.post("../back-end/contratos", dados)
     .done(ct => {
@@ -196,8 +200,8 @@ function cadastrar() {
 function atualizar() {
   mostrarModal();
   let dados = $("#contrato").serialize();
-  $('#contrato input[type=checkbox]').map((a, b) => {
-    dados+=`&${b.name}=`+((b.checked)? 1: 0);
+  $("#contrato input[type=checkbox]").map((a, b) => {
+    dados += `&${b.name}=` + (b.checked ? 1 : 0);
   });
   $.ajax({
     type: "PUT",
@@ -249,7 +253,7 @@ function cadastrarAdendo() {
   mostrarModal();
   $(`#adendo`).append(`<input hidden name='contrato_id' value=${contrato.id}>`);
   const dados = $("#adendo").serialize();
-   
+
   $.post(`../back-end/contratos/adendos`, dados)
     .done(adendos => {
       _adendos = JSON.parse(adendos);
