@@ -30,6 +30,18 @@ $("#adendo").submit(() => {
   }
 });
 
+$("#imediato").change(function(){
+  if(this.checked){
+    $("#data_embarque_inicial").prop("disabled", true);
+    $("#data_embarque_final").prop("disabled", true);
+    $("#data_embarque_final").val(null);
+    $("#data_embarque_inicial").val(null);
+  }else{
+    $("#data_embarque_inicial").prop("disabled", false);
+    $("#data_embarque_final").prop("disabled", false);
+  }
+});
+
 $("#fixacao").submit(() => {
   event.preventDefault();
   if (temFixacao()) {
