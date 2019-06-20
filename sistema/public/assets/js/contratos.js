@@ -30,13 +30,13 @@ $("#adendo").submit(() => {
   }
 });
 
-$("#imediato").change(function(){
-  if(this.checked){
+$("#imediato").change(function() {
+  if (this.checked) {
     $("#data_embarque_inicial").prop("disabled", true);
     $("#data_embarque_final").prop("disabled", true);
     $("#data_embarque_final").val(null);
     $("#data_embarque_inicial").val(null);
-  }else{
+  } else {
     $("#data_embarque_inicial").prop("disabled", false);
     $("#data_embarque_final").prop("disabled", false);
   }
@@ -59,6 +59,8 @@ let _fixacoes = null;
 let adendo = null;
 let fixacao = null;
 let numeros_confirmacao = null;
+let dados = {};
+let contratoArray;
 
 /**
  * Ao trocar de produto, filtra ele do array de produtos.
@@ -75,9 +77,7 @@ $("#deletarAdendo").on("click", () => {
   excluirAdendo();
 });
 
-$("#imediato").on("click", () => {
-  console.log("teste");
-});
+$("#imediato").on("click", () => {});
 
 /**
  * Exclui uma fixacao
@@ -195,18 +195,40 @@ function setNumeroConfirmacao() {
 
 function cadastrar() {
   mostrarModal();
-  let dados = $("#contrato").serialize();
+
+  contratoArray = $("#contrato").serializeArray();
   $("#contrato input[type=checkbox]").map((a, b) => {
-    dados += `&${b.name}=` + (b.checked ? 1 : 0);
+    contratoArray.push({
+      name: `${b.name}`,
+      value: b.checked ? 1 : 0
+    });
   });
-  $.post("../back-end/contratos", dados)
-    .done(ct => {
-      contrato = JSON.parse(ct);
-      alertCadastro();
-      exibirSucesso();
-    })
-    .always(() => esconderModal())
-    .fail(() => exibirErro());
+
+  setTimeout(() => {
+    $(contratoArray).each((index, obj) => {
+      dados[obj.name] = obj.value;
+    });
+
+    dados.data_embarque_inicial = moment(
+      dados.data_embarque_inicial,
+      "DD/MM/YYYY"
+    ).format("YYYY-MM-DD");
+    dados.data_embarque_final = moment(
+      dados.data_embarque_final,
+      "DD/MM/YYYY"
+    ).format("YYYY-MM-DD");
+  }, 1000);
+
+  setTimeout(() => {
+    $.post("../back-end/contratos", data)
+      .done(ct => {
+        contrato = JSON.parse(ct);
+        alertCadastro();
+        exibirSucesso();
+      })
+      .always(() => esconderModal())
+      .fail(() => exibirErro());
+  }, 2000);
 }
 
 function atualizar() {

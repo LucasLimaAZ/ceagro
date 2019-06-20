@@ -490,6 +490,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="hide" style="display:none">
+
+		</div>
 		<footer class="main-footer">
 		<div class="pull-right hidden-xs"> 
 					<i class="fab fa-optin-monster"></i> 
@@ -497,6 +500,7 @@
 				Copyright © 2019 CEAGRO - Todos os Direitos Reservados. Feito com <img src="http://dom.com.vc/dom.com.vc.gif" alt="DOM Creative Consulting" height="20" width="20"> por <a href="https://dom.com.vc">DOM</a>
 			</footer>
 		<?php include 'partials/imports.html' ?>
+		<script src="public/assets/js/moment.js"></script>
 		<script src="public/assets/js/comprador_vendedor.js"></script>
 		<script src="public/assets/js/contratos.js"></script>
 		<script src="adminlte/plugins/iCheck/icheck.min.js"></script>
@@ -506,10 +510,10 @@
 			radioClass: 'iradio_minimal-blue'
 		});
 		</script>
-	<script src="adminlte/bower_components/moment/min/moment.min.js"></script>
-	<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-	<script>
+		<script src="adminlte/bower_components/moment/min/moment.min.js"></script>
+		<script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+		<script>
 
 		$.fn.datepicker.dates['pt'] = {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
@@ -520,19 +524,13 @@
 			today: "Hoje",
 			clear: "Limpar",
 			// format: "dd/mm/yyyy",
-			titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
 			weekStart: 0
 		};
 		
-		// $('#reservation').datepicker({
-		// 	autoclose: true,
-		// 	language:'pt'
-		// });
-
 		$("#reservation2, #data_embarque_inicial, #data_embarque_final").datepicker({
 			autoclose: true,
 			language:'pt',
-			format    : 'yyyy-mm-dd'
+			format    : 'dd/mm/yyyy',
 		});
 	</script>
 	<?php include 'partials/rodape.html' ?>
