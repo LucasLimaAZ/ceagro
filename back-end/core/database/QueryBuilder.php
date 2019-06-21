@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use \PDO;
+use App\Models\Produto;
 
 class QueryBuilder
 {
@@ -30,6 +31,16 @@ class QueryBuilder
         } catch (\PDOException $e) {
             die($e);
         }
+    }
+
+    public function selectCliente($tabela, $classe, $cliente){
+
+        $query = "select * from {$tabela} where `vendedor_id` = $cliente or `comprador_id` = $cliente";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS, $classe);
+
     }
 
     public function select($query)
@@ -135,7 +146,10 @@ class QueryBuilder
         } catch (\Exception $e) {
             http_response_code(500);
             die($e->getMessage());
-        }
+        } catch (PDOException $e) {
+            http_response_code(500);
+            die($e->getMessage());
+        } 
     }
 
     public function update($tabela, $dados, $where)
@@ -152,12 +166,21 @@ class QueryBuilder
             $campos,
             implode(" = ", $where)
         );
+
         try {
-            $statement = $this->pdo->prepare($sql)->execute($dados);
+            $statement = $this->pdo->prepare($sql);
+            $e = $statement->execute($dados);
+
+            if (!$e) {
+                throw new \Exception("Erro ao atualizar $e");
+            }
             return $where[1];
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-
+            http_response_code(500);
+            die($e->getMessage());
+        } catch (\Exception $e) {
+            http_response_code(500);
+            die($e->getMessage());
         }
     }
 
@@ -172,5 +195,21 @@ class QueryBuilder
             echo 'Error: ' . $e->getMessage();
 
         }
+    }
+
+    public function produtosVendidos($clienteId) {
+        $sql = "select count(produtos.id) as incidencia, produtos.nome, contratos.preco from produtos join contratos on contratos.produto_id = produtos.id where contratos.vendedor_id = {$clienteId} group by produtos.id limit 5;";
+        try {
+           $statement= $this->pdo->prepare($sql);
+           $statement->execute();
+           return $statement->fetchAll(PDO::FETCH_CLASS, Produto::class);
+        } catch (PDOExcxeption $e) {
+            echo 'Error: ' . $e->getMessage();
+
+        }
+    }
+
+    public function produtosComprados($clienteId) {
+
     }
 }

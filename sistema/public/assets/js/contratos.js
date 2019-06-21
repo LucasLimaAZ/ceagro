@@ -10,6 +10,18 @@ $(document).ready(() => {
     buscarAdendos();
     buscarFixacoes();
   }
+
+  setTimeout(() => {
+    $("#data_embarque_inicial").val(
+      moment($("#data_embarque_inicial").val(), "YYYY-MM-DD").format(
+        "DD/MM/YYYY"
+      )
+    );
+    $("#data_embarque_final").val(
+      moment($("#data_embarque_final").val(), "YYYY-MM-DD").format("DD/MM/YYYY")
+    );
+    verificarImediato();
+  }, 1500);
 });
 
 $("#contrato").submit(() => {
@@ -30,17 +42,35 @@ $("#adendo").submit(() => {
   }
 });
 
-$("#imediato").change(function() {
-  if (this.checked) {
-    $("#data_embarque_inicial").prop("disabled", true);
-    $("#data_embarque_final").prop("disabled", true);
-    $("#data_embarque_final").val(null);
-    $("#data_embarque_inicial").val(null);
-  } else {
-    $("#data_embarque_inicial").prop("disabled", false);
-    $("#data_embarque_final").prop("disabled", false);
-  }
+$("#imediato").change(() => {
+  verificarImediato();
 });
+
+desabilitarDatasPicker = () => {
+  $("#data_embarque_inicial").prop("readonly", true);
+  $("#data_embarque_final").prop("readonly", true);
+  $("#data_embarque_inicial").datepicker("destroy");
+  $("#data_embarque_final").datepicker("destroy");
+  $("#data_embarque_inicial").val(null);
+  $("#data_embarque_final").val(null);
+};
+
+habilitarDatasPicker = () => {
+  $("#data_embarque_inicial").prop("readonly", false);
+  $("#data_embarque_final").prop("readonly", false);
+  $("#data_embarque_inicial").datepicker();
+  $("#data_embarque_final").datepicker();
+  $("#data_embarque_inicial").val(null);
+  $("#data_embarque_final").val(null);
+};
+
+verificarImediato = () => {
+  if ($("#imediato").is(":checked")) {
+    desabilitarDatasPicker();
+  } else {
+    habilitarDatasPicker();
+  }
+};
 
 $("#fixacao").submit(() => {
   event.preventDefault();
@@ -77,8 +107,6 @@ $("#deletarAdendo").on("click", () => {
   excluirAdendo();
 });
 
-$("#imediato").on("click", () => {});
-
 /**
  * Exclui uma fixacao
  */
@@ -92,17 +120,15 @@ $('.minimal[name="futuro"]').on("ifChecked", event => {
   setNumeroConfirmacao();
 });
 
-function temContratoL() {
-  return contrato ? true : false;
-}
+// Verifica se a variavel contrato está setada
+temContratoL = () => (contrato ? true : false);
 
-function temAdendo() {
-  return adendo ? true : false;
-}
+// Verifica se a variavel adendo está setada
+temAdendo = () => (adendo ? true : false);
 
-function temFixacao() {
-  return fixacao ? true : false;
-}
+// Verifica se a variavel fixacao está setada
+temFixacao = () => (fixacao ? true : false);
+
 /**
  * PRODUTOS
  */
@@ -113,12 +139,12 @@ function buscarProdutos() {
   });
 }
 
-function popularProdutos(produtos) {
+popularProdutos = produtos => {
   $.each(produtos, (index, produto) => {
     const option = `<option value=${produto.id}>${produto.nome}</option>`;
     $("#produtos").append(option);
   });
-}
+};
 
 function buscarCfops() {
   $.get(`../back-end/cfops`).done(response => {
@@ -208,46 +234,80 @@ function cadastrar() {
     $(contratoArray).each((index, obj) => {
       dados[obj.name] = obj.value;
     });
-
-    dados.data_embarque_inicial = moment(
-      dados.data_embarque_inicial,
-      "DD/MM/YYYY"
-    ).format("YYYY-MM-DD");
-    dados.data_embarque_final = moment(
-      dados.data_embarque_final,
-      "DD/MM/YYYY"
-    ).format("YYYY-MM-DD");
-  }, 1000);
+    if (dados.data_embarque_inicial) {
+      dados.data_embarque_inicial = moment(
+        dados.data_embarque_inicial,
+        "DD/MM/YYYY"
+      ).format("YYYY-MM-DD");
+    }
+    if (dados.data_embarque_final) {
+      dados.data_embarque_final = moment(
+        dados.data_embarque_final,
+        "DD/MM/YYYY"
+      ).format("YYYY-MM-DD");
+    }
+  }, 100);
 
   setTimeout(() => {
-    $.post("../back-end/contratos", data)
+    $.post("../back-end/contratos", dados)
       .done(ct => {
         contrato = JSON.parse(ct);
         alertCadastro();
         exibirSucesso();
+        window.location.href = "./contratosLista.php";
       })
       .always(() => esconderModal())
       .fail(() => exibirErro());
-  }, 2000);
+  }, 300);
 }
 
 function atualizar() {
   mostrarModal();
-  let dados = $("#contrato").serialize();
+  contratoArray = $("#contrato").serializeArray();
   $("#contrato input[type=checkbox]").map((a, b) => {
-    dados += `&${b.name}=` + (b.checked ? 1 : 0);
+    contratoArray.push({
+      name: `${b.name}`,
+      value: b.checked ? 1 : 0
+    });
   });
-  $.ajax({
-    type: "PUT",
-    url: `../back-end/contratos/${contrato.id}`,
-    data: dados
-  })
-    .done(() => {
-      alertCadastro();
-      exibirSucesso();
+
+  setTimeout(() => {
+    $(contratoArray).each((index, obj) => {
+      dados[obj.name] = obj.value;
+    });
+    if (dados.data_embarque_inicial) {
+      dados.data_embarque_inicial = moment(
+        dados.data_embarque_inicial,
+        "DD/MM/YYYY"
+      ).format("YYYY-MM-DD");
+    } else {
+      dados.data_embarque_inicial = null;
+    }
+    if (dados.data_embarque_final) {
+      dados.data_embarque_final = moment(
+        dados.data_embarque_final,
+        "DD/MM/YYYY"
+      ).format("YYYY-MM-DD");
+    } else {
+      dados.data_embarque_final = null;
+    }
+  }, 100);
+
+  setTimeout(() => {
+    console.log(dados);
+    $.ajax({
+      type: "PUT",
+      url: `../back-end/contratos/${contrato.id}`,
+      data: dados
     })
-    .always(() => esconderModal())
-    .fail(() => exibirErro());
+      .done(() => {
+        alertCadastro();
+        exibirSucesso();
+        window.location.href = "./contratosLista.php";
+      })
+      .always(() => esconderModal())
+      .fail(() => exibirErro());
+  }, 300);
 }
 /** FIM CONTRATO */
 
@@ -487,6 +547,12 @@ function compararForm(contrato, formulario) {
       if (typeof valor === "object" && valor) {
         compararForm(valor, campo);
       }
+      if (formObj.name === campo && formObj.name === "data_embarque_inicial") {
+        $("#data_embarque_inicial").val(
+          moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
+        );
+      }
+
       formObj.name === campo ? $(formObj).val(valor) : null;
     });
   });

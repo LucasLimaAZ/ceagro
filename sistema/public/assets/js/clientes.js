@@ -145,8 +145,6 @@ function compararFormCliente(cliente, formulario) {
         if (typeof valor === "object" && valor) {
           compararFormCliente(valor, campo);
         }
-        if (campo == formObj.name) {
-        }
         campo === formObj.name ? $(formObj).val(valor) : "";
       });
   });

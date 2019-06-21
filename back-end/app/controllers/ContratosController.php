@@ -42,22 +42,18 @@ class ContratosController extends Controller
 
     public function update($contrato)
     {
-
         try {
             $contratoId = $contrato['contrato'];
             unset($contrato['contrato']);
 
-            $contrato = Contrato::update(
-                $contrato,
-                ["id", $contratoId]
-            );
+            Contrato::update( $contrato, ["id", $contratoId] );
 
             $contrato = Contrato::find(["id", $contratoId]);
 
             return $this->responderJSON($contrato);
 
         } catch (\Exception $exception) {
-            return $this->responderJSON($exception);
+            return $this->responderJSON($exception, 500);
         }
     }
 
