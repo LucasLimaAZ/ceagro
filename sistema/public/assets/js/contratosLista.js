@@ -68,7 +68,7 @@ function selecionarContrato(ctId) {
 }
 
 function abrirContrato(ctId) {
-  window.open(`../back-end/pdfs/contratos/${ctId}`, "_blank");
+  window.open(`../back-end/pdfs/contratos/${ctId}`, "_self");
 }
 
 function irParaContratos(contrato) {
