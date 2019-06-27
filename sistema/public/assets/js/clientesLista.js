@@ -72,7 +72,7 @@ function popularPorUnidade(cliente) {
 }
 
 function abrirContratos(clId) {
-  window.open(`../back-end/pdfs/contratos/clientes/${clId}`, "_blank");
+  window.open(`../back-end/pdfs/contratos/clientes/${clId}`, "_self");
 }
 
 function irParaCliente(cliente) {
