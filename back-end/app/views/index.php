@@ -204,7 +204,8 @@
                 </tr>
                 <tr>
                     <td class="paddingTop20">Peso e Qualidade:
-                        <?= $contrato->peso_qualidade ?? " - " ?></td>
+                        <?= $contrato->peso_qualidade ?? " - " ?> 
+                    </td>
                 </tr>
                 <tr>
                     <td class="paddingTop20" colspan="3"> CFOP: 
