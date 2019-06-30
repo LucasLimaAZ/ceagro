@@ -183,15 +183,15 @@
                         Preço: <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
 
                     <?php if($contrato->imediato): ?>
-                        <div class="paddingTop20">Embarque: imediato</div>
+                        <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) ?>: imediato</div>
                     <?php endif; ?>
 
                     <?php if(!$contrato->imediato): ?>
                         <?php if($contrato->data_embarque_inicial != $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?=ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
+                            <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
                         <?php endif; ?>
                         <?php if($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?=ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
+                            <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
                         <?php endif; ?>
                     <?php endif; ?>
 
@@ -204,7 +204,8 @@
                 </tr>
                 <tr>
                     <td class="paddingTop20">Peso e Qualidade:
-                        <?= $contrato->peso_qualidade ?? " - " ?></td>
+                        <?= $contrato->peso_qualidade ?? " - " ?> 
+                    </td>
                 </tr>
                 <tr>
                     <td class="paddingTop20" colspan="3"> CFOP: 
