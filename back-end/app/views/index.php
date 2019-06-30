@@ -212,14 +212,14 @@
                         <?= $contrato->cfop()->descricao ?? "Nenhum" ?></td>
                 </tr>
                 <tr>
-                    <td class="paddingTop20">Logística/Cotas Vendedor:
+                    <td colspan="3" class="paddingTop20">Logística/Cotas Vendedor:
                         <?= ($contrato->vendedor->logistica_cotas 
                             && strlen($contrato->vendedor->logistica_cotas) > 0) 
                         ? $contrato->vendedor->logistica_cotas : "-" ?>
                     </td>
                 </tr>
                 <tr>
-                <td class="paddingTop10">Logística/Cotas Comprador:
+                <td colspan="3" class="paddingTop10">Logística/Cotas Comprador:
                        <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?></td>
                 </tr>
                 <?php if ($contrato->observacao || $contrato->exportacao) {
@@ -231,13 +231,13 @@
                             <br>d) Cópia da Bill of loading (B.L)
                             <br>e) Cópia da Declaração de Despacho de Exportação (D.D.E.); </td></tr><tr>
                             <td class='paddingTop20' colspan='3'>
-                                $contrato->observacao 
+                            <pre>".nl2br($contrato->observacao)."</pre>
                             </td>
                             </tr>";
                     }else{
                     echo "<tr>
                         <td class='paddingTop20' colspan='3'>Observações:
-                            $contrato->observacao 
+                        <pre>".nl2br($contrato->observacao)."</pre>
                         </td>
                         </tr>";
                     }
