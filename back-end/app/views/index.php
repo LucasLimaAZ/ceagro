@@ -252,11 +252,17 @@
                                 <?=nl2br($contrato->observacao)?>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                        </tr>
                     <?php else: ?>
                         <tr>
                             <td class='paddingTop20' colspan="3">Observações:
                                 <?=nl2br($contrato->observacao)?>
                             </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
                         </tr>
                     <?php endif ?>
                 <?php endif ?>
