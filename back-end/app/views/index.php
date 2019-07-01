@@ -165,37 +165,48 @@
         <div class="produto">
             <table>
                 <tr>
-                    <td>Produto:
-                        <?= $contrato->produto->nome ?></td>
-                    <td>Safra:
-                        <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?></td>
+                    <td>
+                        Produto: <?= $contrato->produto->nome ?>
+                    </td>
+                    <td colspan="2">
+                        Safra: <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
+                    </td>
                 </tr>
                 <tr>
                     <td class="paddingTop20">Quantidade:
-                        <?= $contrato->quantidade ?></td>
-                        <td class="paddingTop20">Unidade: <?= $contrato->unidade()->titulo ?></td>
+                        <?= $contrato->quantidade ?>
+                    </td>
+                    <td class="paddingTop20">Unidade:
+                        <?= $contrato->unidade()->titulo ?>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="paddingTop20" colspan="3"> Descrição: <?= $contrato->produto()->descricao ?></td>
+                  <td class="paddingTop20" colspan="3"> Descrição:
+                    <?= $contrato->produto()->descricao ?>
+                  </td>
                 </tr>
                 <tr>
                     <td class="paddingTop20" colspan="3">
-                        Preço: <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
+                      Preço:
+                      <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
 
-                    <?php if($contrato->imediato): ?>
-                        <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) ?>: imediato</div>
-                    <?php endif; ?>
+                      <?php if ($contrato->imediato): ?>
+                          <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) ?>: imediato</div>
+                      <?php endif; ?>
 
-                    <?php if(!$contrato->imediato): ?>
-                        <?php if($contrato->data_embarque_inicial != $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
-                        <?php endif; ?>
-                        <?php if($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
-                            <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                      <?php if (!$contrato->imediato): ?>
+                          <?php if ($contrato->data_embarque_inicial != $contrato->data_embarque_final): ?>
+                              <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
+                          <?php endif; ?>
+                          <?php if ($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
+                              <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
+                          <?php endif; ?>
+                      <?php endif; ?>
 
-                        <div class=""><br>Pagamento: <?= $contrato->pagamento ?></div>
+                        <div>
+                          <br>
+                          Pagamento: <?= $contrato->pagamento ?>
+                        </div>
                     </td>
                     <tr>
                     <td class="paddingTop20" colspan="3">Dados Bancários: 
@@ -209,43 +220,56 @@
                 </tr>
                 <tr>
                     <td class="paddingTop20" colspan="3"> CFOP: 
-                        <?= $contrato->cfop()->descricao ?? "Nenhum" ?></td>
+                        <?= $contrato->cfop()->descricao ?? "Nenhum" ?>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3" class="paddingTop20">Logística/Cotas Vendedor:
-                        <?= ($contrato->vendedor->logistica_cotas 
-                            && strlen($contrato->vendedor->logistica_cotas) > 0) 
+                        <?= ($contrato->vendedor->logistica_cotas
+                            && strlen($contrato->vendedor->logistica_cotas) > 0)
                         ? $contrato->vendedor->logistica_cotas : "-" ?>
                     </td>
                 </tr>
                 <tr>
-                <td colspan="3" class="paddingTop10">Logística/Cotas Comprador:
-                       <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?></td>
+                  <td colspan="3" class="paddingTop10">Logística/Cotas Comprador:
+                    <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?>
+                  </td>
                 </tr>
-                <?php if ($contrato->observacao || $contrato->exportacao) {
-                    if($contrato->exportacao){
-                        echo "<tr> <td class='paddingTop20' colspan='3'>Observações: A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
-                            <br>a) REGISTRO DE EXPORTAÇÃO emitido nos termos da legislação em vigor à época da entrega das mercadorias. Em anexo ao R.E deverá encaminhar memorando de exportação acompanhado dos documentos abaixo:
-                            <br>b) Cópia Registro de Exportação (R.E), que deve indicar no Campo do Fabricante o CNPJ do vendedor.
-                            <br>c) Cópia do Comprovante de Exportação (C.E)
-                            <br>d) Cópia da Bill of loading (B.L)
-                            <br>e) Cópia da Declaração de Despacho de Exportação (D.D.E.); </td></tr><tr>
-                            <td class='paddingTop20' colspan='3'>
-                            <pre>".nl2br($contrato->observacao)."</pre>
+                
+                <?php if($contrato->observacao || $contrato->exportacao): ?>
+                    <?php if($contrato->exportacao): ?>
+                        <tr>
+                            <td class='paddingTop20'>Observações: A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
+                                <br>a) REGISTRO DE EXPORTAÇÃO emitido nos termos da legislação em vigor à época da entrega das mercadorias. Em anexo ao R.E deverá encaminhar memorando de exportação acompanhado dos documentos abaixo:
+                                <br>b) Cópia Registro de Exportação (R.E), que deve indicar no Campo do Fabricante o CNPJ do vendedor.
+                                <br>c) Cópia do Comprovante de Exportação (C.E)
+                                <br>d) Cópia da Bill of loading (B.L)
+                                <br>e) Cópia da Declaração de Despacho de Exportação (D.D.E.);
                             </td>
-                            </tr>";
-                    }else{
-                    echo "<tr>
-                        <td class='paddingTop20' colspan='3'>Observações:
-                        <pre>".nl2br($contrato->observacao)."</pre>
-                        </td>
-                        </tr>";
-                    }
-                }
-                ?>
+                        </tr>
+                        <tr>
+                            <td class='paddingTop20' colspan="3">Observações:
+                                <?=nl2br($contrato->observacao)?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td class='paddingTop20' colspan="3">Observações:
+                                <?=nl2br($contrato->observacao)?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                        </tr>
+                    <?php endif ?>
+                <?php endif ?>
                 <tr>
                     <td class="paddingTop20">Comissão:
-                        <?= $contrato->comissao ?></td>
+                        <?= $contrato->comissao ?>
+                    </td>
                 </tr>
                 <tr>
                     <td class="paddingTop20" colspan="3">*Nós, como intermediadores, confirmamos que realizamos nesta data esta transação em seu nome com base nas leis e regulamentos. Qualquer discrepância deverá ser comunicada imediatamente*</td>
