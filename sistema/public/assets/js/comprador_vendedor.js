@@ -97,7 +97,7 @@ function popularUnidadesComprador(comprador) {
       "-"}, inscrição: ${unidade.inscricao_estadual || " - "}</span>
             <span> ${unidade.endereco.cidade}(${unidade.endereco.estado}) | ${
       unidade.endereco.rua
-    } </span>
+      } </span>
         </option>`;
     $("#comprador .unidades").append(cnpj);
   });
@@ -135,7 +135,7 @@ function popularUnidadesVendedor(vendedor) {
       "-"}, inscrição: ${unidade.inscricao_estadual || " - "}</span>
             <span> ${unidade.endereco.cidade}(${unidade.endereco.estado}) | ${
       unidade.endereco.rua
-    } </span>
+      } </span>
         </option>`;
     $("#vendedor .unidades").append(cnpj);
   });
@@ -169,7 +169,7 @@ function popularContasBancarias(contas) {
   $.each(contas, (index, conta) => {
     const conts = `<option value=${conta.id}>${conta.conta} | ${
       conta.agencia
-    } - ${conta.banco}</option>`;
+      } - ${conta.banco}</option>`;
     $("#contas").append(conts);
     $("#contas2").append(conts);
   });
@@ -182,9 +182,9 @@ function popularContasBancarias(contas) {
  * @param {*} formulario - Id do formulário referente.
  */
 function compararContrato(contrato, formulario) {
-  $.each(contrato, function(campo, valor) {
+  $.each(contrato, function (campo, valor) {
     form = $(`#${formulario}`).find("select, input, textarea");
-    $(form).each(function(index, formObj) {
+    $(form).each(function (index, formObj) {
       if (typeof valor === "object" && valor) {
         compararContrato(valor, campo);
       }
@@ -194,17 +194,27 @@ function compararContrato(contrato, formulario) {
         valor === "1"
       ) {
         $(formObj).attr("checked", "checked");
-      }
-
-      if (
+      } else if (
         formObj.name === campo &&
         formObj.name === "exportacao" &&
         valor === "1"
       ) {
         $(formObj).attr("checked", "checked");
+      } else if (formObj.name === campo && formObj.name === "data_embarque_inicial") {
+        setTimeout(() => {
+          $("#data_embarque_inicial").val(
+            moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
+          );
+        }, 1000);
+      } else if (formObj.name === campo && formObj.name === "data_embarque_final") {
+        setTimeout(() => {
+          $("#data_embarque_final").val(
+            moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
+          );
+        }, 1000);
+      } else if (formObj.name === campo) {
+        $(formObj).val(valor);
       }
-
-      formObj.name === campo ? $(formObj).val(valor) : null;
     });
   });
 }
