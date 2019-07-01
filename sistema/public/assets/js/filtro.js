@@ -5,7 +5,7 @@ $("document").ready(() => {
   $("#datas").submit(function(event) {
     event.preventDefault();
     var dados = $("#datas").serialize();
-    window.open(`../back-end/pdfs/datas?${dados}`, "_blank", dados);
+    window.open(`../back-end/pdfs/datas?${dados}`, dados);
   });
 
   $.get("../back-end/clientes").done(response =>  popularClientes(JSON.parse(response)));

@@ -22,7 +22,7 @@
         <section>
             <div class="row" style="margin:1%;">
                 <div class="col-xs-12" style="background-color:white;margin-top:50px;margin:5px;padding:2%;">
-                    <form role="form" id="datas">
+                    <form role="form" id="datas" target="_blank">
                         <div class="row">
                             <div class="col-md-12">
                                 <h2 class="page-header"><i class="fa fa-calendar"></i> Filtrar por data</h2>
