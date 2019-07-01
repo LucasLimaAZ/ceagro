@@ -28,17 +28,17 @@ function popularPesquisa(contratos, callback = null) {
     var linha = `<tr id="${contrato.id}" class="clicavel">
             <td class="item" id="${contrato.id}">${
       contrato.numero_confirmacao
-    }</td>
+      }</td>
             <td class="item" id="${contrato.id}">${contrato.unidadeComprador
-      .razao_social || "teste"}</td>
+        .razao_social || "-"}</td>
             <td class="item" id="${contrato.id}">${
-      contrato.unidadeVendedor.razao_social
-    }</td>
+      contrato.unidadeVendedor.razao_social || "-"
+      }</td>
             <td class="item" id="${contrato.id}">${contrato.produto.nome}</td>
             <td class="download" style="text-align:center" id="${contrato.id}">
                 <button type="button" class="btn btn-primary" id="${
-                  contrato.id
-                }">
+      contrato.id
+      }">
                     <i class="fa fa-print" id="${contrato.id}"></i>
                 </button>
             </td>
@@ -51,13 +51,13 @@ function popularPesquisa(contratos, callback = null) {
 
     $("#contratos tbody").append(linha);
   });
-  $(`#contratos .item`).on("click", function() {
+  $(`#contratos .item`).on("click", function () {
     irParaContratos(this.id);
   });
-  $(`#contratos .download`).on("click", function(event) {
+  $(`#contratos .download`).on("click", function (event) {
     abrirContrato(event.target.id);
   });
-  $(`#contratos .delete`).on("click", function() {
+  $(`#contratos .delete`).on("click", function () {
     selecionarContrato(this.id);
   });
   callback ? callback() : "";
@@ -68,7 +68,7 @@ function selecionarContrato(ctId) {
 }
 
 function abrirContrato(ctId) {
-  window.open(`../back-end/pdfs/contratos/${ctId}`, "_self");
+  window.open(`../back-end/pdfs/contratos/${ctId}`, "_blank");
 }
 
 function irParaContratos(contrato) {
