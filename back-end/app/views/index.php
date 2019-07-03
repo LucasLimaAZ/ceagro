@@ -25,6 +25,13 @@
 
     table {
         width: 567px !important;
+        
+    }
+
+    table, tr, td, th, tbody, thead, tfoot {
+        -webkit-column-break-inside: auto !important;
+        page-break-inside: auto !important;
+        break-inside: auto !important;
     }
 
     .data,
