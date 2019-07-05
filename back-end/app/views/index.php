@@ -262,7 +262,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td>
+                            <td colspan="3" class='paddingTop20' style="color:white">.</td> <!-- TODO -->
                         </tr>
                     <?php else: ?>
                             <tr>
@@ -273,7 +273,7 @@
                                 </td>
                             </tr>
                         <tr>
-                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td>
+                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td> <!-- TODO -->
                         </tr>
                     <?php endif ?>
                 <?php endif ?>
