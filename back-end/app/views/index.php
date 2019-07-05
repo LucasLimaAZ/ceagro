@@ -15,6 +15,9 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 12px !important;
         text-align: justify;
+           
+        display: block;
+        page-break-inside: avoid;
     }
     body {
         margin-top: 2.5cm;
@@ -26,12 +29,6 @@
     table {
         width: 567px !important;
         
-    }
-
-    table, tr, td, th, tbody, thead, tfoot {
-        -webkit-column-break-inside: auto !important;
-        page-break-inside: auto !important;
-        break-inside: auto !important;
     }
 
     .data,
@@ -78,6 +75,7 @@
         width: 30rem;
         word-wrap: break-word !important;
     }
+
 </style>
 
 <body>
@@ -93,6 +91,7 @@
         ?></strong>
         </div>
     </header>
+
     <section>
         <div class="confirmacao">
             <span>Confirmação número: <strong><?= $contrato->numero_confirmacao ?></strong></span>
@@ -168,9 +167,10 @@
             </table>
         </div>
     </section>
+    
     <section>
-        <div class="produto">
-            <table>
+        <div class="produto" style="page-break-inside: avoid !important;">
+            <table  >
                 <tr>
                     <td>
                         Produto: <?= $contrato->produto->nome ?>
@@ -255,21 +255,25 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class='paddingTop20' colspan="3">Observações:
-                                <?=nl2br($contrato->observacao)?>
+                            <td class='obs paddingTop20' colspan="3">Observações:
+                                <div class="obs">
+                                    <?=nl2br($contrato->observacao)?>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td>
                         </tr>
                     <?php else: ?>
+                            <tr>
+                                <td class='paddingTop20' colspan="3">Observações:
+                                    <div class="obs">
+                                        <?=nl2br($contrato->observacao)?>
+                                    </div>
+                                </td>
+                            </tr>
                         <tr>
-                            <td class='paddingTop20' colspan="3">Observações:
-                                <?=nl2br($contrato->observacao)?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td>
                         </tr>
                     <?php endif ?>
                 <?php endif ?>
