@@ -260,7 +260,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class='paddingTop20' style="color:white">a</td>
+                            <td colspan="3" class='paddingTop20' style="color:white">a</td> <!-- G.A. -->
                         </tr>
                     <?php else: ?>
                         <tr>
