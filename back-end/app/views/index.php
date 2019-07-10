@@ -29,8 +29,6 @@
         width: 567px !important;
     }
     .data,
-    .assinatura {float: right;}
-    .assinatura {margin-right: 10%;}
     .confirmacao,
     .vendedor {
         margin-top: 3%;
@@ -62,6 +60,7 @@
         padding-left:60%;
     }
     .ac{
+        width:30%;
         float:right;
         text-align:left;
         vertical-align: top;
@@ -74,7 +73,41 @@
     .float-right{
         float:right !important;
     }
-
+    .produto1{
+        width:49%;
+    }
+    .safra{
+        width:49%;
+        float:right;
+    }
+    .quantidade{
+        width:49%;
+    }
+    .unidade{
+        width:49%;
+        float:right;
+    }
+    .assinatura_comprador{
+        width:49%;
+        float:right;
+    }
+    .assinatura_vendedor{
+        width:49%;
+    }
+    .assinatura_vendedor,.assinatura_comprador td{
+        text-align:center;
+    }
+    .assinatura_ceagro{
+        padding-top:40px;
+        text-align:center !important;
+    }
+    .ass{
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        page-break-inside: avoid !important;
+        display:block;
+        padding-top:40px !important;
+    }
 
 </style>
 
@@ -100,11 +133,11 @@
     <section>
         <div class="vendedor">
             <table>
-                <tr>
+                <tr><td class="ac"> A/C:
+                    <?= $contrato->assinatura_vendedor ?></td>
                     <td class="halfSize">Vendedor:
                         <?= $contrato->unidadeVendedor()->razao_social ?></td>
-                        <td class="ac"> A/C:
-                    <?= $contrato->assinatura_vendedor ?></td>
+                        
                 </tr>
                
                 <tr>
@@ -136,10 +169,11 @@
         <div class="vendedor">
             <table>
                 <tr>
+                <td class="ac"> A/C:
+                    <?= $contrato->assinatura_comprador ?></td>
                     <td class="halfSize">Comprador:
                         <?= $contrato->unidadeComprador->razao_social?></td>
-                        <td class="ac"> A/C:
-                    <?= $contrato->assinatura_comprador ?></td>
+                        
                 </tr>
                
                 <tr>
@@ -173,19 +207,19 @@
         <div class="produto" style="page-break-inside: avoid !important;">
             <table  >
                 <tr>
-                    <td>
-                        Produto: <?= $contrato->produto->nome ?>
-                    </td>
-                    <td colspan="2">
+                    <td class="safra" colspan="2">
                         Safra: <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
+                    </td>
+                    <td class="produto1">
+                        Produto: <?= $contrato->produto->nome ?>
                     </td>
                 </tr>
                 <tr>
-                    <td class="paddingTop20">Quantidade:
-                        <?= $contrato->quantidade ?>
-                    </td>
-                    <td class="paddingTop20">Unidade:
+                    <td class="paddingTop20 unidade">Unidade:
                         <?= $contrato->unidade()->titulo ?>
+                    </td>
+                    <td class="paddingTop20 quantidade">Quantidade:
+                        <?= $contrato->quantidade ?>
                     </td>
                 </tr>
                 <tr>
@@ -211,7 +245,7 @@
                           <?php endif; ?>
                       <?php endif; ?>
 
-                        <div>
+                        <div class="paddingTop20">
                           <br>
                           Pagamento: <?= $contrato->pagamento ?>
                         </div>
@@ -274,7 +308,7 @@
                                 </td>
                             </tr>
                         <tr>
-                            <td colspan="3" class='obs paddingTop20' style="color:white">.</td> <!-- TODO -->
+                            <td colspan="3" class='obs' style="color:white">.</td> <!-- TODO -->
                         </tr>
                     <?php endif ?>
                 <?php endif ?>
@@ -287,29 +321,32 @@
                 <tr>
                     <td class="paddingTop20" colspan="3">*Nós, como intermediadores, confirmamos que realizamos nesta data esta transação em seu nome com base nas leis e regulamentos. Qualquer discrepância deverá ser comunicada imediatamente*</td>
                 </tr>
-                <tr style="padding-top:40px">
-                    <div class="float-right" style="width:50%;">
-                        <td class="center">_________________________
-                            <br>Assinatura do Comprador
-                            <br>
-                            <?= $contrato->unidadeComprador->cnpj ?></td>
-                    </div>
-                    <div>
-                        <td class="center">_________________________
-                            <br>Assinatura do Vendedor
-                            <br>
-                            <?= $contrato->unidadeVendedor->cnpj ?></td>
+                <div class="ass">
+                    <tr>
+                        <div class="assinatura_comprador">
+                            <td>_________________________
+                                <br>Assinatura do Comprador
+                                <br>
+                                <?= $contrato->unidadeComprador->cnpj ?>
+                            </td>
+                        </div>
+                        <div class="assinatura_vendedor">
+                            <td style="text-align:center !important;">
+                                _________________________
+                                <br>Assinatura do Vendedor
+                                <br>
+                                <?= $contrato->unidadeVendedor->cnpj ?>
+                            </td>
+                        </div>
+                    </tr>
+                </div>
+                <tr>
+                    <div class="assinatura_ceagro">
+                        <td><pre>____________________________________________</pre>
+                            <br><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre>
+                            <br><pre>90.880.204/0001-57</pre>
                         </td>
                     </div>
-                </tr>
-                <tr>
-                    <td class="center" style="padding-top:40px"><pre>____________________________________________</pre></td>
-                </tr>
-                <tr>
-                    <td class="center"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></td>
-                </tr>
-                <tr>
-                    <td class="center"><pre>90.880.204/0001-57</pre></td>
                 </tr>
             </table>
     </section>
