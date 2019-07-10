@@ -9,31 +9,27 @@
     <title>Contrato</title>
 </head>
 <style>
-    * {
+     * {
         margin: 0;
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 12px !important;
         text-align: justify;
-           
-        display: block;
-        page-break-inside: avoid;
+        display:block;
+        page-break-inside:avoid;
     }
+
     body {
         margin-top: 2.5cm;
         margin-bottom: 2.5cm;
         margin-left: 3cm;
         margin-right: 3cm;
     }
-
     table {
         width: 567px !important;
-        
     }
-
     .data,
     .assinatura {float: right;}
-
     .assinatura {margin-right: 10%;}
     .confirmacao,
     .vendedor {
@@ -60,21 +56,25 @@
         padding-top: 30px;
     }
     .center{
-        padding-left:33.33%;
+        text-align:center !important;
     }
     .cnpjCeagro{
         padding-left:60%;
     }
     .ac{
+        float:right;
         text-align:left;
         vertical-align: top;
-
     }
     .halfSize{
         text-align:left;
         width: 30rem;
         word-wrap: break-word !important;
     }
+    .float-right{
+        float:right !important;
+    }
+
 
 </style>
 
@@ -168,6 +168,7 @@
         </div>
     </section>
     
+    <div class="breaker">
     <section>
         <div class="produto" style="page-break-inside: avoid !important;">
             <table  >
@@ -206,7 +207,7 @@
                               <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) ?>.</div>
                           <?php endif; ?>
                           <?php if ($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
-                              <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
+                              <div class="paddingTop20"><?=$contrato->retirada_entrega == "transferencia" ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))) : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))?>.</div>
                           <?php endif; ?>
                       <?php endif; ?>
 
@@ -246,7 +247,7 @@
                 <?php if($contrato->observacao || $contrato->exportacao): ?>
                     <?php if($contrato->exportacao): ?>
                         <tr>
-                            <td class='paddingTop20'>Observações: A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
+                            <td class='paddingTop20' colspan="3">A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
                                 <br>a) REGISTRO DE EXPORTAÇÃO emitido nos termos da legislação em vigor à época da entrega das mercadorias. Em anexo ao R.E deverá encaminhar memorando de exportação acompanhado dos documentos abaixo:
                                 <br>b) Cópia Registro de Exportação (R.E), que deve indicar no Campo do Fabricante o CNPJ do vendedor.
                                 <br>c) Cópia do Comprovante de Exportação (C.E)
@@ -282,28 +283,33 @@
                         <?= $contrato->comissao ?>
                     </td>
                 </tr>
+            </div>
                 <tr>
                     <td class="paddingTop20" colspan="3">*Nós, como intermediadores, confirmamos que realizamos nesta data esta transação em seu nome com base nas leis e regulamentos. Qualquer discrepância deverá ser comunicada imediatamente*</td>
                 </tr>
-                <tr>
-                    <td class="linha">_________________________
-                        <br>Assinatura do Comprador
-                        <br>
-                        <?= $contrato->unidadeComprador->cnpj ?></td>
-                    <td class="linha">_________________________
-                        <br>Assinatura do Vendedor
-                        <br>
-                        <?= $contrato->unidadeVendedor->cnpj ?></td>
-                    </td>
+                <tr style="padding-top:40px">
+                    <div class="float-right" style="width:50%;">
+                        <td class="center">_________________________
+                            <br>Assinatura do Comprador
+                            <br>
+                            <?= $contrato->unidadeComprador->cnpj ?></td>
+                    </div>
+                    <div>
+                        <td class="center">_________________________
+                            <br>Assinatura do Vendedor
+                            <br>
+                            <?= $contrato->unidadeVendedor->cnpj ?></td>
+                        </td>
+                    </div>
                 </tr>
                 <tr>
-                    <td class="linha center"><pre>____________________________________________</pre></td>
+                    <td class="center" style="padding-top:40px"><pre>____________________________________________</pre></td>
                 </tr>
                 <tr>
                     <td class="center"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></td>
                 </tr>
                 <tr>
-                    <td class="cnpjCeagro"><pre>90.880.204/0001-57</pre></td>
+                    <td class="center"><pre>90.880.204/0001-57</pre></td>
                 </tr>
             </table>
     </section>
