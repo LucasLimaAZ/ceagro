@@ -202,15 +202,19 @@ function compararContrato(contrato, formulario) {
         $(formObj).attr("checked", "checked");
       } else if (formObj.name === campo && formObj.name === "data_embarque_inicial") {
         setTimeout(() => {
-          $("#data_embarque_inicial").val(
-            moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
-          );
+          if (valor) {
+            $("#data_embarque_inicial").val(
+              moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
+            );
+          }
         }, 1000);
       } else if (formObj.name === campo && formObj.name === "data_embarque_final") {
         setTimeout(() => {
-          $("#data_embarque_final").val(
-            moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
-          );
+          if (valor) {
+            $("#data_embarque_final").val(
+              moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
+            );
+          }
         }, 1000);
       } else if (formObj.name === campo) {
         $(formObj).val(valor);

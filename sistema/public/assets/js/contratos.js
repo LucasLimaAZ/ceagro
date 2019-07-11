@@ -12,14 +12,20 @@ $(document).ready(() => {
   }
 
   setTimeout(() => {
-    $("#data_embarque_inicial").val(
-      moment($("#data_embarque_inicial").val(), "YYYY-MM-DD").format(
-        "DD/MM/YYYY"
-      )
-    );
-    $("#data_embarque_final").val(
-      moment($("#data_embarque_final").val(), "YYYY-MM-DD").format("DD/MM/YYYY")
-    );
+    if (exists($("#data_embarque_final").val())) {
+      $("#data_embarque_final").val(
+        moment($("#data_embarque_final").val(), "YYYY-MM-DD").format("DD/MM/YYYY")
+      );
+    }
+
+    if ($("#data_embarque_inicial").val()) {
+      $("#data_embarque_inicial").val(
+        moment($("#data_embarque_inicial").val(), "YYYY-MM-DD").format(
+          "DD/MM/YYYY"
+        )
+      );
+    }
+
     verificarImediato();
   }, 1500);
 });
@@ -230,39 +236,50 @@ function cadastrar() {
     });
   });
 
-  setTimeout(() => {
-    $(contratoArray).each((index, obj) => {
-      dados[obj.name] = obj.value;
-    });
-    if (dados.data_embarque_inicial) {
-      dados.data_embarque_inicial = moment(
-        dados.data_embarque_inicial,
-        "DD/MM/YYYY"
-      ).format("YYYY-MM-DD");
-    }
-    if (dados.data_embarque_final) {
-      dados.data_embarque_final = moment(
-        dados.data_embarque_final,
-        "DD/MM/YYYY"
-      ).format("YYYY-MM-DD");
-    }
-  }, 100);
+  $(contratoArray).each((index, obj) => {
+    dados[obj.name] = obj.value;
+  });
+  if (exists(dados.data_embarque_inicial)) {
+    formatDates([dados.data_embarque_inicial, dados.data_embarque_final], "DD/MM/YYYY", "YYYY-MM-DD", (response) => { [dados.data_embarque_inicial, dados.data_embarque_final] = response });
+  }
 
   setTimeout(() => {
+    console.log("3", dados);
     $.post("../back-end/contratos", dados)
       .done(ct => {
         contrato = JSON.parse(ct);
         alertCadastro();
         exibirSucesso();
-        window.location.href = "./contratosLista.php";
+        // window.location.href = "./contratosLista.php";
       })
       .always(() => esconderModal())
       .fail(() => exibirErro());
   }, 300);
 }
 
+/**
+ * Verify if exists a property
+ * 
+ * @param objProperty - property to be verified 
+ */
+exists = (objProperty) => (objProperty) ? true : false;
+
+formatDates = (dates, formatA, formatB, callback = null) => {
+  if (Array.isArray(dates)) {
+    for (let index = 0; index < dates.length; index++) {
+      if (dates[index]) {
+        dates[index] = moment(dates[index], formatA).format(formatB);
+      } else {
+        dates[index] = null;
+      }
+    }
+  }
+  callback(dates);
+}
+
 function atualizar() {
   mostrarModal();
+
   contratoArray = $("#contrato").serializeArray();
   $("#contrato input[type=checkbox]").map((a, b) => {
     contratoArray.push({
@@ -271,30 +288,13 @@ function atualizar() {
     });
   });
 
-  setTimeout(() => {
-    $(contratoArray).each((index, obj) => {
-      dados[obj.name] = obj.value;
-    });
-    if (dados.data_embarque_inicial) {
-      dados.data_embarque_inicial = moment(
-        dados.data_embarque_inicial,
-        "DD/MM/YYYY"
-      ).format("YYYY-MM-DD");
-    } else {
-      dados.data_embarque_inicial = null;
-    }
-    if (dados.data_embarque_final) {
-      dados.data_embarque_final = moment(
-        dados.data_embarque_final,
-        "DD/MM/YYYY"
-      ).format("YYYY-MM-DD");
-    } else {
-      dados.data_embarque_final = null;
-    }
-  }, 100);
+  $(contratoArray).each((index, obj) => {
+    dados[obj.name] = obj.value;
+  });
+
+  formatDates([dados.data_embarque_inicial, dados.data_embarque_final], "DD/MM/YYYY", "YYYY-MM-DD", (response) => [dados.data_embarque_inicial, dados.data_embarque_final] = response);
 
   setTimeout(() => {
-    console.log(dados);
     $.ajax({
       type: "PUT",
       url: `../back-end/contratos/${contrato.id}`,
@@ -303,7 +303,7 @@ function atualizar() {
       .done(() => {
         alertCadastro();
         exibirSucesso();
-        window.location.href = "./contratosLista.php";
+        // window.location.href = "./contratosLista.php";
       })
       .always(() => esconderModal())
       .fail(() => exibirErro());
@@ -367,8 +367,8 @@ function listarAdendos(adendos) {
     cols += `<td class='item' id=${adendo.id}>${adendo.descricao}</td>`;
     cols += `<td>
             <button type="button" class="btn btn-primary download" id="${
-              adendo.id
-            }">
+      adendo.id
+      }">
                 <i class="fa fa-print" id="${adendo.id}"></i>
             </button>
         </td>`;
@@ -400,11 +400,11 @@ function listarFixacoes(fixacoes) {
 
     cols += `<td class='item' id=${fixacao.id}>${
       fixacao.contaBancaria.conta
-    } | ${fixacao.contaBancaria.agencia} - ${fixacao.contaBancaria.banco}</td>`;
+      } | ${fixacao.contaBancaria.agencia} - ${fixacao.contaBancaria.banco}</td>`;
     cols += `<td style="text-align:center" id="${fixacao.id}">
         <button type="button" class="btn btn-primary download" id="${
-          fixacao.id
-        }">
+      fixacao.id
+      }">
             <i class="fa fa-print" id="${fixacao.id}"></i>
         </button>
     </td>`;
@@ -541,9 +541,9 @@ function exibirSucesso() {
 }
 
 function compararForm(contrato, formulario) {
-  $.each(contrato, function(campo, valor) {
+  $.each(contrato, function (campo, valor) {
     form = $(`#${formulario}`).find("select, input, textarea");
-    $(form).each(function(index, formObj) {
+    $(form).each(function (index, formObj) {
       if (typeof valor === "object" && valor) {
         compararForm(valor, campo);
       }
