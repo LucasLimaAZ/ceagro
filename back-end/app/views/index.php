@@ -28,6 +28,7 @@ body {
 table {
     width: 567px !important;
 }
+.data {float:right}
 .data,
 .confirmacao,
 .vendedor {
