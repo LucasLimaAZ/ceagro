@@ -9,106 +9,108 @@
 <title>Contrato</title>
 </head>
 <style>
-    * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px !important;
-    text-align: justify;
-    display:block;
-    page-break-inside:avoid;
-}
 
-body {
-    margin-top: 2.5cm;
-    margin-bottom: 2.5cm;
-    margin-left: 3cm;
-    margin-right: 3cm;
-}
-table {
-    width: 567px !important;
-}
-.data {float:right}
-.data,
-.confirmacao,
-.vendedor {
-    margin-top: 3%;
-    word-break: break-all;
-}
-.nome {
-    float: left;
-    background-color: red
-}
-.comprador {
-    margin-top: 2%;
-}
-.produto {
-    margin-top: 2%;
-}
-.tdproduto {
-    width: 400px;
-}
-.paddingTop20 {
-    padding-top: 10px;
-}
-.linha {
-    padding-top: 30px;
-}
-.center{
-    text-align:center !important;
-}
-.cnpjCeagro{
-    padding-left:60%;
-}
-.ac{
-    width:30%;
-    float:right;
-    text-align:left;
-    vertical-align: top;
-}
-.halfSize{
-    text-align:left;
-    width: 30rem;
-    word-wrap: break-word !important;
-}
-.float-right{
-    float:right !important;
-}
-.produto1{
-    width:49%;
-}
-.safra{
-    width:49%;
-    float:right;
-}
-.quantidade{
-    width:49%;
-}
-.unidade{
-    width:49%;
-    float:right;
-}
-.assinatura_comprador{
-    width:49%;
-    float:right;
-}
-.assinatura_vendedor{
-    width:49%;
-}
-.assinatura_vendedor,.assinatura_comprador td{
-    text-align:center;
-}
-.assinatura_ceagro{
-    padding-top:40px;
-    text-align:center !important;
-}
-.ass{
-    page-break-after: avoid !important;
-    page-break-before: avoid !important;
-    page-break-inside: avoid !important;
-    display:block;
-    padding-top:40px !important;
-}
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px !important;
+        text-align: justify;
+        display:block;
+        page-break-inside:avoid;
+    }
+    
+    body {
+        margin-top: 2.5cm;
+        margin-bottom: 2.5cm;
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
+    table {
+        width: 567px !important;
+    }
+
+    .data {float:right}
+    .data,
+    .confirmacao,
+    .vendedor {
+        margin-top: 3%;
+        word-break: break-all;
+    }
+    .nome {
+        float: left;
+        background-color: red
+    }
+    .comprador {
+        margin-top: 2%;
+    }
+    .produto {
+        margin-top: 2%;
+    }
+    .tdproduto {
+        width: 400px;
+    }
+    .paddingTop20 {
+        padding-top: 10px;
+    }
+    .linha {
+        padding-top: 30px;
+    }
+    .center{
+        text-align:center !important;
+    }
+    .cnpjCeagro{
+        padding-left:60%;
+    }
+    .ac{
+        width:30%;
+        float:right;
+        text-align:left;
+        vertical-align: top;
+    }
+    .halfSize{
+        text-align:left;
+        width: 30rem;
+        word-wrap: break-word !important;
+    }
+    .float-right{
+        float:right !important;
+    }
+    .produto1{
+        width:49%;
+    }
+    .safra{
+        width:30%;
+        float:right;
+    }
+    .quantidade{
+        width:49%;
+    }
+    .unidade{
+        width:30%;
+        float:right;
+    }
+    .assinatura_comprador{
+        width:49%;
+        float:right;
+    }
+    .assinatura_vendedor{
+        width:49%;
+    }
+    .assinatura_vendedor,.assinatura_comprador td{
+        text-align:center;
+    }
+    .assinatura_ceagro{
+        padding-top:40px;
+        text-align:center !important;
+    }
+    .ass{
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        page-break-inside: avoid !important;
+        display:block;
+        padding-top:40px !important;
+    }
 
 </style>
 
@@ -126,10 +128,11 @@ table {
     </div>
 </header>
 
-<section>
-    <div class="confirmacao">
-        <span>Confirmação número: <strong><?= $contrato->numero_confirmacao ?></strong></span>
-    </div>
+<section class="aaa">
+        Confirmação número: <strong>
+        <?= $contrato->numero_confirmacao ?>
+        
+        </strong>
 </section>
 <section>
     <div class="vendedor">
@@ -205,7 +208,6 @@ table {
 
 <div class="breaker">
 <section>
-    <div class="produto" style="page-break-inside: avoid !important;">
         <table  >
             <tr>
                 <td class="safra" colspan="2">
@@ -339,7 +341,6 @@ table {
                     <?= $contrato->comissao ?>
                 </td>
             </tr>
-        </div>
             <tr>
                 <td class="paddingTop20" colspan="3">*Nós, como intermediadores, confirmamos que realizamos nesta data esta transação em seu nome com base nas leis e regulamentos. Qualquer discrepância deverá ser comunicada imediatamente*</td>
             </tr>
