@@ -32,7 +32,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="https://ceagro.com.br/back-end/pdfs/contratos/atuais" class="small-box-footer">Ver contratos <i class="fa fa-arrow-circle-right"></i></a>
+            <a target="_blank" href="https://ceagro.com.br/back-end/pdfs/contratos/atuais" class="small-box-footer">Ver contratos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-4 col-xs-12">
@@ -45,7 +45,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="https://ceagro.com.br/back-end/pdfs/contratos/futuros" class="small-box-footer">Ver contratos <i class="fa fa-arrow-circle-right"></i></a>
+            <a target="_blank" href="https://ceagro.com.br/back-end/pdfs/contratos/futuros" class="small-box-footer">Ver contratos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-4 col-xs-12">

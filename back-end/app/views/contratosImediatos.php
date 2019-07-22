@@ -101,7 +101,7 @@
             setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
             date_default_timezone_set('America/Sao_Paulo');
             $data = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
-            echo date("d-m-Y", $data);
+            echo date("d/m/Y", $data);
         ?></strong>
         </div>
         <div class="nContratos">
@@ -119,6 +119,7 @@
                     <th>Comprador</th>
                     <th>Produto</th>
                     <th>Valor</th>
+                    <th>Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -135,6 +136,7 @@
                     <td><?=$campo->unidadeComprador()->razao_social;?></td>
                     <td><?=$campo->produto->nome;?></td>
                     <td><?=$campo->preco;?></td>
+                    <td><?=$campo->pagamento; ?></td>
 
                 </tr>
                 

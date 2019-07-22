@@ -78,6 +78,17 @@
         top:870px;
         left:115px;
     }
+
+    .assinatura-ceagro{
+        background-color:yellow !important;
+        min-width:700px !important;
+        text-align:center !important;
+    }
+
+    .testando{
+        background-color:green;
+        width:100% !important;
+    }
 </style>
 
 <body>
@@ -184,41 +195,42 @@
                 </tr>
                 
             </table>
+        </div>
     </section>
     <section style="margin-top: 20px">
         <table style="margin-top:10px">
             <tr>
                 <td class="padding20">
                 <strong>Descrição: </strong> Conforme acordado entre as partes, fica fixado  <?= $fixacao->quantidade ?>, 
-                a <?= $fixacao->preco ?> por saco de sessenta quilos. 
+                a <?= $fixacao->preco ?>. 
                 <?= $fixacao->contrato()->retirada_entrega?>
                 <?= $fixacao->local_embarque ?> e pagamento 
                 <?= $fixacao->data_pagamento ?>. Remessa via 
-                <?='Banco:'. $fixacao->contasBancarias()->banco .'- agência:'. $fixacao->contasBancarias()->agencia .'- conta:'.$fixacao->contasBancarias()->conta?>.
+                <?='Banco: '. $fixacao->contasBancarias()->banco .'- agência:'. $fixacao->contasBancarias()->agencia .'- conta:'.$fixacao->contasBancarias()->conta?>.
             </tr>
         </table>
     </section>
     <section class="table">
         <table>
             <tr>
-                <td>_________________________
+                <td style="text-align:center !important;width:49% !important;">_________________________
                     <br>Assinatura do Comprador
                     <br>
                     <?= $fixacao->contrato()->unidadeComprador->cnpj ?></td>
-                <td>_________________________
+                <td style="text-align:center !important;width:49% !important;">_________________________
                     <br>Assinatura do Vendedor
                     <br>
                     <?= $fixacao->contrato()->unidadeVendedor->cnpj ?></td>
                 </td>
             </tr>
-            <tr>
-                <td class="linha center"><pre>____________________________________________</pre></td>
-            </tr>
-            <tr>
-                <td class="center"><pre>CEAGRO CORRETORA DE MERCADORIAS LTDA</pre></td>
-            </tr>
-            <tr>
-                <td class="cnpjCeagro"><pre>90.880.204/0001-57</pre></td>
+        </table>
+        <table>
+            <tr style="text-align:center !important;">
+                <td><br><br><br>
+                ____________________________________________
+                    <br>CEAGRO CORRETORA DE MERCADORIAS LTDA
+                    <br>90.880.204/0001-57
+                </td>
             </tr>
         </table>
     </section>

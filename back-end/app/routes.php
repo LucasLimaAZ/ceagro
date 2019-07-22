@@ -80,3 +80,6 @@ $router->get("{$urlBase}pdfs/contratos/clientes/futuros/{cliente}", "PDF\Filtros
 $router->get("{$urlBase}pdfs/contratos/clientes/atuais/{cliente}", "PDF\FiltrosController@porClienteAtual");
 $router->get("{$urlBase}pdfs/contratos/imediatos", "PDF\FiltrosController@imediatos");
 $router->get("{$urlBase}pdfs/datas", "PDF\FiltrosController@index");
+
+$router->post("{$urlBase}login", "usersController@login");
+

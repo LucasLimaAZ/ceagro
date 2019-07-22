@@ -116,7 +116,7 @@ table {
     <div class="log">
         <img src="public/img/logo.png" alt="">
     </div>
-    <div class="data"><strong> Porto Alegre, 
+    <div style="float:right;" class="data"><strong> Porto Alegre, 
     <?php
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
@@ -127,7 +127,7 @@ table {
 
 <section>
     <div class="confirmacao">
-        <span>Confirmação número: <strong><?= $contrato->numero_confirmacao ?></strong></span>
+        <span>Confirmação número: <b style="display:inline !important;"><?= $contrato->numero_confirmacao ?></b></span>
     </div>
 </section>
 <section>
@@ -236,7 +236,7 @@ table {
                         <div class="paddingTop20">
                             <?=
                                 $contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) 
-                            ?> : imediato
+                            ?>: Imediata
                         </div>
                     <?php else: ?>
                         <?php if (($contrato->data_embarque_inicial != $contrato->data_embarque_final) && $contrato->data_embarque_final): ?>
@@ -311,11 +311,13 @@ table {
                         </td>
                     </tr>
                     <tr>
+                    <?php if($contrato->observacao): ?>
                         <td class='obs paddingTop20' colspan="3">Observações:
                             <div class="obs">
                                 <?=nl2br($contrato->observacao)?>
                             </div>
                         </td>
+                    <?php endif; ?>
                     </tr>
                     <tr>
                         <td colspan="3" class='paddingTop20' style="color:white">.</td> <!-- TODO -->
