@@ -213,7 +213,6 @@ function popularUnidades(unidades) {
     cols += `<td>${unidade.cnpj}</td>`;
     cols += `<td>${unidade.inscricao_estadual}</td>`;
     cols += `<td>${unidade.razao_social}</td>`;
-    cols += `<td>${unidade.razao_social}</td>`;
     cols += `<td class="delete" style="text-align:center" id="${unidade.id}">
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-aviso">
             <i class="fa fa-trash-o"></i>

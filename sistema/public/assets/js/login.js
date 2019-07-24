@@ -4,10 +4,13 @@ $('#botao-login').click(function(){
     dados['usuario'] = $('#usuario').val();
     dados['senha'] = $('#senha').val();
 
-    $.ajax({
-        type: "POST",
-        url: '../back-end/login',
-        data: dados
-    })
+    if($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#'){
+
+        window.location.replace("home.php");
+
+    }else{
+        $('#message').html("Usuário ou senha incorreto!");
+    }
+    
       
 });

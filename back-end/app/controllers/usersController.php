@@ -7,8 +7,9 @@ use App\Models\User;
 
 class usersController
 {
-    public function login($data)
+    public function login()
     {
-        dd("teste");
+        session_start();
+        $_SESSION['logado'] = 1;
     }
 }

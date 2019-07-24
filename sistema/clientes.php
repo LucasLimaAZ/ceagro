@@ -105,10 +105,11 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th>#Id</th>
                                             <th>CNPJ</th>
                                             <th>Inscrição Estadual</th>
                                             <th>Razão Social</th>
-                                            <th>Deletar</th>
+                                            <th style="text-align:center;">Deletar</th>
                                         </tr>
                                     </thead>
                                     <tbody id="unidades">
@@ -210,11 +211,12 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th>#Id</th>
                                             <th>Estado</th>
                                             <th>Cidade</th>
                                             <th>Rua</th>
                                             <th>CEP</th>
-                                            <th></th>
+                                            <th style="text-align:center;">Deletar</th>
                                         </tr>
                                     </thead>
                                     <tbody id="enderecos">
