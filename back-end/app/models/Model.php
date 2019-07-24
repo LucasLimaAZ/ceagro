@@ -7,9 +7,9 @@ use App\Core\App;
 class Model
 {
 
-    public static function get($where = null)
+    public static function get($where = null, $orderBy = null)
     {
-        return App::get("db")->selectAll(static::$table, static::class, $where);
+        return App::get("db")->selectAll(static::$table, static::class, $where, $orderBy);
     }
 
     public static function getCliente($cliente)

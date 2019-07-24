@@ -1,12 +1,5 @@
 <?php include 'partials/cabecalho.html' ?>
 <body class="hold-transition skin-blue sidebar-mini">
-	<style>
-		.checkExportacao{
-			/* width:32px;
-			height:32px; */
-			
-		}
-	</style>
 	<div class="wrapper">
 		<?php include "partials/header.html"; ?>
 		<?php include "partials/menu.html"; ?>

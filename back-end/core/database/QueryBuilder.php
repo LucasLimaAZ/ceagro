@@ -14,14 +14,20 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function selectAll($tabela, $classe, $where = null)
+    public function selectAll($tabela, $classe, $where = null, $orderBy = null)
     {
+
         $query = "select * from {$tabela}";
         if (is_array($where) && count($where) === 3) {
             ($where) ? $query .= " where " . implode(" ", $where) : '';
 
         } else {
             ($where) ? $query .= " where " . implode(" = ", $where) : '';
+        }
+
+        if($orderBy) {
+             (is_array($orderBy) && count($orderBy) === 3) ? $query .= " order by ". implode(" ", $orderBy) 
+             : $query .= " order by ". implode(" = ", $orderBy);
         }
         try {
             $statement = $this->pdo->prepare($query);

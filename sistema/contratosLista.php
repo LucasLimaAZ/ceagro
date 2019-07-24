@@ -4,7 +4,6 @@
 	<?php include "partials/header.html"; ?>
 	<?php include "partials/menu.html"; ?>
         <div class="content-wrapper">
-
 			<section class="content">
 				<div class="row">
 					<div class="col-xs-12">

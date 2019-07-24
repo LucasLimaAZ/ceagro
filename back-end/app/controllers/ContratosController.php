@@ -13,8 +13,7 @@ class ContratosController extends Controller
 {
     public function index()
     {
-        $contratos = Contrato::get();
-
+        $contratos = Contrato::get(null,["futuro asc, CAST(SUBSTRING_INDEX(numero_confirmacao, '/', -1) AS UNSIGNED) DESC,CAST(SUBSTRING_INDEX(numero_confirmacao, '/', 1) AS UNSIGNED) DESC"]);
         return $this->responderJSON($contratos);
     }
 
