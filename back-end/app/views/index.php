@@ -119,7 +119,7 @@
     <div class="log">
         <img src="public/img/logo.png" alt="">
     </div>
-    <div class="data"><strong> Porto Alegre, 
+    <div style="float:right;" class="data"><strong> Porto Alegre, 
     <?php
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
@@ -128,11 +128,18 @@
     </div>
 </header>
 
+<<<<<<< HEAD
 <section class="aaa">
         Confirmação número: <strong>
         <?= $contrato->numero_confirmacao ?>
         
         </strong>
+=======
+<section>
+    <div class="confirmacao">
+        <span>Confirmação número: <b style="display:inline !important;"><?= $contrato->numero_confirmacao ?></b></span>
+    </div>
+>>>>>>> 62847f1db24e7fcbf0845baf5aaadf2971467329
 </section>
 <section>
     <div class="vendedor">
@@ -239,7 +246,7 @@
                         <div class="paddingTop20">
                             <?=
                                 $contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) 
-                            ?> : imediato
+                            ?>: Imediata
                         </div>
                     <?php else: ?>
                         <?php if (($contrato->data_embarque_inicial != $contrato->data_embarque_final) && $contrato->data_embarque_final): ?>
@@ -314,11 +321,13 @@
                         </td>
                     </tr>
                     <tr>
+                    <?php if($contrato->observacao): ?>
                         <td class='obs paddingTop20' colspan="3">Observações:
                             <div class="obs">
                                 <?=nl2br($contrato->observacao)?>
                             </div>
                         </td>
+                    <?php endif; ?>
                     </tr>
                     <tr>
                         <td colspan="3" class='paddingTop20' style="color:white">.</td> <!-- TODO -->
