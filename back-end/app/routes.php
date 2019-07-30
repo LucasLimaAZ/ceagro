@@ -62,7 +62,6 @@ $router->delete("{$urlBase}fixacoes/{fixacao}", "FixacoesController@destroy");
 $router->get("{$urlBase}contratos/cliente", "ContratosClienteController@index");
 $router->put("{$urlBase}cliente", "ContratosClienteController@update");
 $router->delete("{$urlBase}cliente", "ContratosClienteController@destroy");
-// $router->post("{$urlBase}contratos/futuros", "ContratosFuturosController@store");
 $router->put("{$urlBase}futuros", "ContratosFuturosController@update");
 $router->delete("{$urlBase}futuros", "ContratosFuturosController@destroy");
 

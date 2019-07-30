@@ -128,18 +128,10 @@
     </div>
 </header>
 
-<<<<<<< HEAD
-<section class="aaa">
-        Confirmação número: <strong>
-        <?= $contrato->numero_confirmacao ?>
-        
-        </strong>
-=======
 <section>
     <div class="confirmacao">
         <span>Confirmação número: <b style="display:inline !important;"><?= $contrato->numero_confirmacao ?></b></span>
     </div>
->>>>>>> 62847f1db24e7fcbf0845baf5aaadf2971467329
 </section>
 <section>
     <div class="vendedor">
