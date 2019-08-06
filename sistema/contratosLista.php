@@ -4,7 +4,16 @@
 	<?php include "partials/header.html"; ?>
 	<?php include "partials/menu.html"; ?>
         <div class="content-wrapper">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<button id="mostrar-futuros" class="btn btn-primary">Futuros</button>
+				<button id="mostrar-atuais" class="btn btn-primary">Atuais</button>
+			</div>
+		</div>
 			<section class="content">
+
+			<div class="aba-atuais"> <!-- aba atuais -->
+
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="box box-info">
@@ -15,7 +24,7 @@
 								<table class="table table-bordered table-striped" id="contratos">
 									<thead>
 										<tr>
-											<th>Número</th>
+											<th>Número ATUAL</th>
 											<th>Comprador</th>
 											<th>Vendedor</th>
 											<th>Produto</th>
@@ -33,6 +42,45 @@
 						</div>
 					</div>
 				</div>
+
+			</div> <!-- fim aba atuais -->
+
+          	</section>
+			  <section class="content">
+
+			<div class="aba-futuros"> <!-- aba atuais -->
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box box-info">
+							<div class="box-header">
+								<h3 class="box-title">Contratos</h3>
+							</div>
+							<div class="box-body tabelaListaContratos">
+								<table class="table table-bordered table-striped" id="contratos">
+									<thead>
+										<tr>
+											<th>Número FUTURO</th>
+											<th>Comprador</th>
+											<th>Vendedor</th>
+											<th>Produto</th>
+											<th>Baixar</th>
+											<th>Excluir</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+							<div id="overlay" class="overlay">
+								<i class="fa fa-refresh fa-spin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- fim aba atuais -->
+
           	</section>
         </div>
 		<div class="control-sidebar-bg"></div>

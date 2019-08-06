@@ -5,6 +5,26 @@ $(document).ready(() => {
   buscarContratos();
 });
 
+$(document).ready(function(){
+
+  $('.aba-futuros').hide();
+
+});
+
+$('#mostrar-atuais').click(function(){
+
+  $('.aba-futuros').toggle(300);
+  $('.aba-atuais').toggle(300);
+
+});
+
+$('#mostrar-futuros').click(function(){
+
+  $('.aba-atuais').toggle(300);
+  $('.aba-futuros').toggle(300);
+
+});
+
 $("#deletarContrato").on("click", () => {
   $("#modal-default").modal("hide");
   deletarContrato();
