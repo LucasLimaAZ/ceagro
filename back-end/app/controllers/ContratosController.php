@@ -78,6 +78,18 @@ class ContratosController extends Controller
         return $this->responderJSON($atuais);
     }
 
+    public function listaContratosAtuais()
+    {
+        $contrato = Contrato::get(["futuro", 0]);
+        return $this->responderJSON($contrato);
+    }
+
+    public function listaContratosFuturos()
+    {
+        $contrato = Contrato::get(["futuro", 1]);
+        return $this->responderJSON($contrato);
+    }
+
     public function numeroConfirmacao()
     {
         $reflection = new \ReflectionClass("App\Models\Contrato");

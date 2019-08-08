@@ -10,9 +10,7 @@
 				<button id="mostrar-atuais" class="btn btn-primary">Atuais</button>
 			</div>
 		</div>
-			<section class="content">
-
-			<div class="aba-atuais"> <!-- aba atuais -->
+			<section class="content aba-atuais"> <!-- aba atuais -->
 
 				<div class="row">
 					<div class="col-xs-12">
@@ -21,7 +19,7 @@
 								<h3 class="box-title">Contratos</h3>
 							</div>
 							<div class="box-body tabelaListaContratos">
-								<table class="table table-bordered table-striped" id="contratos">
+								<table class="table table-bordered table-striped" id="contratos-atuais">
 									<thead>
 										<tr>
 											<th>Número ATUAL</th>
@@ -43,12 +41,8 @@
 					</div>
 				</div>
 
-			</div> <!-- fim aba atuais -->
-
-          	</section>
-			  <section class="content">
-
-			<div class="aba-futuros"> <!-- aba atuais -->
+          	</section><!-- fim aba atuais -->
+			<section class="aba-futuros"><!-- aba futuros -->
 
 				<div class="row">
 					<div class="col-xs-12">
@@ -57,7 +51,7 @@
 								<h3 class="box-title">Contratos</h3>
 							</div>
 							<div class="box-body tabelaListaContratos">
-								<table class="table table-bordered table-striped" id="contratos">
+								<table class="table table-bordered table-striped" id="contratos-futuros">
 									<thead>
 										<tr>
 											<th>Número FUTURO</th>
@@ -78,10 +72,7 @@
 						</div>
 					</div>
 				</div>
-
-			</div> <!-- fim aba atuais -->
-
-          	</section>
+          	</section><!-- fim aba futuros -->
         </div>
 		<div class="control-sidebar-bg"></div>
 	</div>

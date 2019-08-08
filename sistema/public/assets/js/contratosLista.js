@@ -2,7 +2,8 @@ var contratoId = null;
 var table = null;
 var contratos = [];
 $(document).ready(() => {
-  buscarContratos();
+  buscarContratosFuturos();
+  buscarContratosAtuais();
 });
 
 $(document).ready(function(){
@@ -13,15 +14,15 @@ $(document).ready(function(){
 
 $('#mostrar-atuais').click(function(){
 
-  $('.aba-futuros').toggle(300);
-  $('.aba-atuais').toggle(300);
+  $('.aba-futuros').hide();
+  $('.aba-atuais').fadeIn(300);
 
 });
 
 $('#mostrar-futuros').click(function(){
 
-  $('.aba-atuais').toggle(300);
-  $('.aba-futuros').toggle(300);
+  $('.aba-atuais').hide();
+  $('.aba-futuros').fadeIn(300);
 
 });
 
@@ -32,13 +33,29 @@ $("#deletarContrato").on("click", () => {
 
 $;
 
-function buscarContratos() {
+function buscarContratosFuturos() {
   let r;
-  $.get(`../back-end/contratos`).done(response => {
+  $.get(`../back-end/contratos/listaFuturos`).done(response => {
     contratos = JSON.parse(response);
     popularPesquisa(contratos, () => {
       $(".overlay").remove();
-      table = $("#contratos").DataTable({
+      table = $("#contratos-futuros").DataTable({
+        "language": languagePT,
+        "ordering": false
+      });
+
+    });
+
+  });
+}
+
+function buscarContratosAtuais() {
+  let r;
+  $.get(`../back-end/contratos/listaAtuais`).done(response => {
+    contratos = JSON.parse(response);
+    popularPesquisa(contratos, () => {
+      $(".overlay").remove();
+      table = $("#contratos-atuais").DataTable({
         "language": languagePT,
         "ordering": false
       });
