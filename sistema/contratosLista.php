@@ -4,6 +4,7 @@
 	<?php include "partials/header.html"; ?>
 	<?php include "partials/menu.html"; ?>
         <div class="content-wrapper">
+<<<<<<< HEAD
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
 				<button id="mostrar-futuros" class="btn btn-primary">Futuros</button>
@@ -44,17 +45,32 @@
           	</section><!-- fim aba atuais -->
 			<section class="aba-futuros"><!-- aba futuros -->
 
+=======
+	
+			<section class="content">
+>>>>>>> eb2b20cda9007687971f20df3510a5c001e5e26b
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="box box-info">
 							<div class="box-header">
 								<h3 class="box-title">Contratos</h3>
+								<div class="row">
+									<div class="col-xs-12 text-right">
+										<button id="btn-futuros" class="btn btn-flat">Futuros</button>
+										<button id="btn-atuais" class="btn btn-flat">Atuais</button>
+									</div>
+								</div>
 							</div>
 							<div class="box-body tabelaListaContratos">
+<<<<<<< HEAD
 								<table class="table table-bordered table-striped" id="contratos-futuros">
+=======
+								
+								<table class="table table-bordered table-striped" id="contratos">
+>>>>>>> eb2b20cda9007687971f20df3510a5c001e5e26b
 									<thead>
 										<tr>
-											<th>Número FUTURO</th>
+											<th>Número</th>
 											<th>Comprador</th>
 											<th>Vendedor</th>
 											<th>Produto</th>
@@ -72,7 +88,11 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
           	</section><!-- fim aba futuros -->
+=======
+          	</section>
+>>>>>>> eb2b20cda9007687971f20df3510a5c001e5e26b
         </div>
 		<div class="control-sidebar-bg"></div>
 	</div>
