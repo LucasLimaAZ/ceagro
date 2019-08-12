@@ -6,6 +6,9 @@ require "core/bootstrap.php";
 use App\Core\Request;
 use App\Core\Router;
 use App\Core\App;
+use App\Model\User;
+
+User::check();
 
 try {
     Router::carregar('app/routes.php')->direcionar(

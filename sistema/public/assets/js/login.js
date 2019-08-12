@@ -1,3 +1,13 @@
+$(document).ready(function(){
+
+    alert("testando por aqui!");
+    $.get("../back-end/login").done(response => {
+        logado = JSON.parse(response);
+        alert(logaado);
+    });
+
+});
+
 $('#botao-login').click(function(){
 
     var dados = [];
