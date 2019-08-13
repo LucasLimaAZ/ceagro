@@ -8,7 +8,10 @@ use App\Core\Router;
 use App\Core\App;
 use App\Model\User;
 
-User::check();
+if(!User::check()) {
+    toJson("Não autorizado", 401);
+    die();
+}
 
 try {
     Router::carregar('app/routes.php')->direcionar(

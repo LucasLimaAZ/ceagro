@@ -8,13 +8,18 @@ class User
 {
     public static function check()
     {
-        session_start();
-        return (!isset($_SESSION['logado']))? true: false;
+        if(!isset($_SESSION['logado'])) {
+            session_start();
+            return false;
+        }
+        return true;
     }
 
     public static function estaLogado()
     {
-        session_start();
+        if(!isset($_SESSION)) {
+            session_start();
+        }
         if(!isset($_SESSION['logado']) || $_SESSION['logado'] != 1){
             return false;
         }

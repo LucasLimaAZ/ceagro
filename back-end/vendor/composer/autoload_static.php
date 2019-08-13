@@ -64,7 +64,7 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
         'App\\Controllers\\Teste' => __DIR__ . '/../..' . '/app/controllers/teste.php',
         'App\\Controllers\\UnidadesController' => __DIR__ . '/../..' . '/app/controllers/UnidadesController.php',
         'App\\Controllers\\UnidadesMedidasController' => __DIR__ . '/../..' . '/app/controllers/UnidadesMedidasController.php',
-        'App\\Controllers\\usersController' => __DIR__ . '/../..' . '/app/controllers/usersController.php',
+        'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/controllers/UsersController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'App\\Core\\Database\\Conexao' => __DIR__ . '/../..' . '/core/database/Conexao.php',
         'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',

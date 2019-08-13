@@ -27,7 +27,7 @@ return array(
     'App\\Controllers\\Teste' => $baseDir . '/app/controllers/teste.php',
     'App\\Controllers\\UnidadesController' => $baseDir . '/app/controllers/UnidadesController.php',
     'App\\Controllers\\UnidadesMedidasController' => $baseDir . '/app/controllers/UnidadesMedidasController.php',
-    'App\\Controllers\\usersController' => $baseDir . '/app/controllers/usersController.php',
+    'App\\Controllers\\UsersController' => $baseDir . '/app/controllers/UsersController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
     'App\\Core\\Database\\Conexao' => $baseDir . '/core/database/Conexao.php',
     'App\\Core\\Database\\QueryBuilder' => $baseDir . '/core/database/QueryBuilder.php',
