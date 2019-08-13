@@ -1,26 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    alert("testando por aqui!");
     $.get("../back-end/login").done(response => {
-        logado = JSON.parse(response);
-        alert(logaado);
+        //     console.log(response);
+        //     // logado = JSON.parse(response);
+        //     // alert(logaado);
     });
 
 });
 
-$('#botao-login').click(function(){
+$('#botao-login').click(function () {
 
     var dados = [];
     dados['usuario'] = $('#usuario').val();
     dados['senha'] = $('#senha').val();
 
-    if($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#'){
+    if ($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#') {
 
         window.location.replace("home.php");
 
-    }else{
+    } else {
         $('#message').html("Usuário ou senha incorreto!");
     }
-    
-      
+
+
 });

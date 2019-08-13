@@ -143,7 +143,6 @@
       compradores[comprador].color = getRandomColor();
       compradores[comprador].highlight = compradores[comprador].color;
       compradores[comprador].label = compradores[comprador].cliente;
-      console.log(compradores);
     }
 
     compradoresGraficosDados = compradores;

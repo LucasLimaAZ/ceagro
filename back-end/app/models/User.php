@@ -9,9 +9,7 @@ class User
     public static function check()
     {
         session_start();
-        if(!isset($_SESSION['logado'])){
-            header('Location: ../../sistema/index.php');
-        }
+        return (!isset($_SESSION['logado']))? true: false;
     }
 
     public static function estaLogado()
