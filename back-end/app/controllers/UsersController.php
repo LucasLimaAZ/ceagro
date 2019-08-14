@@ -18,9 +18,16 @@ class UsersController extends Controller
         User::logout();
     }
 
-    public function cadastrar()
+    public function usuarios()
     {
-        User::cadastrar();
+        return $this->responderJSON([
+            ["id" => 1,"nome" => "Ruan Vinícius", "login" => "sar3a2e65a4s1", "password" => "d345d"]
+        ]);
+    }
+
+    public function usuario()
+    {
+        return $this->responderJSON([ "id" => 1,"nome" => "Ruan Vinícius", "login" => "sar3a2e65a4s1", "password" => "d345d" ]);
     }
 
 }

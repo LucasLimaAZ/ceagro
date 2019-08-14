@@ -12,12 +12,10 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a><i class="fa fa-user"></i> <span>Contratos</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <a><i class="fa fa-file"></i> <span>Contratos</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="contratosLista.php">Pesquisar | Editar</a></li>
                     <li><a href="contratos.php">Cadastrar Contratos</a></li>
-                    <!--<li><a href="../back-end/pdfs/contratos/futuros">Contratos Futuros</a></li>
-                    <li><a href="../back-end/pdfs/contratos/atuais">Contratos Atuais</a></li>-->
                 </ul>
             </li>
             <li>
@@ -27,11 +25,29 @@
                 <a href="cfops.php"><i class="fa fa-archive"></i> <span>CFOPS</span></a>
             </li>
             <li class="treeview">
+                <a><i class="fa fa-user"></i> <span>Usuários</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="usuarioForm.php" target="_blank">
+                            <i class="fa fa-user-plus"></i> <span>Cadastro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="usuarios.php">
+                            <i class="fa fa-users"></i> <span>Lista</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
                 <a><i class="fa fa-copy"></i> <span>Relatorios</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="filtro.php"><i class="fa fa-filter"></i> <span>Filtros</span></a></li>
                     <li><a href="../back-end/pdfs/contratos/imediatos" target="_blank"><i class="fa fa-clock-o"></i> <span>Imediatos</span></a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="../back-end/logout"><i class="fa fa-sign-out"></i> <span>Sair</span></a>
             </li>
     </section>
 </aside>
