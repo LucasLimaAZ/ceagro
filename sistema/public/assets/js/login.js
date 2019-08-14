@@ -21,8 +21,7 @@ $('#botao-login').click(() => {
 
     $.post("../back-end/login").done(response => {
         logado = JSON.parse(response);
+        console.log(response);
     });
-
-    alert(logado);
 
 });

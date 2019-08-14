@@ -9,8 +9,7 @@ class User
 
     public static function login()
     {
-        if(!isset($_SESSION))
-        {
+        if(!isset($_SESSION)) {
             session_start();
         }
         $_SESSION['logado'] = 1;

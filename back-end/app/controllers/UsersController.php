@@ -9,7 +9,8 @@ class UsersController extends Controller
 {
     public function login()
     {
-        User::login();
+        $response = User::login();
+        return $this->responderJSON($response);
     }
 
 }
