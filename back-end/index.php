@@ -8,7 +8,7 @@ use App\Core\Router;
 use App\Core\App;
 use App\Model\User;
 
-if(!preg_match('/login/',Request::uri())) {
+if(!preg_match('/login/',Request::uri()) || !preg_match('/logout/',Request::uri())) {
     if(!User::check()) {
         toJson("Não autorizado", 401);
         die();

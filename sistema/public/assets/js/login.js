@@ -22,8 +22,7 @@ $('#botao-login').click(() => {
     if($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#'){
 
         $.post("../back-end/login").done(response => {
-            alert("Aueba!");
-            window.location.href('home.php');
+            window.location = 'home.php';
         });
 
     }else{
