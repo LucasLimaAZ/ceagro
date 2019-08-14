@@ -3,13 +3,20 @@
 namespace App\Controllers;
 
 use App\Core\App;
-use App\Models\User;
+use App\Model\User;
 
-class usersController
+class UsersController extends Controller
 {
     public function login()
     {
-        session_start();
-        $_SESSION['logado'] = 1;
+        User::login();
+    }
+
+    public function estaLogado()
+    {
+        if(!User::estaLogado()) {
+            return $this->responderJSON(false);
+        }
+        return $this->responderJSON(true);
     }
 }

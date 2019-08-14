@@ -1,16 +1,36 @@
-$('#botao-login').click(function(){
+$(document).ready(function () {
+    $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+        var url = '';
+        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+            url = "/ceagro/sistema/";
+        } else {
+            url = "/sistema/";
+        }
+        if (jqxhr.status === 401) {
+            window.location.href = url;
+        }
+    });
+
+});
+
+$('#botao-login').click(() => {
 
     var dados = [];
     dados['usuario'] = $('#usuario').val();
     dados['senha'] = $('#senha').val();
 
-    if($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#'){
+    $.get("../back-end/login").done(response => {
+        logado = JSON.parse(response);
+    });
 
-        window.location.replace("home.php");
 
-    }else{
-        $('#message').html("Usuário ou senha incorreto!");
-    }
-    
-      
+    // if ($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#') {
+
+    //     window.location.replace("home.php");
+
+    // } else {
+    //     $('#message').html("Usuário ou senha incorreto!");
+    // }
+
+
 });

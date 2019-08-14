@@ -108,8 +108,7 @@
 		<div class="control-sidebar-bg"></div>
 	</div>
 	<?php include 'partials/imports.html' ?>
-	<script>
-</script>
+	<script src="../sistema/public/assets/js/login.js"></script>
   <script src="public/assets/js/index.js"></script>
   <script src="adminlte/bower_components/chart.js/Chart.js"></script>
   <script>
@@ -144,7 +143,6 @@
       compradores[comprador].color = getRandomColor();
       compradores[comprador].highlight = compradores[comprador].color;
       compradores[comprador].label = compradores[comprador].cliente;
-      console.log(compradores);
     }
 
     compradoresGraficosDados = compradores;
