@@ -12,11 +12,4 @@ class UsersController extends Controller
         User::login();
     }
 
-    public function estaLogado()
-    {
-        if(!User::estaLogado()) {
-            return $this->responderJSON(false);
-        }
-        return $this->responderJSON(true);
-    }
 }

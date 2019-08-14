@@ -19,18 +19,10 @@ $('#botao-login').click(() => {
     dados['usuario'] = $('#usuario').val();
     dados['senha'] = $('#senha').val();
 
-    $.get("../back-end/login").done(response => {
+    $.post("../back-end/login").done(response => {
         logado = JSON.parse(response);
     });
 
-
-    // if ($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#') {
-
-    //     window.location.replace("home.php");
-
-    // } else {
-    //     $('#message').html("Usuário ou senha incorreto!");
-    // }
-
+    alert(logado);
 
 });

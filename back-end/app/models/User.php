@@ -6,16 +6,20 @@ use App\Core\App;
 
 class User
 {
-    public static function check()
+
+    public static function login()
     {
-        if(!isset($_SESSION['logado'])) {
+        if(!isset($_SESSION))
+        {
             session_start();
-            return false;
         }
-        return true;
+        $_SESSION['logado'] = 1;
+        
+        $teste = "abobora";
+        return $teste;
     }
 
-    public static function estaLogado()
+    public static function check()
     {
         if(!isset($_SESSION)) {
             session_start();

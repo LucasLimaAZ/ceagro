@@ -51,21 +51,12 @@ function buscarContratosAtuais() {
   let r;
   $.get(`../back-end/contratos/listaAtuais`).done(response => {
     contratos = JSON.parse(response);
-<<<<<<< HEAD
-    popularPesquisa(contratos, () => {
-      $(".overlay").remove();
-      table = $("#contratos-atuais").DataTable({
-        "language": languagePT,
-        "ordering": false
-      });
-=======
     contratosA = contratos.filter((elem, index, arr) => elem.futuro == 0);
     contratosF = contratos.filter((elem, index, arr) => elem.futuro == 1);
     $("#btn-atuais").removeClass('btn-flat').addClass("btn-primary");
     criarTabelaContratos(contratosA);
   });
 }
->>>>>>> eb2b20cda9007687971f20df3510a5c001e5e26b
 
 function criarTabelaContratos(array) {
   if (table) {

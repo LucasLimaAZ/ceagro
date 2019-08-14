@@ -37,7 +37,7 @@
                         <input type="text" id="usuario" name="usuario" class="form-control">
                         <label style="padding-top:20px;" for="senha">Senha: </label>
                         <input type="password" id="senha" name="senha" class="form-control">
-                        <button class="btn btn-primary" id="botao-login" style="margin-top:20px;width:100%" name="login">Entrar</button>
+                        <button type="button" class="btn btn-primary" id="botao-login" style="margin-top:20px;width:100%" name="login">Entrar</button>
                         <p id="message" style="color:red;text-align:center;margin-top:20px;"></p>
                     </div>
                 </div>
