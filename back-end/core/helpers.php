@@ -17,7 +17,8 @@ function toJson($dados, $code = 200) {
         200 => '200 OK',
         400 => '400 Bad Request',
         422 => 'Unprocessable Entity',
-        500 => '500 Internal Server Error'
+        500 => '500 Internal Server Error',
+        401 => '401 Não autorizado'
     );
 
     http_response_code($code);

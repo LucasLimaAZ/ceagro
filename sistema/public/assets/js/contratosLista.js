@@ -5,7 +5,7 @@ var contratosA = [];
 var contratosF = [];
 
 $(document).ready(() => {
-  buscarContratos();
+  buscarContratosAtuais();
   $("#btn-atuais").click(() => {
     criarTabelaContratos(contratosA);
     addClassBtn("atuais");
@@ -32,7 +32,6 @@ function removeClassBtn(btn) {
 }
 
 function buscarContratosFuturos() {
-  let r;
   $.get(`../back-end/contratos/listaFuturos`).done(response => {
     contratos = JSON.parse(response);
     popularPesquisa(contratos, () => {
@@ -48,7 +47,6 @@ function buscarContratosFuturos() {
 }
 
 function buscarContratosAtuais() {
-  let r;
   $.get(`../back-end/contratos/listaAtuais`).done(response => {
     contratos = JSON.parse(response);
     contratosA = contratos.filter((elem, index, arr) => elem.futuro == 0);
