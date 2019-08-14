@@ -5,7 +5,7 @@ var contratosA = [];
 var contratosF = [];
 
 $(document).ready(() => {
-  buscarContratosAtuais();
+  buscarContratos();
   $("#btn-atuais").click(() => {
     criarTabelaContratos(contratosA);
     addClassBtn("atuais");
@@ -31,23 +31,9 @@ function removeClassBtn(btn) {
   $("#btn-" + btn).removeClass('btn-primary').addClass("btn-flat");
 }
 
-function buscarContratosFuturos() {
-  $.get(`../back-end/contratos/listaFuturos`).done(response => {
-    contratos = JSON.parse(response);
-    popularPesquisa(contratos, () => {
-      $(".overlay").remove();
-      table = $("#contratos-futuros").DataTable({
-        "language": languagePT,
-        "ordering": false
-      });
-
-    });
-
-  });
-}
-
-function buscarContratosAtuais() {
-  $.get(`../back-end/contratos/listaAtuais`).done(response => {
+function buscarContratos() {
+  let r;
+  $.get(`../back-end/contratos`).done(response => {
     contratos = JSON.parse(response);
     contratosA = contratos.filter((elem, index, arr) => elem.futuro == 0);
     contratosF = contratos.filter((elem, index, arr) => elem.futuro == 1);
