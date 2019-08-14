@@ -19,9 +19,15 @@ $('#botao-login').click(() => {
     dados['usuario'] = $('#usuario').val();
     dados['senha'] = $('#senha').val();
 
-    $.post("../back-end/login").done(response => {
-        logado = JSON.parse(response);
-        console.log(response);
-    });
+    if($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#'){
+
+        $.post("../back-end/login").done(response => {
+            alert("Aueba!");
+            window.location.href('home.php');
+        });
+
+    }else{
+        alert("Usuário ou senha incorretos!");
+    }
 
 });

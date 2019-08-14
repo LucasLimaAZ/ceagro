@@ -81,6 +81,7 @@ $router->get("{$urlBase}pdfs/contratos/imediatos", "PDF\FiltrosController@imedia
 $router->get("{$urlBase}pdfs/datas", "PDF\FiltrosController@index");
 
 $router->post("{$urlBase}login", "UsersController@login");
+$router->get("{$urlBase}logout", "UsersController@logout");
 
 $router->get("{$urlBase}contratos/listaFuturos", "ContratosController@listaContratosFuturos");
 $router->get("{$urlBase}contratos/listaAtuais", "ContratosController@listaContratosAtuais");

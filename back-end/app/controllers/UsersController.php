@@ -13,4 +13,9 @@ class UsersController extends Controller
         return $this->responderJSON($response);
     }
 
+    public function logout()
+    {
+        User::logout();
+    }
+
 }

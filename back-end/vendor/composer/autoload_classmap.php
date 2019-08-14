@@ -46,6 +46,7 @@ return array(
     'App\\Models\\ContratoFuturo' => $baseDir . '/app/models/ContratosFuturos.php',
     'App\\Models\\Endereco' => $baseDir . '/app/models/Endereco.php',
     'App\\Models\\Fixacao' => $baseDir . '/app/models/Fixacao.php',
+    'App\\Models\\Login' => $baseDir . '/app/models/Login.php',
     'App\\Models\\Model' => $baseDir . '/app/models/Model.php',
     'App\\Models\\Produto' => $baseDir . '/app/models/Produto.php',
     'App\\Models\\Unidade' => $baseDir . '/app/models/Unidade.php',

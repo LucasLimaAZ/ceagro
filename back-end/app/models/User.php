@@ -18,6 +18,15 @@ class User
         return $teste;
     }
 
+    public static function logout()
+    {
+        $_SESSOIN['logado'] = 0;
+
+        session_destroy();
+
+        header("Location: ../sistema/index.php");
+    }
+
     public static function check()
     {
         if(!isset($_SESSION)) {

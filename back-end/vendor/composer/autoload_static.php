@@ -83,6 +83,7 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
         'App\\Models\\ContratoFuturo' => __DIR__ . '/../..' . '/app/models/ContratosFuturos.php',
         'App\\Models\\Endereco' => __DIR__ . '/../..' . '/app/models/Endereco.php',
         'App\\Models\\Fixacao' => __DIR__ . '/../..' . '/app/models/Fixacao.php',
+        'App\\Models\\Login' => __DIR__ . '/../..' . '/app/models/Login.php',
         'App\\Models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
         'App\\Models\\Produto' => __DIR__ . '/../..' . '/app/models/Produto.php',
         'App\\Models\\Unidade' => __DIR__ . '/../..' . '/app/models/Unidade.php',
