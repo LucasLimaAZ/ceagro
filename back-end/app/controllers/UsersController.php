@@ -18,4 +18,9 @@ class UsersController extends Controller
         User::logout();
     }
 
+    public function cadastrar()
+    {
+        User::cadastrar();
+    }
+
 }

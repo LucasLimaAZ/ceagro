@@ -7,6 +7,8 @@ use App\Core\App;
 class User
 {
 
+    public static $table = 'users';
+
     public static function login()
     {
         if(!isset($_SESSION)) {
@@ -41,5 +43,11 @@ class User
         else{
             return true;
         }
+    }
+
+    public static function cadastrar($dados)
+    {
+        User::create($dados, static::$table);
+        return $this->responderJSON("Cadastrado com Sucesso!");
     }
 }
