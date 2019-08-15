@@ -1,11 +1,15 @@
-$(document).ready(function () {
-    $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
-        var url = '';
-        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-            url = "/ceagro/sistema/";
-        } else {
-            url = "/sistema/";
+$.ajaxSetup({
+    beforeSend: function (xhr) {
+        if (localStorage.getItem('usuarioLogado')) {
+            const uL = JSON.parse(JSON.parse(localStorage.getItem('usuarioLogado')));
+            // xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)}`);
+            xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)} ${btoa(uL.senha)}`);
         }
+    },
+});
+$(document).ready(() => {
+    $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+        const url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "/ceagro/sistema/" : "/sistema/";
         if (jqxhr.status === 401) {
             window.location.href = url;
         }
@@ -14,19 +18,10 @@ $(document).ready(function () {
 });
 
 $('#botao-login').click(() => {
-
-    var dados = [];
-    dados['usuario'] = $('#usuario').val();
-    dados['senha'] = $('#senha').val();
-
-    if ($('#usuario').val() == 'ceagro' && $('#senha').val() == 'sucesso19#') {
-
-        $.post("../back-end/login").done(() => {
+    let dados = $("#login").serializeArray();
+    $.post(`../back-end/login`, dados)
+        .done(response => {
+            localStorage.setItem("usuarioLogado", JSON.stringify(response));
             window.location = 'home.php';
         });
-
-    } else {
-        alert("Usuário ou senha incorretos!");
-    }
-
 });

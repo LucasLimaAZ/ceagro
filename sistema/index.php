@@ -33,12 +33,14 @@
                 </div>
                 <div class="row" style="margin-bottom:40px">
                     <div class="col-md-6 offset-md-3">
-                        <label for="usuario">Usuário: </label>
-                        <input type="text" id="usuario" name="usuario" class="form-control">
-                        <label style="padding-top:20px;" for="senha">Senha: </label>
-                        <input type="password" id="senha" name="senha" class="form-control">
-                        <button type="button" class="btn btn-primary" id="botao-login" style="margin-top:20px;width:100%" name="login">Entrar</button>
-                        <p id="message" style="color:red;text-align:center;margin-top:20px;"></p>
+                        <form id="login">
+                            <label for="usuario">Usuário: </label>
+                            <input type="text" id="usuario" name="usuario" class="form-control">
+                            <label style="padding-top:20px;" for="senha">Senha: </label>
+                            <input type="password" id="senha" name="senha" class="form-control">
+                            <button type="button" class="btn btn-primary" id="botao-login" style="margin-top:20px;width:100%" name="login">Entrar</button>
+                            <p id="message" style="color:red;text-align:center;margin-top:20px;"></p>
+                        </form>
                     </div>
                 </div>
             </div>

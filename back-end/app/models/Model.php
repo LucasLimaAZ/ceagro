@@ -27,6 +27,12 @@ class Model
         return $a = array_shift($response);
     }
 
+    public static function autenticate($usuario)
+    {
+        $response = App::get('db')->findByLogin($usuario);
+        return $a = array_shift($response);
+    }
+
     public static function where($campos = ["id", 0]) {
         return App::get('db')->find(
             static::$table,

@@ -8,6 +8,9 @@ use App\Core\Router;
 use App\Core\App;
 use App\Models\User;
 
+ if (isset($_SERVER["HTTP_AUTHORIZATION"])) {
+    dd($_SERVER["HTTP_AUTHORIZATION"]);
+}
 if((preg_match('/login/',Request::uri()) < 1) && (preg_match('/logout/',Request::uri()) < 1)) {
     if(!User::check()) {
         toJson("Não autorizado", 401);

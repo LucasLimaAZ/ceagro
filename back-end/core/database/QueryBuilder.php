@@ -103,6 +103,20 @@ class QueryBuilder
             die($exception);
         }
     }
+    public function findByLogin($login)
+    {
+        $query = "select * from users where login = '{$login}'";
+        // dd($query);
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+            $campos = null;
+            return $statement->fetchAll(PDO::FETCH_CLASS, \App\Models\User::class);
+        } catch (PDOException $exception) {
+            http_response_code(500);
+            die($exception);
+        }
+    }
 
     public function contratosFuturos()
     {

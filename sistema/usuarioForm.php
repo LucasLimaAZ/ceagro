@@ -21,14 +21,29 @@
                                     <div class="form-row">
                                         <div class="col-xs-12">
                                             <div class="form-group">
-                                                <label for="razao_social">Nome do usuário</label>
-                                                <input type="text" class="form-control" name="nome" placeholder="Digite o nome fantasia do seu cliente" autocomplete="off" required>
+                                                <label for="nome">Nome do usuário</label>
+                                                <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome fantasia do seu cliente" autocomplete="off" required>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-6">
                                             <div class="form-group">
-                                                <label for="responsavel_logistica_cotas">Login</label>
-                                                <input type="text" class="form-control" name="login" placeholder="Digite as informações necessárias" autocomplete="off" required>
+                                                <label for="login">Login</label>
+                                                <input type="text" class="form-control" name="login" id="login" placeholder="Digite as informações necessárias" autocomplete="off" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label for="tipo">Tipo</label>
+                                                <select class="form-control select2" name="tipo" style="width: 100%;" id="tipo" required>
+                                                    <option value="1">Administrador</option>
+                                                    <option value="2">Usuário</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 senha">
+                                            <div class="form-group">
+                                                <label for="senha">Nova Senha</label>
+                                                <input type="text" class="form-control" name="nova_senha" placeholder="Digite as informações necessárias" autocomplete="off">
                                             </div>
                                         </div>
 

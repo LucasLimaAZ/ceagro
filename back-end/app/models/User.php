@@ -8,16 +8,26 @@ class User extends Model
     public $nome;
     public $login;
     public $senha;
+    /**
+     * 1 - Adminsitrador do sistema
+     * 2 - Usuário Comum
+     * 
+     */
+    public $tipo;
 
     public static $table = 'users';
 
-    public static function login()
+    public static function login($user)
     {
-        if (!isset($_SESSION)) {
-            session_start();
+        $usuario = User::autenticate($user['usuario']);
+        if($usuario && $usuario->senha == md5($user['senha'])) {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $_SESSION['logado']["$usuario->login+$usuario->senha"] = 1;
+            return $usuario;
         }
-        $_SESSION['logado'] = 1;
-        return true;
+        return toJson("Login ou senha inválidos", 500);
     }
 
     public static function logout()
@@ -43,10 +53,21 @@ class User extends Model
         if (!isset($_SESSION)) {
             session_start();
         }
-        if (!isset($_SESSION['logado']) || $_SESSION['logado'] != 1) {
-            return false;
-        } else {
-            return true;
-        }
+        $headers = apache_request_headers();
+        if(isset($headers['Authorization'])){
+            $matches = array();
+            preg_match('/Bearer (.*)/', $headers['Authorization'], $matches);
+            if(isset($matches[1])){
+                $tokens = explode(" ",$matches[1]);
+                $tokens[0] = base64_decode($tokens[0]);
+                $tokens[1] = base64_decode($tokens[1]);
+                if (!isset($_SESSION['logado']["$tokens[0]+$tokens[1]"]) || $_SESSION['logado']["$tokens[0]+$tokens[1]"] != 1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        } 
+        return false;
     }
 }

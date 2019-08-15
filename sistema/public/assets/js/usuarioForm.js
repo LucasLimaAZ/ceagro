@@ -51,21 +51,34 @@ const compararForm = (dados, formulario) => {
 }
 
 
-function atualizar() {
-    // mostrarModal();
+const atualizar = () => {
+    let u = $("#usuario").serializeArray();
+    u.push({ name: "id", value: usuario.id }, { name: "senha", value: usuario.senha });
+    $.ajax({
+        type: "PUT",
+        url: `../back-end/usuarios/${usuario.id}`,
+        data: u
+    }).done(response => {
+        usuario = JSON.parse(response);
+        exibirSucesso();
+    }).fail(() => exibirErro());
+}
 
-    const a = $("#usuario").serializeArray();
-    console.log(a);
-    // $.ajax({
-    //     type: "PUT",
-    //     url: `../back-end/contratos/${contrato.id}`,
-    //     data: dados
-    // })
-    //     .done(() => {
-    //         alertCadastro();
-    //         exibirSucesso();
-    //         // window.location.href = "./contratosLista.php";
-    //     })
-    //     .always(() => esconderModal())
-    //     .fail(() => exibirErro());
+const cadastrar = () => {
+    let u = $("#usuario").serializeArray();
+    $.post(`../back-end/usuarios`, u)
+        .done(response => {
+            usuario = JSON.parse(response);
+            exibirSucesso();
+        }).fail(() => exibirErro());
+}
+
+const exibirSucesso = () => {
+    $(`.success`).show("slow");
+    setTimeout(() => $(".success").hide("slow"), 5000);
+}
+
+const exibirErro = () => {
+    $(`#.erro`).show("slow");
+    setTimeout(() => $(".erro").hide("slow"), 3000);
 }

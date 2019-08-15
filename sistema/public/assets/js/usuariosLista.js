@@ -23,9 +23,10 @@ const languagePT = {
 };
 
 var table = null;
+var usuarioId = null;
 var usuarios = [];
 
-$(document).ready(() => buscarUsuarios() );
+$(document).ready(() => buscarUsuarios());
 
 $("#deletarUsuario").on("click", () => {
   $("#modal-default").modal("hide");
@@ -39,12 +40,12 @@ const exibirErro = () => {
 
 const buscarUsuarios = () => {
   $.get(`../back-end/usuarios`)
-  .done(response => {
-    usuarios = JSON.parse(response);
-    criarTabelaUsuarios(usuarios);
-  })
-  .fail(() => exibirErro())
-  .always(() => $(".overlay").remove());
+    .done(response => {
+      usuarios = JSON.parse(response);
+      criarTabelaUsuarios(usuarios);
+    })
+    .fail(() => exibirErro())
+    .always(() => $(".overlay").remove());
 }
 
 function criarTabelaUsuarios(array) {
@@ -66,11 +67,11 @@ function popularPesquisa(usuarios, callback = null) {
   $.each(usuarios, (index, usuario) => {
     var linha = `
     <tr id="${usuario.id}" class="clicavel">
-            <td class="item" id="${ usuario.id }">${ usuario.nome }</td>
-            <td class="item" id="${ usuario.id }">${ usuario.login || "-" }</td>
-            <td class="item" id="${ usuario.id }">${ usuario.password || "-" }</td>
+            <td class="item" id="${ usuario.id}">${usuario.nome}</td>
+            <td class="item" id="${ usuario.id}">${usuario.login || "-"}</td>
+            <td class="item" id="${ usuario.id}">${usuario.password || "-"}</td>
             <td class="edit" style="text-align:center" id="${usuario.id}">
-                <button type="button" class="btn btn-primary" id="${ usuario.id }">
+                <button type="button" class="btn btn-primary" id="${ usuario.id}">
                     <i class="fa fa-pencil" id="${usuario.id}"></i>
                 </button>
             </td>
@@ -89,16 +90,14 @@ function popularPesquisa(usuarios, callback = null) {
   $(`#usuarios .edit`).on("click", function (event) {
     abrirContrato(event.target.id);
   });
-  $(`#usuarios .delete`).on("click", function () {
-    selecionarUsuario(this.id);
-  });
+  $(`#usuarios .delete`).click(function () { selecionarUsuario(this.id); });
   callback ? callback() : "";
 }
 
 const selecionarUsuario = (ctId) => usuarioId = ctId;
 
 
-const abrirContrato = (ctId) =>  window.location.href = `usuarioForm.php?u=${ctId}`;
+const abrirContrato = (ctId) => window.location.href = `usuarioForm.php?u=${ctId}`;
 
 const irParaUsuario = (usuario) => {
   $.get(`../back-end/usuarios/${usuario}/`, response => {

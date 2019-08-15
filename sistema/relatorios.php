@@ -49,11 +49,6 @@
 				format: 'DD/MM/YYYY'
 			}
 		});
-		// $('#reservation2').datepicker({
-		// 		locale: {
-		// 		format: 'DD/MM/Y	YYY'
-		// 	}
-		// });
 		$.fn.datepicker.dates['pt'] = {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
 			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
