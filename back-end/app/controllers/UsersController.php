@@ -30,4 +30,9 @@ class UsersController extends Controller
         return $this->responderJSON([ "id" => 1,"nome" => "Ruan Vinícius", "login" => "sar3a2e65a4s1", "password" => "d345d" ]);
     }
 
+    public function cadastrar($dados)
+    {
+        User::cadastrar();
+    }
+
 }

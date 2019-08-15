@@ -85,6 +85,7 @@ $router->get("{$urlBase}logout", "UsersController@logout");
 
 $router->get("{$urlBase}usuarios", "UsersController@usuarios");
 $router->get("{$urlBase}usuarios/{usuario}", "UsersController@usuario");
+$router->post("{$urlBase}usuarios/cadastrar", "UsersController@cadastrar");
 
 $router->get("{$urlBase}contratos/listaFuturos", "ContratosController@listaContratosFuturos");
 $router->get("{$urlBase}contratos/listaAtuais", "ContratosController@listaContratosAtuais");
