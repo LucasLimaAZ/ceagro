@@ -21,13 +21,13 @@
     }
     
     body {
-        margin-top: 2.5cm;
-        margin-bottom: 2.5cm;
-        margin-left: 3cm;
-        margin-right: 3cm;
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+        margin-left: 2cm;
+        margin-right: 2cm;
     }
     table {
-        width: 567px !important;
+        width: 660px !important;
     }
 
     .data {float:right}
@@ -42,19 +42,20 @@
         background-color: red
     }
     .comprador {
-        margin-top: 2%;
+        margin-top: 10px;
+        margin-bottom:1%;
     }
     .produto {
-        margin-top: 2%;
+        margin-top: 1%;
     }
     .tdproduto {
-        width: 400px;
+        width: 600px;
     }
     .paddingTop20 {
-        padding-top: 10px;
+        padding-top: 8px;
     }
     .linha {
-        padding-top: 30px;
+        padding-top: 20px;
     }
     .center{
         text-align:center !important;
@@ -78,6 +79,7 @@
     }
     .produto1{
         width:49%;
+        margin-top:10px;
     }
     .safra{
         width:30%;
@@ -101,7 +103,7 @@
         text-align:center;
     }
     .assinatura_ceagro{
-        padding-top:40px;
+        padding-top:30px;
         text-align:center !important;
     }
     .ass{
@@ -109,7 +111,7 @@
         page-break-before: avoid !important;
         page-break-inside: avoid !important;
         display:block;
-        padding-top:40px !important;
+        padding-top:30px !important;
     }
 
 </style>
@@ -169,7 +171,7 @@
     </div>
 </section>
 <section>
-    <div class="vendedor">
+    <div class="comprador">
         <table>
             <tr>
             <td class="ac"> A/C:

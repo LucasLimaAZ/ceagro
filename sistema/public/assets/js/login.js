@@ -2,7 +2,6 @@ $.ajaxSetup({
     beforeSend: function (xhr) {
         if (localStorage.getItem('usuarioLogado')) {
             const uL = JSON.parse(JSON.parse(localStorage.getItem('usuarioLogado')));
-            // xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)}`);
             xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)} ${btoa(uL.senha)}`);
         }
     },
@@ -23,5 +22,8 @@ $('#botao-login').click(() => {
         .done(response => {
             localStorage.setItem("usuarioLogado", JSON.stringify(response));
             window.location = 'home.php';
+        }).fail(() => {
+            $(`.erro-login`).show("slow");
+            setTimeout(() => $(".erro-login").hide("slow"), 3000);
         });
 });

@@ -54,9 +54,18 @@ class User extends Model
             session_start();
         }
         $headers = apache_request_headers();
-        if(isset($headers['Authorization'])){
+        if((isset($headers['Authorization'] ))|| (isset($headers['authorization']))|| (isset($headers['AUTHORIZATION'])) ){
             $matches = array();
-            preg_match('/Bearer (.*)/', $headers['Authorization'], $matches);
+            
+            if(isset($headers['Authorization'] )) {
+                preg_match('/Bearer (.*)/', $headers['Authorization'], $matches);
+            }
+            if(isset($headers['authorization'] )) {
+                preg_match('/Bearer (.*)/', $headers['authorization'], $matches);
+            }
+            if(isset($headers['AUTHORIZATION'] )) {
+                preg_match('/Bearer (.*)/', $headers['AUTHORIZATION'], $matches);
+            }
             if(isset($matches[1])){
                 $tokens = explode(" ",$matches[1]);
                 $tokens[0] = base64_decode($tokens[0]);

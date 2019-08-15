@@ -79,6 +79,6 @@ const exibirSucesso = () => {
 }
 
 const exibirErro = () => {
-    $(`#.erro`).show("slow");
+    $(`.erro`).show("slow");
     setTimeout(() => $(".erro").hide("slow"), 3000);
 }

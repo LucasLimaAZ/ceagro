@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Login</title>
-</head>
+<?php include 'partials/cabecalho.html' ?>
+
+
 <style>
     body{
         background-color:#ECF0F5;
@@ -30,6 +24,10 @@
                     <div style="text-align:center;padding:2%;margin-bottom:40px;" class="col-md-6 offset-md-3">
                         <img src="https://ceagro.com.br/wp-content/uploads/2018/12/d8b59575d9e85809b64607abad8383b4eab9a0e44d2a0a66c0688c627d6ca33d.png" width="200px" style="text-align:center;">
                     </div>
+                </div>
+                <div class="row">
+                    <?php require('partials/components/errologin.html') ?>
+
                 </div>
                 <div class="row" style="margin-bottom:40px">
                     <div class="col-md-6 offset-md-3">
