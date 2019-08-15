@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="row invoice-info">
-                            <form role="form" id="cliente">
+                            <form role="form" id="usuario">
                                 <div class="box-body">
                                     <div class="form-row">
                                         <div class="col-xs-12">
@@ -28,15 +28,16 @@
                                         <div class="col-xs-12">
                                             <div class="form-group">
                                                 <label for="responsavel_logistica_cotas">Login</label>
-                                                <input type="text" class="form-control" name="logistica_cotas" placeholder="Digite as informações necessárias" autocomplete="off" required>
+                                                <input type="text" class="form-control" name="login" placeholder="Digite as informações necessárias" autocomplete="off" required>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="box-footer">
                                     <?php require('partials/components/erro.html') ?>
                                     <?php require('partials/components/success.html') ?>
-                                    <button type="submit" class="btn btn-primary pull-right"></button>
+                                    <button type="submit" class="btn btn-primary pull-right" id="salvar">Salvar</button>
                                 </div>
                             </form>
                         </div>
