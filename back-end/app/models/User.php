@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-use App\Model\Model;
-use App\Core\App;
-
-class User
+class User extends Model
 {
+    public $id;
+    public $nome;
+    public $login;
+    public $senha;
 
     public static $table = 'users';
 
@@ -47,11 +48,5 @@ class User
         } else {
             return true;
         }
-    }
-
-    public static function cadastrar($dados)
-    {
-        User::create($dados, static::$table);
-        return $this->responderJSON("Cadastrado com Sucesso!");
     }
 }

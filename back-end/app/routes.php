@@ -83,9 +83,11 @@ $router->get("{$urlBase}pdfs/datas", "PDF\FiltrosController@index");
 $router->post("{$urlBase}login", "UsersController@login");
 $router->get("{$urlBase}logout", "UsersController@logout");
 
-$router->get("{$urlBase}usuarios", "UsersController@usuarios");
-$router->get("{$urlBase}usuarios/{usuario}", "UsersController@usuario");
-$router->post("{$urlBase}usuarios/cadastrar", "UsersController@cadastrar");
+$router->get("{$urlBase}usuarios", "UsersController@index");
+$router->post("{$urlBase}usuarios", "UsersController@store");
+$router->get("{$urlBase}usuarios/{usuario}", "UsersController@show");
+$router->put("{$urlBase}usuarios/{usuario}", "UsersController@update");
+$router->delete("{$urlBase}usuarios/{usuario}", "UsersController@destroy");
 
 $router->get("{$urlBase}contratos/listaFuturos", "ContratosController@listaContratosFuturos");
 $router->get("{$urlBase}contratos/listaAtuais", "ContratosController@listaContratosAtuais");
