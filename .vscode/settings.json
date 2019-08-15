@@ -1,9 +1,0 @@
-{
-    "files.watcherExclude": {
-        "**/bootstrap/*/**": true
-    },
-    "search.exclude": {
-        "**/adminlte": true,
-        "**/bootstrap": true
-    }
-}

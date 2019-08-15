@@ -1,6 +1,4 @@
-/node_modules
-/ceagro.sql
 /back-end/config.php
-/api
 /back-end/vendor
 /back-end/.htaccess
+/.vscode
