@@ -32,7 +32,6 @@
 
     .data {float:right}
     .data,
-    .confirmacao,
     .vendedor {
         margin-top: 3%;
         word-break: break-all;
@@ -330,7 +329,7 @@
                         <tr>
                             <td class='paddingTop20' colspan="3">Observações:
                                 <div class="obs">
-                                    <?=nl2br($contrato->observacao)?>
+                                    <?php echo str_replace("\r","<b style='display:inline;color:white !important;'>.</b><br>",$contrato->observacao);  ?>
                                 </div>
                             </td>
                         </tr>
