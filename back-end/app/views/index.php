@@ -268,17 +268,16 @@
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
-
-                    <div class="paddingTop20">
-                        <br>
-                        Pagamento: <?= $contrato->pagamento ?>
-                    </div>
                 </td>
                 <tr>
-                <td class="paddingTop20" colspan="3">Dados Bancários: 
-                    <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
-                </td>
-            </tr>
+                    <td class="paddingTop20">
+                        <br>
+                        Pagamento: <?= $contrato->pagamento ?>
+                    </td>
+                    <td style="float:right" class="paddingTop20" colspan="3">Dados Bancários: 
+                        <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
+                    </td>
+                </tr>
             <tr>
                 <td class="paddingTop20">Peso e Qualidade:
                     <?= $contrato->peso_qualidade ?? " - " ?> 
@@ -339,7 +338,7 @@
                 <?php endif ?>
             <?php endif ?>
             <tr>
-                <td class="paddingTop20">Comissão:
+                <td class="paddingTop10">Comissão:
                     <?= $contrato->comissao ?>
                 </td>
             </tr>
