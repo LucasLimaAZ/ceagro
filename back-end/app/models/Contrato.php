@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Core\App;
-use App\Models\Cliente;
 use App\Models\Produto;
 use App\Models\Unidade;
 use App\Models\Cfop;
@@ -106,7 +104,6 @@ class Contrato extends Model
 
     public function unidade()
     {
-
         return $this->unidadeMedida = UnidadeMedida::find(["id", $this->unidade_medida_id]);
     }
 
@@ -136,5 +133,5 @@ class Contrato extends Model
         Fixacao::delete(['contrato_id', $campos[1]]);
 
         return parent::delete($campos);
-    } 
+    }
 }

@@ -2,18 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
 use App\Models\Cliente;
-use App\Models\Cfop;
-use App\Models\Adendo;
-use App\Models\Fixacao;
 use App\Models\Contrato;
 
 class ContratosController extends Controller
 {
     public function index()
     {
-        $contratos = Contrato::get(null,["futuro asc, CAST(SUBSTRING_INDEX(numero_confirmacao, '/', -1) AS UNSIGNED) DESC,CAST(SUBSTRING_INDEX(numero_confirmacao, '/', 1) AS UNSIGNED) DESC"]);
+        $contratos = Contrato::get(null, ["futuro asc, CAST(SUBSTRING_INDEX(numero_confirmacao, '/', -1) AS UNSIGNED) DESC,CAST(SUBSTRING_INDEX(numero_confirmacao, '/', 1) AS UNSIGNED) DESC"]);
         return $this->responderJSON($contratos);
     }
 
@@ -33,7 +29,6 @@ class ContratosController extends Controller
             $ultimoContrato = Contrato::find(["id", $contratoId]);
 
             return $this->responderJSON($ultimoContrato);
-
         } catch (\Exception $exception) {
             return $this->responderJSON($exception);
         }
@@ -45,12 +40,11 @@ class ContratosController extends Controller
             $contratoId = $contrato['contrato'];
             unset($contrato['contrato']);
 
-            Contrato::update( $contrato, ["id", $contratoId] );
+            Contrato::update($contrato, ["id", $contratoId]);
 
             $contrato = Contrato::find(["id", $contratoId]);
 
             return $this->responderJSON($contrato);
-
         } catch (\Exception $exception) {
             return $this->responderJSON($exception, 500);
         }
