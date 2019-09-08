@@ -552,7 +552,6 @@ function compararForm(contrato, formulario) {
           moment(valor, "YYYY-MM-DD").format("DD/MM/YYYY")
         );
       }
-
       formObj.name === campo ? $(formObj).val(valor) : null;
     });
   });
