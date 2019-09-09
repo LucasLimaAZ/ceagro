@@ -100,7 +100,9 @@ function popularUnidadesComprador(comprador) {
       } </span>
         </option>`;
     $("#comprador .unidades").append(cnpj);
-    $("#comprador .unidades#cnpj").val(contrato.unidade_comprador_id);
+    if(contrato) {
+      $("#comprador .unidades#cnpj").val(contrato.unidade_comprador_id);
+    }
 
   });
 }
@@ -126,7 +128,7 @@ function selecionarVendedor(vendedorId, callback) {
   });
 
   callback(vendedor);
-  buscarContasBancarias(vendedor.id);
+  // buscarContasBancarias(vendedor.id);
 }
 
 function popularUnidadesVendedor(vendedor) {
@@ -140,7 +142,9 @@ function popularUnidadesVendedor(vendedor) {
       } </span>
         </option>`;
     $("#vendedor .unidades").append(cnpj);
-    $("#vendedor .unidades#cnpj").val(contrato.unidade_vendedor_id);
+    if(contrato) {
+      $("#vendedor .unidades#cnpj").val(contrato.unidade_vendedor_id);
+    }
   });
 }
 
