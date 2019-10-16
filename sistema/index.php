@@ -19,18 +19,17 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-xs-offset-3 loginCanvas loginCanvas">
+            <div class="col-xs-6 col-xs-offset-3 loginCanvas">
                 <div class="row">
-                    <div style="text-align:center;padding:2%;margin-bottom:40px;" class="col-xs-12 offset-md-3">
+                    <div style="text-align:center;padding:2%;margin-bottom:40px;" class="col-xs-12">
                         <img src="https://ceagro.com.br/wp-content/uploads/2018/12/d8b59575d9e85809b64607abad8383b4eab9a0e44d2a0a66c0688c627d6ca33d.png" width="200px" style="text-align:center;">
                     </div>
                 </div>
                 <div class="row">
                     <?php require('partials/components/errologin.html') ?>
-
                 </div>
                 <div class="row" style="margin-bottom:40px">
-                    <div class="col-xs-12 offset-md-3">
+                    <div class="col-xs-12">
                         <form id="login">
                             <label for="usuario">Usuário: </label>
                             <input type="text" id="usuario" name="usuario" class="form-control">

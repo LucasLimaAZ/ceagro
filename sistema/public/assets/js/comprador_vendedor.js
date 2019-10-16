@@ -128,7 +128,7 @@ function selecionarVendedor(vendedorId, callback) {
   });
 
   callback(vendedor);
-  // buscarContasBancarias(vendedor.id);
+  buscarContasBancarias(vendedor.id);
 }
 
 function popularUnidadesVendedor(vendedor) {

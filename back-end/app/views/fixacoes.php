@@ -203,7 +203,6 @@
                 <td class="padding20">
                 <strong>Descrição: </strong> Conforme acordado entre as partes, fica fixado  <?= $fixacao->quantidade ?>, 
                 a <?= $fixacao->preco ?>. 
-                <?= $fixacao->contrato()->retirada_entrega?>
                 <?= $fixacao->local_embarque ?> e pagamento 
                 <?= $fixacao->data_pagamento ?>. Remessa via 
                 <?='Banco: '. $fixacao->contasBancarias()->banco .'- agência:'. $fixacao->contasBancarias()->agencia .'- conta:'.$fixacao->contasBancarias()->conta?>.
