@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
+class ComposerStaticInit259739220e58faba4c901f2786d2413f
 {
     public static $prefixLengthsPsr4 = array (
         'F' => 
@@ -88,9 +88,9 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
         'App\\Models\\Unidade' => __DIR__ . '/../..' . '/app/models/Unidade.php',
         'App\\Models\\UnidadeMedida' => __DIR__ . '/../..' . '/app/models/UnidadeMedida.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
-        'ComposerAutoloaderInit7af411bac7756e8562419bf7dd0e78b2' => __DIR__ . '/..' . '/composer/autoload_real.php',
+        'ComposerAutoloaderInit259739220e58faba4c901f2786d2413f' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
-        'Composer\\Autoload\\ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2' => __DIR__ . '/..' . '/composer/autoload_static.php',
+        'Composer\\Autoload\\ComposerStaticInit259739220e58faba4c901f2786d2413f' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'Dompdf\\Adapter\\CPDF' => __DIR__ . '/..' . '/dompdf/dompdf/src/Adapter/CPDF.php',
         'Dompdf\\Adapter\\GD' => __DIR__ . '/..' . '/dompdf/dompdf/src/Adapter/GD.php',
@@ -278,10 +278,10 @@ class ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7af411bac7756e8562419bf7dd0e78b2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit259739220e58faba4c901f2786d2413f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit259739220e58faba4c901f2786d2413f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit259739220e58faba4c901f2786d2413f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit259739220e58faba4c901f2786d2413f::$classMap;
 
         }, null, ClassLoader::class);
     }

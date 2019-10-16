@@ -1,5 +1,5 @@
 <?php
-$producao = 0;
+$producao = 1;
 if (!$producao) {
     return [
         'database' => [

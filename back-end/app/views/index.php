@@ -32,7 +32,6 @@
 
     .data {float:right}
     .data,
-    .confirmacao,
     .vendedor {
         margin-top: 3%;
         word-break: break-all;
@@ -239,7 +238,7 @@
                     <?php if ($contrato->imediato): ?>
                         <div class="paddingTop20">
                             <?=
-                                $contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega) 
+                                $contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega)
                             ?>: Imediata
                         </div>
                     <?php else: ?>
@@ -247,39 +246,38 @@
                             <div class="paddingTop20">
                                 <?=
                                 ($contrato->retirada_entrega == "transferencia")
-                                ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final)) 
+                                ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final))
                                 : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final));
                                 ?>.
                             </div>
                         <?php endif; ?>
                         <?php if (($contrato->data_embarque_inicial !== $contrato->data_embarque_final) && !$contrato->data_embarque_final): ?>
                             <div class="paddingTop20">
-                                <?=($contrato->retirada_entrega == "transferencia") 
-                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))) 
+                                <?=($contrato->retirada_entrega == "transferencia")
+                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
                                 : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
                                 ?>.
                             </div>
                         <?php endif; ?>
                         <?php if ($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
                             <div class="paddingTop20">
-                                <?=($contrato->retirada_entrega == "transferencia") 
-                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))) 
+                                <?=($contrato->retirada_entrega == "transferencia")
+                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
                                 : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
                                 ?>.
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>
-
-                    <div class="paddingTop20">
-                        <br>
-                        Pagamento: <?= $contrato->pagamento ?>
-                    </div>
                 </td>
                 <tr>
-                <td class="paddingTop20" colspan="3">Dados Bancários: 
-                    <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
-                </td>
-            </tr>
+                    <td class="paddingTop20">
+                        <br>
+                        Pagamento: <?= $contrato->pagamento ?> Dados Bancários: 
+                        <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
+                    </td>
+                    <td style="float:right" class="paddingTop20" colspan="3">
+                    </td>
+                </tr>
             <tr>
                 <td class="paddingTop20">Peso e Qualidade:
                     <?= $contrato->peso_qualidade ?? " - " ?> 
@@ -303,8 +301,8 @@
                 </td>
             </tr>
             
-            <?php if($contrato->observacao || $contrato->exportacao): ?>
-                <?php if($contrato->exportacao): ?>
+            <?php if ($contrato->observacao || $contrato->exportacao): ?>
+                <?php if ($contrato->exportacao): ?>
                     <tr>
                         <td class='paddingTop20' colspan="3">A mercadoria é destinada à exportação, portanto, o comprador se compromete a apresentar ao vendedor, no prazo máximo 180 dias, conforme legislação em vigor a contar do período de embarque fixado pelas partes, os seguintes documentos:
                             <br>a) REGISTRO DE EXPORTAÇÃO emitido nos termos da legislação em vigor à época da entrega das mercadorias. Em anexo ao R.E deverá encaminhar memorando de exportação acompanhado dos documentos abaixo:
@@ -315,7 +313,7 @@
                         </td>
                     </tr>
                     <tr>
-                    <?php if($contrato->observacao): ?>
+                    <?php if ($contrato->observacao): ?>
                         <td class='obs paddingTop20' colspan="3">Observações:
                             <div class="obs">
                                 <?=nl2br($contrato->observacao)?>
@@ -330,7 +328,7 @@
                         <tr>
                             <td class='paddingTop20' colspan="3">Observações:
                                 <div class="obs">
-                                    <?=nl2br($contrato->observacao)?>
+                                    <?php echo str_replace("\r", "<b style='display:inline;color:white !important;'>.</b><br>", $contrato->observacao);  ?>
                                 </div>
                             </td>
                         </tr>
@@ -340,7 +338,7 @@
                 <?php endif ?>
             <?php endif ?>
             <tr>
-                <td class="paddingTop20">Comissão:
+                <td class="paddingTop10">Comissão:
                     <?= $contrato->comissao ?>
                 </td>
             </tr>

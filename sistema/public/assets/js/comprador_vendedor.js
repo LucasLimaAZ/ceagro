@@ -100,6 +100,10 @@ function popularUnidadesComprador(comprador) {
       } </span>
         </option>`;
     $("#comprador .unidades").append(cnpj);
+    if(contrato) {
+      $("#comprador .unidades#cnpj").val(contrato.unidade_comprador_id);
+    }
+
   });
 }
 
@@ -138,6 +142,9 @@ function popularUnidadesVendedor(vendedor) {
       } </span>
         </option>`;
     $("#vendedor .unidades").append(cnpj);
+    if(contrato) {
+      $("#vendedor .unidades#cnpj").val(contrato.unidade_vendedor_id);
+    }
   });
 }
 
