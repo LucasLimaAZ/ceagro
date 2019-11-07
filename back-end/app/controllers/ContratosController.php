@@ -72,7 +72,6 @@ class ContratosController extends Controller
 
     public function contratosAtuais()
     {
-        dd("Teste");
         $reflection = new \ReflectionClass("App\Models\Contrato");
         $instance = $reflection->newInstanceWithoutConstructor();
         $atuais = $instance->ultimoAtual();
@@ -81,7 +80,6 @@ class ContratosController extends Controller
 
     public function listaContratosAtuais()
     {
-        dd("Teste");
         $contrato = Contrato::get(["futuro", 0]);
         return $this->responderJSON($contrato);
     }

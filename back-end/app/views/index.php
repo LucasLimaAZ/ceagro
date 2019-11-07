@@ -137,9 +137,9 @@
 <section>
     <div class="vendedor">
         <table>
-            <tr><td class="ac"> A/C:
+            <tr><td class="ac"><b> A/C:</b>
                 <?= $contrato->assinatura_vendedor ?></td>
-                <td class="halfSize">Vendedor:
+                <td class="halfSize"><b>Vendedor:</b>
                     <?= $contrato->unidadeVendedor()->razao_social ?></td>
                     
             </tr>
@@ -173,9 +173,9 @@
     <div class="comprador">
         <table>
             <tr>
-            <td class="ac"> A/C:
+            <td class="ac"> <b>A/C:</b>
                 <?= $contrato->assinatura_comprador ?></td>
-                <td class="halfSize">Comprador:
+                <td class="halfSize"><b>Comprador:</b>
                     <?= $contrato->unidadeComprador->razao_social?></td>
                     
             </tr>
@@ -211,28 +211,28 @@
         <table  >
             <tr>
                 <td class="safra" colspan="2">
-                    Safra: <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
+                <b>Safra:</b> <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
                 </td>
                 <td class="produto1">
-                    Produto: <?= $contrato->produto->nome ?>
+                <b> Produto:</b> <?= $contrato->produto->nome ?>
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20 unidade">Unidade:
+                <td class="paddingTop20 unidade"><b>Unidade:</b>
                     <?= $contrato->unidade()->titulo ?>
                 </td>
-                <td class="paddingTop20 quantidade">Quantidade:
+                <td class="paddingTop20 quantidade"><b>Quantidade:</b>
                     <?= $contrato->quantidade ?>
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20" colspan="3"> Descrição:
+                <td class="paddingTop20" colspan="3"> <b>Descrição:</b>
                 <?= $contrato->produto()->descricao ?>
                 </td>
             </tr>
             <tr>
                 <td class="paddingTop20" colspan="3">
-                    Preço:
+                <b> Preço:</b>
                     <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
 
                     <?php if ($contrato->imediato): ?>
@@ -272,31 +272,31 @@
                 <tr>
                     <td class="paddingTop20">
                         <br>
-                        Pagamento: <?= $contrato->pagamento ?> Dados Bancários: 
+                        <b>Pagamento:</b> <?= $contrato->pagamento ?> Dados Bancários: 
                         <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
                     </td>
                     <td style="float:right" class="paddingTop20" colspan="3">
                     </td>
                 </tr>
             <tr>
-                <td class="paddingTop20">Peso e Qualidade:
+                <td class="paddingTop20"><b>Peso e Qualidade:</b>
                     <?= $contrato->peso_qualidade ?? " - " ?> 
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20" colspan="3"> CFOP: 
+                <td class="paddingTop20" colspan="3"> <b>CFOP: </b>
                     <?= $contrato->cfop()->descricao ?? "Nenhum" ?>
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="paddingTop20">Logística/Cotas Vendedor:
+                <td colspan="3" class="paddingTop20"><b>Logística/Cotas Vendedor:</b>
                     <?= ($contrato->vendedor->logistica_cotas
                         && strlen($contrato->vendedor->logistica_cotas) > 0)
                     ? $contrato->vendedor->logistica_cotas : "-" ?>
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="paddingTop10">Logística/Cotas Comprador:
+                <td colspan="3" class="paddingTop10"><b>Logística/Cotas Comprador:</b>
                 <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?>
                 </td>
             </tr>
@@ -314,7 +314,7 @@
                     </tr>
                     <tr>
                     <?php if ($contrato->observacao): ?>
-                        <td class='obs paddingTop20' colspan="3">Observações:
+                        <td class='obs paddingTop20' colspan="3"><b>Observações:</b>
                             <div class="obs">
                                 <?=nl2br($contrato->observacao)?>
                             </div>
@@ -338,7 +338,7 @@
                 <?php endif ?>
             <?php endif ?>
             <tr>
-                <td class="paddingTop10">Comissão:
+                <td class="paddingTop10"><b>Comissão:</b>
                     <?= $contrato->comissao ?>
                 </td>
             </tr>
