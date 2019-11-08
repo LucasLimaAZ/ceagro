@@ -254,7 +254,7 @@
                             <div class="paddingTop20">
                                 <?=
                                 ($contrato->retirada_entrega == "transferencia")
-                                ? "<b>Transferência</b>" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final))
+                                ? "<b class='inline'>Transferência</b>" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final))
                                 : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final));
                                 ?>.
                             </div>
@@ -262,7 +262,7 @@
                         <?php if (($contrato->data_embarque_inicial !== $contrato->data_embarque_final) && !$contrato->data_embarque_final): ?>
                             <div class="paddingTop20">
                                 <?=($contrato->retirada_entrega == "transferencia")
-                                ? "<b>Transferência</b>" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
+                                ? "<b class='inline'>Transferência</b>" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
                                 : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>" . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
                                 ?>.
                             </div>
