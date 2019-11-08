@@ -112,6 +112,10 @@
         display:block;
         padding-top:30px !important;
     }
+    .inline{
+        display:inline-block;
+        padding-bottom:-2px;
+    }
 
 </style>
 
@@ -131,17 +135,21 @@
 
 <section>
     <div class="confirmacao">
-        <span>Confirmação número: <b style="display:inline !important;"><?= $contrato->numero_confirmacao ?></b></span>
+        <span>Confirmação número: <b class="inline"><?= $contrato->numero_confirmacao ?></b></span>
     </div>
 </section>
 <section>
     <div class="vendedor">
         <table>
-            <tr><td class="ac"><b> A/C:</b>
-                <?= $contrato->assinatura_vendedor ?></td>
-                <td class="halfSize"><b>Vendedor:</b>
-                    <?= $contrato->unidadeVendedor()->razao_social ?></td>
-                    
+            <tr>
+                <td class="ac">
+                    <b class="inline">A/C:</b>
+                    <?= $contrato->assinatura_vendedor; ?>
+                </td>
+                <td class="halfSize">
+                    <b class="inline">Vendedor:</b>
+                    <?= $contrato->unidadeVendedor()->razao_social ?>
+                </td>         
             </tr>
             
             <tr>
@@ -173,9 +181,9 @@
     <div class="comprador">
         <table>
             <tr>
-            <td class="ac"> <b>A/C:</b>
+            <td class="ac"> <b class="inline">A/C:</b>
                 <?= $contrato->assinatura_comprador ?></td>
-                <td class="halfSize"><b>Comprador:</b>
+                <td class="halfSize"><b class="inline">Comprador:</b>
                     <?= $contrato->unidadeComprador->razao_social?></td>
                     
             </tr>
@@ -211,34 +219,34 @@
         <table  >
             <tr>
                 <td class="safra" colspan="2">
-                <b>Safra:</b> <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
+                <b class="inline">Safra:</b> <?= ($contrato->safra)?$contrato->safra : "Nenhum" ?>
                 </td>
                 <td class="produto1">
-                <b> Produto:</b> <?= $contrato->produto->nome ?>
+                <b class="inline"> Produto:</b> <?= $contrato->produto->nome ?>
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20 unidade"><b>Unidade:</b>
+                <td class="paddingTop20 unidade"><b class="inline">Unidade:</b>
                     <?= $contrato->unidade()->titulo ?>
                 </td>
-                <td class="paddingTop20 quantidade"><b>Quantidade:</b>
+                <td class="paddingTop20 quantidade"><b class="inline">Quantidade:</b>
                     <?= $contrato->quantidade ?>
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20" colspan="3"> <b>Descrição:</b>
+                <td class="paddingTop20" colspan="3"> <b class="inline">Descrição:</b>
                 <?= $contrato->produto()->descricao ?>
                 </td>
             </tr>
             <tr>
                 <td class="paddingTop20" colspan="3">
-                <b> Preço:</b>
+                <b class="inline"> Preço:</b>
                     <?= $contrato->preco ?>. <?= $contrato->tipo_embarque ?>, <?= $contrato->local ?>.<br>
 
                     <?php if ($contrato->imediato): ?>
                         <div class="paddingTop20">
                             <?=
-                                $contrato->retirada_entrega == "transferencia" ? "Transferência" : ucfirst($contrato->retirada_entrega)
+                                $contrato->retirada_entrega == "transferencia" ? "<b>Transferência</b>" : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>"
                             ?>: Imediata
                         </div>
                     <?php else: ?>
@@ -246,24 +254,24 @@
                             <div class="paddingTop20">
                                 <?=
                                 ($contrato->retirada_entrega == "transferencia")
-                                ? "Transferência" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final))
-                                : ucfirst($contrato->retirada_entrega) . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final));
+                                ? "<b>Transferência</b>" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final))
+                                : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>" . ": de " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial))). " à " . date("d/m/y", strtotime($contrato->data_embarque_final));
                                 ?>.
                             </div>
                         <?php endif; ?>
                         <?php if (($contrato->data_embarque_inicial !== $contrato->data_embarque_final) && !$contrato->data_embarque_final): ?>
                             <div class="paddingTop20">
                                 <?=($contrato->retirada_entrega == "transferencia")
-                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
-                                : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
+                                ? "<b>Transferência</b>" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
+                                : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>" . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
                                 ?>.
                             </div>
                         <?php endif; ?>
                         <?php if ($contrato->data_embarque_inicial == $contrato->data_embarque_final): ?>
                             <div class="paddingTop20">
                                 <?=($contrato->retirada_entrega == "transferencia")
-                                ? "Transferência" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
-                                : ucfirst($contrato->retirada_entrega) . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
+                                ? "<b>Transferência</b>" . ": " . ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)))
+                                : "<b class='inline'>".ucfirst($contrato->retirada_entrega)."</b>" . ": ". ucfirst(date("d/m/y", strtotime($contrato->data_embarque_inicial)));
                                 ?>.
                             </div>
                         <?php endif; ?>
@@ -272,31 +280,31 @@
                 <tr>
                     <td class="paddingTop20">
                         <br>
-                        <b>Pagamento:</b> <?= $contrato->pagamento ?> Dados Bancários: 
+                        <b class="inline">Pagamento:</b> <?= $contrato->pagamento ?> Dados Bancários: 
                         <?= ($contrato->contaBancaria()) ?"{$contrato->contaBancaria()->banco}, conta {$contrato->contaBancaria()->conta} agência {$contrato->contaBancaria()->agencia}" : "Não há conta bancária cadastrada" ?>
                     </td>
                     <td style="float:right" class="paddingTop20" colspan="3">
                     </td>
                 </tr>
             <tr>
-                <td class="paddingTop20"><b>Peso e Qualidade:</b>
+                <td class="paddingTop20"><b class="inline">Peso e Qualidade:</b>
                     <?= $contrato->peso_qualidade ?? " - " ?> 
                 </td>
             </tr>
             <tr>
-                <td class="paddingTop20" colspan="3"> <b>CFOP: </b>
+                <td class="paddingTop20" colspan="3"> <b class="inline">CFOP: </b>
                     <?= $contrato->cfop()->descricao ?? "Nenhum" ?>
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="paddingTop20"><b>Logística/Cotas Vendedor:</b>
+                <td colspan="3" class="paddingTop20"><b class="inline">Logística/Cotas Vendedor:</b>
                     <?= ($contrato->vendedor->logistica_cotas
                         && strlen($contrato->vendedor->logistica_cotas) > 0)
                     ? $contrato->vendedor->logistica_cotas : "-" ?>
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="paddingTop10"><b>Logística/Cotas Comprador:</b>
+                <td colspan="3" class="paddingTop10"><b class="inline">Logística/Cotas Comprador:</b>
                 <?= ($contrato->comprador->logistica_cotas && strlen($contrato->comprador->logistica_cotas) > 0) ? $contrato->comprador->logistica_cotas : "-" ?>
                 </td>
             </tr>
@@ -314,7 +322,7 @@
                     </tr>
                     <tr>
                     <?php if ($contrato->observacao): ?>
-                        <td class='obs paddingTop20' colspan="3"><b>Observações:</b>
+                        <td class='obs paddingTop20' colspan="3"><b class="inline">Observações:</b>
                             <div class="obs">
                                 <?=nl2br($contrato->observacao)?>
                             </div>
@@ -338,7 +346,7 @@
                 <?php endif ?>
             <?php endif ?>
             <tr>
-                <td class="paddingTop10"><b>Comissão:</b>
+                <td class="paddingTop10"><b class="inline">Comissão:</b>
                     <?= $contrato->comissao ?>
                 </td>
             </tr>
