@@ -14,7 +14,6 @@ $("#vendedor .clientes").change(event => {
 let clientes = null;
 let comprador = null;
 let vendedor = null;
-// 42
 
 /**
  * Verifica se há um contrato no localstorage.
@@ -181,6 +180,9 @@ function popularContasBancarias(contas) {
     $("#contas").append(conts);
     $("#contas2").append(conts);
   });
+  if(contrato) {
+     $("#vendedor #contas").val(contrato.vendedor_conta_bancaria_id);   
+  }
 }
 
 /**
