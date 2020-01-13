@@ -14,6 +14,7 @@ $("#vendedor .clientes").change(event => {
 let clientes = null;
 let comprador = null;
 let vendedor = null;
+// 42
 
 /**
  * Verifica se há um contrato no localstorage.
