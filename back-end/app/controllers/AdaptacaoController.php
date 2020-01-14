@@ -48,4 +48,12 @@ class AdaptacaoController extends Controller
 
         }
     }
+
+    public function adaptaAno()
+    {
+        $contratosFuturos = Contrato::where(["futuro", 1]);
+        // dd($contratosFuturos);
+        return $this->responderJson($contratosFuturos);
+
+    }
 }

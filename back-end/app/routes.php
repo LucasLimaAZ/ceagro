@@ -92,3 +92,4 @@ $router->delete("{$urlBase}usuarios/{usuario}", "UsersController@destroy");
 $router->get("{$urlBase}contratos/listaFuturos", "ContratosController@listaContratosFuturos");
 $router->get("{$urlBase}contratos/listaAtuais", "ContratosController@listaContratosAtuais");
 
+$router->get("{$urlBase}contratos/adaptarAno", "AdaptacaoController@adaptaAno");
