@@ -1,5 +1,5 @@
 <?php
-$producao = 1;
+$producao = 0;
 if (!$producao) {
     return [
         'database' => [
@@ -7,7 +7,7 @@ if (!$producao) {
             'dbname' => "ceagro",
             'charset' => "utf8",
             'username' => "root",
-            'password' => "root",
+            'password' => "",
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ],
