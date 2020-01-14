@@ -25,7 +25,8 @@
             </h1>
             <h2 style="text-align:center;">Seus contratos futuros podem estar desatualizados. <br>Clique em atualizar para atualiza-los.</h2>
             <div style="text-align:center; margin-top:40px;">
-                <button id="botao-atualizar" class="btn btn-success">ATUALIZAR</button>
+                <button id="botao-atualizar" class="btn btn-success">ATUALIZAR</button><br>
+                <i id="loading" style="margin-top:16px;display:none;" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
             </div>
         </section>
         <section id="tudo-pronto" style="display: none;">
@@ -33,6 +34,12 @@
                 <i class="fa fa-check"></i>
             </h1>
             <h2 style="text-align:center;">Tudo pronto!</h2>
+        </section>
+        <section id="erro" style="display: none;">
+            <h1 style="text-align:center; color:red; font-size: 200px;">
+                <i class="fa fa-times"></i>
+            </h1>
+            <h2 style="text-align:center;">Ocorreu um erro. <br>Tente novamente mais tarde.</h2>
         </section>
     </div>
     <footer class="main-footer">
