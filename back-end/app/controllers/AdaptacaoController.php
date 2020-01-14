@@ -3,8 +3,11 @@
 namespace App\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Contrato;
 use App\Models\Endereco;
 use App\Models\Unidade;
+use App\Core\App;
+
 
 class AdaptacaoController extends Controller
 {
@@ -51,9 +54,24 @@ class AdaptacaoController extends Controller
 
     public function adaptaAno()
     {
-        $contratosFuturos = Contrato::where(["futuro", 1]);
-        // dd($contratosFuturos);
-        return $this->responderJson($contratosFuturos);
+        // $contratosFuturos = Contrato::where(["futuro", 1]);
 
+        $contratosFuturos = App::get('db')->selectWhere(
+            'contratos',
+            ["futuro", 1]
+        );
+        $anoAtual = date("Y");
+
+        foreach ($contratosFuturos as $key => $contrato) {
+            if(explode("/",$contrato['numero_confirmacao'])[1] == $anoAtual ) {
+                $contrato['futuro'] = 0;
+                $contratoNovo = Contrato::update(
+                    $contrato,
+                    ["id", $contrato['id']]
+                );
+            }
+        }
+
+        return $this->responderJson($contratosFuturos);
     }
 }

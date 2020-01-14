@@ -6,7 +6,7 @@ $("#botao-atualizar").click(() => {
 
 function atualizarContratos()
 {
-    $.get("contratos/adaptarAno", response => {
+    $.get("../back-end/contratos/adaptarAno", response => {
         console.log(response)
     })
 }

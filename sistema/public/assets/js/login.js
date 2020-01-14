@@ -3,7 +3,6 @@ $.ajaxSetup({
         if (localStorage.getItem('usuarioLogado')) {
             const uL = JSON.parse(JSON.parse(localStorage.getItem('usuarioLogado')));
             xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)} ${btoa(uL.senha)}`);
-            // console.log(`Bearer ${btoa(uL.login)} ${btoa(uL.senha)}`);
         }
     },
 });
