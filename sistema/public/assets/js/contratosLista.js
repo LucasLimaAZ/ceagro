@@ -1,20 +1,31 @@
 var contratoId = null;
 var table = null;
 var contratos = [];
-var contratosA = [];
-var contratosF = [];
+var contratosAnteriores = [];
+var contratosFuturos = [];
+var contratosPassados = [];
 
 $(document).ready(() => {
   buscarContratos();
   $("#btn-atuais").click(() => {
-    criarTabelaContratos(contratosA);
+    criarTabelaContratos(contratosAnteriores);
     addClassBtn("atuais");
     removeClassBtn("futuros");
+    removeClassBtn("passados");
   });
+
+  $("#btn-passados").click(() => {
+    criarTabelaContratos(contratosPassados);
+    addClassBtn("passados");
+    removeClassBtn("atuais");
+    removeClassBtn("futuros");
+  });
+
   $("#btn-futuros").click(() => {
-    criarTabelaContratos(contratosF);
+    criarTabelaContratos(contratosFuturos);
     addClassBtn("futuros");
     removeClassBtn("atuais");
+    removeClassBtn("passados");
   });
 });
 
@@ -35,10 +46,11 @@ function buscarContratos() {
   let r;
   $.get(`../back-end/contratos`).done(response => {
     contratos = JSON.parse(response);
-    contratosA = contratos.filter((elem, index, arr) => elem.futuro == 0);
-    contratosF = contratos.filter((elem, index, arr) => elem.futuro == 1);
+    contratosAnteriores = contratos.filter((elem, index, arr) => elem.futuro == 0);
+    contratosFuturos = contratos.filter((elem, index, arr) => elem.futuro == 1);
+    contratosPassados = contratos.filter((elem, index, arr) => elem.futuro == 2);
     $("#btn-atuais").removeClass('btn-flat').addClass("btn-primary");
-    criarTabelaContratos(contratosA);
+    criarTabelaContratos(contratosAnteriores);
   });
 }
 

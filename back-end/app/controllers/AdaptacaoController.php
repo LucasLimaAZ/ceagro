@@ -54,8 +54,6 @@ class AdaptacaoController extends Controller
 
     public function adaptaAno()
     {
-        // $contratosFuturos = Contrato::where(["futuro", 1]);
-
         $contratosFuturos = App::get('db')->selectWhere(
             'contratos',
             ["futuro", 1]

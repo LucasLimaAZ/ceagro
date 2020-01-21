@@ -13,8 +13,9 @@
 								<h3 class="box-title">Contratos</h3>
 								<div class="row">
 									<div class="col-xs-12 text-right">
-										<button id="btn-futuros" class="btn btn-flat">Futuros</button>
+										<button id="btn-passados" class="btn btn-flat">Passados</button>
 										<button id="btn-atuais" class="btn btn-flat">Atuais</button>
+										<button id="btn-futuros" class="btn btn-flat">Futuros</button>
 									</div>
 								</div>
 							</div>

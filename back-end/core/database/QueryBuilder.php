@@ -133,7 +133,22 @@ class QueryBuilder
 
     public function contratosAtuais()
     {
-        $query = "select count(*) as atuais from contratos where futuro != 1";
+        $query = "select count(*) as atuais from contratos where futuro = 0";
+
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_LAZY);
+        } catch (PDOException $exception) {
+            http_response_code(500);
+            die($exception);
+        }
+    }
+
+    public function contratosPassados()
+    {
+        $query = "select count(*) as atuais from contratos where futuro = 2";
 
         try {
             $statement = $this->pdo->prepare($query);
