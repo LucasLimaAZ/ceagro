@@ -1,12 +1,20 @@
 $("#botao-atualizar").click(() => {
+    $("#loading").show(200)
     atualizarContratos()
-    $("#atualizar").hide()
-    $("#tudo-pronto").fadeIn(700)
 })
 
 function atualizarContratos()
 {
-    $.get("../back-end/contratos/adaptarAno", response => {
-        console.log(response)
+    $.get("../back-end/contratos/adaptarAno")
+    .done(() => {
+        $("#atualizar").hide()
+        $("#tudo-pronto").fadeIn(700)
+    })
+    .fail(() => {
+        $("#atualizar").hide()
+        $("#erro").fadeIn(700)
+    })
+    .always(() => {
+        $("#loading").hide(200)
     })
 }
