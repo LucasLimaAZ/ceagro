@@ -71,24 +71,24 @@ function criarTabelaContratos(array) {
 function popularPesquisa(contratos, callback = null) {
   $("#contratos tbody tr").remove();
   $.each(contratos, (index, contrato) => {
-    var linha = `<tr id="${contrato.id}" class="clicavel">
-            <td class="item" id="${contrato.id}">${
-      contrato.numero_confirmacao
+    var linha = `<tr id="${contrato?.id}" class="clicavel">
+            <td class="item" id="${contrato?.id}">${
+      contrato?.numero_confirmacao
       }</td>
-            <td class="item" id="${contrato.id}">${contrato.unidadeComprador
-        .razao_social || "-"}</td>
-            <td class="item" id="${contrato.id}">${
-      contrato.unidadeVendedor.razao_social || "-"
+            <td class="item" id="${contrato?.id}">${contrato?.unidadeComprador
+        ?.razao_social || "-"}</td>
+            <td class="item" id="${contrato?.id}">${
+      contrato?.unidadeVendedor.razao_social || "-"
       }</td>
-            <td class="item" id="${contrato.id}">${contrato.produto.nome}</td>
-            <td class="download" style="text-align:center" id="${contrato.id}">
+            <td class="item" id="${contrato?.id}">${contrato?.produto.nome}</td>
+            <td class="download" style="text-align:center" id="${contrato?.id}">
                 <button type="button" class="btn btn-primary" id="${
-      contrato.id
+      contrato?.id
       }">
-                    <i class="fa fa-print" id="${contrato.id}"></i>
+                    <i class="fa fa-print" id="${contrato?.id}"></i>
                 </button>
             </td>
-            <td class="delete" style="text-align:center" id="${contrato.id}">
+            <td class="delete" style="text-align:center" id="${contrato?.id}">
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-aviso">
                     <i class="fa fa-trash-o" ></i>
                 </button>

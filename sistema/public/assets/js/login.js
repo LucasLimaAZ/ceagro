@@ -2,13 +2,14 @@ $.ajaxSetup({
     beforeSend: function (xhr) {
         if (localStorage.getItem('usuarioLogado')) {
             const uL = JSON.parse(JSON.parse(localStorage.getItem('usuarioLogado')));
+            console.log(uL.login);
             xhr.setRequestHeader('Authorization', `Bearer ${btoa(uL.login)} ${btoa(uL.senha)}`);
         }
     },
 });
 $(document).ready(() => {
     $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
-        const url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "/ceagro/sistema/" : "/sistema/";
+        const url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "/jobs/ceagro/sistema/" : "/sistema/";
         if (jqxhr.status === 401) {
             window.location.href = url;
         }

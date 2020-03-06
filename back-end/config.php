@@ -12,7 +12,7 @@ if (!$producao) {
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ],
         ],
-        'rotas' => 'ceagro/back-end/'
+        'rotas' => 'jobs/ceagro/back-end/'
     ];
 }
 
